@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveling | User</title>
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +56,6 @@
     <!-- Testimonial Start -->
     <?php include 'testimonial.php' ?>
     <!-- Testimonial End -->
-
 
     <!-- Footer Start -->
     <?php include 'layouts/footer.php' ?>
