@@ -220,7 +220,7 @@
 
                                     $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
                                     while ($b = mysqli_fetch_array($adm)) {
-                                        $id_nama_daerah = $b["id_nama_daerah"];
+                                       
                                         $nama_daerah = $b["nama_daerah"];
                                     }
                                     ?>  

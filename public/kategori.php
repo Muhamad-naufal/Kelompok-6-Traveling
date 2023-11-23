@@ -30,7 +30,7 @@
                     <div class="p-4">
                         <center>
                             <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>Wisata Curup</h5>
+                            <h5>Wisata Curug</h5>
                         </center>
                     </div>
                 </div>
