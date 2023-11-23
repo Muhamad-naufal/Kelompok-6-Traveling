@@ -89,7 +89,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../index.php" class="nav-link">
+                                    <a href="../../index.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data</p>
                                     </a>
@@ -141,7 +141,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Admin</h1>
+                            <h1 class="m-0">Data Kategori</h1>
                         </div>
 
                         <div class="col-sm-6">

@@ -104,9 +104,21 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_user.php" class="nav-link">
+                                    <a href="../user/data_user.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../daerah/data_daerah.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Daerah</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../kategori/data_kategori.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
