@@ -295,7 +295,7 @@
         function confirmDelete(id) {
             if (deleteConfirmed || confirm("Are you sure you want to delete this record?")) {
                 deleteConfirmed = true;
-                window.location.href = "f_hapus_user.php?id=" + id;
+                window.location.href = "f_hapus_travel.php?id=" + id;
             } else {
                 return false;
             }
