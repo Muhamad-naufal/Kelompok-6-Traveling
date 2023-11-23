@@ -185,8 +185,8 @@
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['nama_kategori']; ?></td>
                                                     <td>
-                                                        <a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                        <a href="edit_kategori.php?id_nama_kategori=<?php echo $data['id_nama_kategori'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="f_hapus.php?id_nama_kategori=<?php echo $data["id_nama_kategori"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
