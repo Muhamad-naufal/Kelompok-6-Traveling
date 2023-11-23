@@ -162,12 +162,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_daerah.php" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Daerah</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tempat Wisata</p>
@@ -189,13 +183,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Data Daerah</h1>
+                            <h1 class="m-0">Edit Data Admin</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item">Data Admin</li>
-                                <li class="breadcrumb-item active">Edit Data Daerah</li>
+                                <li class="breadcrumb-item active">Edit Data Admin</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -211,7 +205,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Edit Data Daerah
+                                    Edit
                                 </div>
                                 <div class="card-body">
                                     <?php
@@ -220,10 +214,10 @@
 
                                     $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
                                     while ($b = mysqli_fetch_array($adm)) {
-                                       
-                                        $nama_daerah = $b["nama_daerah"];
+                                        $id_nama_daerah = $b["id_nama_daerah"];
+                                        $nama_daerah= $b["nama_daerah"];
                                     }
-                                    ?>  
+                                    ?>
                                     <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post">
                                         <label for="nama_daerah">Nama Daerah</label>
                                         <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah" required>
