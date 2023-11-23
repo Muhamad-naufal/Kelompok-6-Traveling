@@ -110,7 +110,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_daerah.php" class="nav-link active">
+                                    <a href="../daerah/data_daerah.php" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daerah</p>
                                     </a>
@@ -165,7 +165,7 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <a href="tambah_admin.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
+                                    <a href="tambah_daerah.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
                                     <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="text-center">

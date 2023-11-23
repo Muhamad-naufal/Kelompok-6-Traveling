@@ -29,6 +29,59 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <style>
+        .card {
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #submitBtn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 
 </head>
 
@@ -98,27 +151,21 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_admin.php" class="nav-link active">
+                                    <a href="data_admin.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Admin</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../user/data_user.php" class="nav-link">
+                                    <a href="data_user.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../daerah/data_daerah.php" class="nav-link">
+                                    <a href="data_daerah.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daerah</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../kategori/data_kategori.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -143,12 +190,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Admin</h1>
+                            <h1 class="m-0">Tambah Data Daerah</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Data Admin</li>
+                                <li class="breadcrumb-item">Data Daerah</li>
+                                <li class="breadcrumb-item active">Tambah Data Daerah</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -163,54 +211,29 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <a href="tambah_admin.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
-                                    <table id="example" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>No</th>
-                                                <th>Nama Lengkap</th>
-                                                <th>Username</th>
-                                                <th>Password</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            include "../../../public/config/connection.php";
-                                            $no = 1;
-                                            $query = mysqli_query($connect, "SELECT * FROM admin");
-                                            while ($data = mysqli_fetch_array($query)) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['id_nama_admin']; ?></td>
-                                                    <td><?php echo $data['username']; ?></td>
-                                                    <td><?php echo $data['password']; ?></td>
-                                                    <td>
-                                                        <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <button type=" button" class="btn btn-danger" onclick="confirmDelete('<?php echo $data["id_nama_admin"] ?>')"><i class=" fa-solid fa-trash"></i></button>
-                                                    </td>
-                                                </tr>
-                                            <?php
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
+                                <div class="card-header">
+                                    Tambahkan Data Daerah
                                 </div>
-                                <!-- /.card-body -->
+                                <div class="card-body">
+                                    <form action="f_tambah.php" method="post">
+                                        <label for="nama_daerah">Nama Daerah</label>
+                                        <input type="text" class="form-control" name="nama_daerah" required>
+
+                                        <input type="submit" id="submitBtn" value="Save">
+                                    </form>
+                                </div>
                             </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
-                        <!-- /.row -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.container-fluid -->
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
+                    <!-- /.col -->
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
     </div>
     <!-- ./wrapper -->
 
@@ -253,16 +276,6 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
         new DataTable('#example');
-        let deleteConfirmed = false;
-
-        function confirmDelete(id_nama_admin) {
-            if (deleteConfirmed || confirm("Are you sure you want to delete this record?")) {
-                deleteConfirmed = true;
-                window.location.href = "f_hapus.php?id_nama_admin=" + id_nama_admin;
-            } else {
-                return false;
-            }
-        }
     </script>
 </body>
 
