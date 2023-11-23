@@ -186,7 +186,7 @@
                                                     <td><?php echo $data['nama_daerah']; ?></td>
                                                     <td>
                                                         <a href="edit_daerah.php?id_nama_daerah=<?php echo $data['id_nama_daerah'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <button type=" button" class="btn btn-danger" onclick="confirmDelete('<?php echo $data["id_nama_daerah"] ?>')"><i class=" fa-solid fa-trash"></i></button>
+                                                        <a href="f_hapus.php?id_nama_daerah=<?php echo $data["id_nama_daerah"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
