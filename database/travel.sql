@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 03:00 PM
+-- Generation Time: Nov 22, 2023 at 04:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -94,9 +94,19 @@ CREATE TABLE `traveling` (
 
 CREATE TABLE `user` (
   `id_nama_user` int(11) NOT NULL,
+  `nama_lengkap_user` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_nama_user`, `nama_lengkap_user`, `username`, `password`) VALUES
+(1, 'Muhammad Fauzan Ansyori', 'Fauzan', '123'),
+(111, '23123', 'SDAASD', 'FASF'),
+(2312, '324324', 'DASDASD', 'SADASD');
 
 --
 -- Indexes for dumped tables
@@ -175,7 +185,7 @@ ALTER TABLE `traveling`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2313;
 
 --
 -- Constraints for dumped tables
