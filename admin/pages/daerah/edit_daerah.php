@@ -211,22 +211,22 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Edit
+                                    Edit Data Daerah
                                 </div>
                                 <div class="card-body">
                                     <?php
 
                                     include '../../../public/config/connection.php';
 
-                                    $daerah = mysqli_query($connect, "SELECT * from `daerah`");
-                                    while ($d = mysqli_fetch_array($daerah)) {
-                                        $nama = $d["nama_daerah"];
-                                       
+                                    $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
+                                    while ($b = mysqli_fetch_array($adm)) {
+                                        $id_nama_daerah = $b["id_nama_daerah"];
+                                        $nama_daerah = $b["nama_daerah"];
                                     }
-                                    ?>
+                                    ?>  
                                     <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post">
                                         <label for="nama_daerah">Nama Daerah</label>
-                                        <input type="text" class="form-control" value="<?php echo $nama ?>" name="nama_daerah" required>
+                                        <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah" required>
 
                                         <input type="submit" id="submitBtn" value="Save">
                                     </form>
