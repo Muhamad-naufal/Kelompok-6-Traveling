@@ -186,7 +186,7 @@
                                                     <td><?php echo $data['nama_daerah']; ?></td>
                                                     <td>
                                                         <a href="edit_daerah.php" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                        <a href="f_hapus.php" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
