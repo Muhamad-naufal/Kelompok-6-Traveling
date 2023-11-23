@@ -212,8 +212,7 @@
 
                                     include '../../../public/config/connection.php';
 
-                                    $adm = mysqli_query($connect, "SELECT * from admin where id_nama_admin='$_GET[id_nama_admin]'");
-
+                                    $adm = mysqli_query($connect, "SELECT * from `admin` where `id_nama_admin`='$_GET[id_nama_admin]'");
                                     while ($b = mysqli_fetch_array($adm)) {
                                         $id = $b["id_nama_admin"];
                                         $nama = $b["nama_lengkap"];

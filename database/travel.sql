@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 04:35 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 23 Nov 2023 pada 13.22
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
   `id_nama_admin` int(11) NOT NULL,
+  `nama_lengkap` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_nama_admin`, `nama_lengkap`, `username`, `password`) VALUES
+(1, 'Naufal', 'admin', 'admin1'),
+(2, 'Fauzan', 'admin1', 'admin');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daerah`
+-- Struktur dari tabel `daerah`
 --
 
 CREATE TABLE `daerah` (
@@ -47,7 +56,7 @@ CREATE TABLE `daerah` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -58,11 +67,12 @@ CREATE TABLE `kategori` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review`
+-- Struktur dari tabel `review`
 --
 
 CREATE TABLE `review` (
   `id_nama_review` int(11) NOT NULL,
+  `id_travel` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `review` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -70,7 +80,7 @@ CREATE TABLE `review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `traveling`
+-- Struktur dari tabel `traveling`
 --
 
 CREATE TABLE `traveling` (
@@ -80,7 +90,6 @@ CREATE TABLE `traveling` (
   `deskripsi` text NOT NULL,
   `price` int(11) NOT NULL,
   `fasilitas` text NOT NULL,
-  `id_review` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `id_daerah` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL
@@ -89,7 +98,7 @@ CREATE TABLE `traveling` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -100,111 +109,115 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_nama_user`, `nama_lengkap_user`, `username`, `password`) VALUES
-(1, 'Muhammad Fauzan Ansyori', 'Fauzan', '123'),
-(111, '23123', 'SDAASD', 'FASF'),
-(2312, '324324', 'DASDASD', 'SADASD');
+(1, 'Muhammad Fauzan Ansyori', 'Fauzan', '123');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_nama_admin`);
 
 --
--- Indexes for table `daerah`
+-- Indeks untuk tabel `daerah`
 --
 ALTER TABLE `daerah`
   ADD PRIMARY KEY (`id_nama_daerah`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_nama_kategori`);
 
 --
--- Indexes for table `review`
+-- Indeks untuk tabel `review`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id_nama_review`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_travel` (`id_travel`);
 
 --
--- Indexes for table `traveling`
+-- Indeks untuk tabel `traveling`
 --
 ALTER TABLE `traveling`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_review` (`id_review`),
   ADD KEY `id_kategori` (`id_kategori`),
   ADD KEY `id_daerah` (`id_daerah`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_nama_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_nama_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nama_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `daerah`
+--
+ALTER TABLE `daerah`
+  MODIFY `id_nama_daerah` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_nama_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `review`
+-- AUTO_INCREMENT untuk tabel `review`
 --
 ALTER TABLE `review`
   MODIFY `id_nama_review` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `traveling`
+-- AUTO_INCREMENT untuk tabel `traveling`
 --
 ALTER TABLE `traveling`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_nama_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2313;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `review`
+-- Ketidakleluasaan untuk tabel `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_nama_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_travel`) REFERENCES `traveling` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `traveling`
+-- Ketidakleluasaan untuk tabel `traveling`
 --
 ALTER TABLE `traveling`
   ADD CONSTRAINT `traveling_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_nama_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `traveling_ibfk_3` FOREIGN KEY (`id_review`) REFERENCES `review` (`id_nama_review`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `traveling_ibfk_4` FOREIGN KEY (`id_daerah`) REFERENCES `daerah` (`id_nama_daerah`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `traveling_ibfk_5` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_nama_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `traveling_ibfk_5` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_nama_admin`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `traveling_ibfk_6` FOREIGN KEY (`id_daerah`) REFERENCES `daerah` (`id_nama_daerah`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
