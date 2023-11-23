@@ -92,7 +92,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../index.php" class="nav-link">
+                                    <a href="../../index.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data</p>
                                     </a>
@@ -104,7 +104,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_user.php" class="nav-link">
+                                    <a href="../user/data_user.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
@@ -177,8 +177,8 @@
                                                     <td><?php echo $data['username']; ?></td>
                                                     <td><?php echo $data['password']; ?></td>
                                                     <td>
-                                                        <a href="" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                        <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <button type=" button" class="btn btn-danger" onclick="confirmDelete('<?php echo $data["id_nama_admin"] ?>')"><i class=" fa-solid fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -241,6 +241,16 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
         new DataTable('#example');
+        let deleteConfirmed = false;
+
+        function confirmDelete(id_nama_admin) {
+            if (deleteConfirmed || confirm("Are you sure you want to delete this record?")) {
+                deleteConfirmed = true;
+                window.location.href = "f_hapus.php?id_nama_admin=" + id_nama_admin;
+            } else {
+                return false;
+            }
+        }
     </script>
 </body>
 
