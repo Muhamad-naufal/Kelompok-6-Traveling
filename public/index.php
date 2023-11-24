@@ -44,7 +44,7 @@
     <!-- Navbar & Hero Start -->
     <?php include 'layouts/navbar.php' ?>
     <!-- Navbar & Hero End -->
-
+    
     <!-- Kategori Start -->
     <?php include 'kategori.php' ?>
     <!-- Kategori End -->

@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">About</a>
+                <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="#" class="nav-item nav-link">Category</a>
                 <a href="#" class="nav-item nav-link">Destination</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
