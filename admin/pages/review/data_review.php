@@ -110,7 +110,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../daerah/data_daerah.php" class="nav-link active">
+                                    <a href="../daerah/data_daerah.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daerah</p>
                                     </a>
@@ -122,13 +122,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="../travel/data_travel.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tempat Wisata</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="data_review.php" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Review</p>
                                     </a>
