@@ -11,7 +11,7 @@
                 <a href="#" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="#" class="nav-item nav-link">Category</a>
-                <a href="package.php" class="nav-item nav-link">Destination</a>
+                <a href="destinasi.php" class="nav-item nav-link">Destination</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
             <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login / Register</a>
