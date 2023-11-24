@@ -25,15 +25,14 @@ include 'layouts/topbar.php';
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="assets/img/package-1.jpg" alt="" style="object-fit: cover;">
+                        <img class="img-fluid position-absolute" src="assets/img/logo/logo-1.png" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div style="margin-top: 60px;">
-                        <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                        <h1 class="mb-4">Welcome to <span class="text-primary">Tourist</span></h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h6 class="section-title bg-white text-start text-primary px-3">About Us</h6>
+                        <h1 class="mb-4">Welcome to <span class="text-primary">Java Travel</span></h1>
+                        <p class="mb-4" style="text-align: justify;">Java Travel merupakan sebuah layanan yang bergerak dalam industri perjalanan wisata online. Didirikan pada tahun 2023 yang berkomitmen, bertanggung jawab dalam menjalankan perjalanannya.</p>
                     </div>
                 </div>
             </div>
@@ -56,7 +55,7 @@ include 'layouts/topbar.php';
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <small>Mahasiswa</small>
                         </div>
                     </div>
                 </div>
@@ -67,7 +66,7 @@ include 'layouts/topbar.php';
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <small>Mahasiswa</small>
                         </div>
                     </div>
                 </div>
@@ -78,7 +77,7 @@ include 'layouts/topbar.php';
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <small>Mahasiswa</small>
                         </div>
                     </div>
                 </div>
@@ -89,7 +88,7 @@ include 'layouts/topbar.php';
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
+                            <small>Mahasiswa</small>
                         </div>
                     </div>
                 </div>

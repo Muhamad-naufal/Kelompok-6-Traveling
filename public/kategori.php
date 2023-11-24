@@ -9,7 +9,7 @@
                 <div class="kategori-item rounded pt-3">
                     <div class="p-4">
                         <center>
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <img src="assets/img/kategori/pantai.png" width="100" style="margin-bottom:5px;">
                             <h5>Wisata Pantai</h5>
                         </center>
                     </div>
@@ -19,7 +19,7 @@
                 <div class="kategori-item rounded pt-3">
                     <div class="p-4">
                         <center>
-                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <img src="assets/img/kategori/pegunungan.png" width="100" style="margin-bottom:5px;">
                             <h5>Wisata Pegunungan</h5>
                         </center>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="kategori-item rounded pt-3">
                     <div class="p-4">
                         <center>
-                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <img src="assets/img/kategori/curup.png" width="100" style="margin-bottom:5px;">
                             <h5>Wisata Curug</h5>
                         </center>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="kategori-item rounded pt-3">
                     <div class="p-4">
                         <center>
-                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <img src="assets/img/kategori/bukit.png" width="100" style="margin-bottom:5px;">
                             <h5>Wisata Bukit</h5>
                         </center>
                     </div>
