@@ -28,7 +28,7 @@ include 'layouts/topbar.php';
                         <div id="highlight" class="mb-2">
                             <div class="single-full-title border-b mb-2 pb-2">
                                 <div class="single-title">
-                                    <h2 class="mb-1">Nama</h2>
+                                    <h2 class="mb-1">Kebun Raya Bogor</h2>
                                 </div>
                             </div>
 
