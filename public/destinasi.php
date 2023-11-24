@@ -19,13 +19,10 @@ include 'layouts/topbar.php';
     </div>
     <!-- Navbar & Hero End -->
 
-    <!-- About Start -->
+    <!-- Destinasi Start -->
 
-    <!-- About End -->
+    <!-- Destinasi End -->
 
-    <!-- Team Start -->
-
-    <!-- Team End -->
 
     <!-- Footer Start -->
     <?php include 'layouts/footer.php' ?>
