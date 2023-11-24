@@ -121,13 +121,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../data_kategori.php" class="nav-link ">
+                                    <a href="../travel/data_kategori.php" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_travel.php" class="nav-link active">
+                                    <a href="../data_travel.php" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tempat Wisata</p>
                                     </a>
@@ -183,7 +183,6 @@
                                                 <th>Fasilitas</th>
                                                 <th>Kategori</th>
                                                 <th>Daerah</th>
-                                                <th>Admin</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -201,7 +200,7 @@
                                                         <?php echo $data['nama_tempat']; ?>
                                                     </td>
                                                     <td>
-                                                        <img src="<?php echo $data["gambar"] ?>" width="100">
+                                                        <img src="images<?php echo $data["gambar"] ?>" width="100">
                                                     </td>
                                                     <td>
                                                         <?php echo $data['deskripsi']; ?>
@@ -219,15 +218,10 @@
                                                         <?php echo $data['id_daerah']; ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $data['id_admin']; ?>
-                                                    </td>
-                                                    <td>
                                                         <a href="edit_traveling.php?id=<?php echo $data['id'] ?>"
                                                             class="btn btn-warning"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <button type=" button" class="btn btn-danger"
-                                                            onclick="confirmDelete('<?php echo $data["id"] ?>')"><i
-                                                                class=" fa-solid fa-trash"></i></button>
+                                                                <a href="f_hapus.php?id=<?php echo $data["id"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 <?php

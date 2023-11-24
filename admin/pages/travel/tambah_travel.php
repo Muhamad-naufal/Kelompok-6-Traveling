@@ -231,9 +231,6 @@
                                         <label for="id_daerah">Daerah</label>
                                         <input type="text" class="form-control" name="id_daerah" required>
 
-                                        <label for="id_admin">Admin</label>
-                                        <input type="text" class="form-control" name="id_admin" required>
-
                                         <input type="submit" id="submitBtn" value="Save">
                                     </form>
                                 </div>
