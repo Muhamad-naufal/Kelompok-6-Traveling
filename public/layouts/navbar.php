@@ -10,11 +10,15 @@
             <div class="navbar-nav ms-auto py-0">
                 <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="kategori.php" class="nav-item nav-link">Category</a>
                 <a href="destinasi.php" class="nav-item nav-link">Destination</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login / Register</a>
+            <div class="register-login d-flex align-items-center">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
+                    <i class="fas fa-user"></i>&nbsp; Login/Register
+                </a>
+            </div>
         </div>
     </nav>
 </div>
+
+<?php include 'login.php' ?>
