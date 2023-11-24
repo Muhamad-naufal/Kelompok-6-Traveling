@@ -220,6 +220,7 @@
 
                                     $daerah = mysqli_query($connect, "SELECT * from `daerah`");
                                     while ($d = mysqli_fetch_array($daerah)) {
+                                        $id_nama_daerah = $d["id_nama_daerah"];
                                         $nama = $d["nama_daerah"];
                                        
                                     }
