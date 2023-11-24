@@ -24,7 +24,7 @@
                         </div>
                         <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <a href="detail.php" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px">Read More</a>
+                            <a href="destinasi_detail.php" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px">Read More</a>
                         </div>
                     </div>
                 </div>
