@@ -85,18 +85,15 @@ include 'layouts/topbar.php';
                     </div>
                 </div>
 
-                <!-- sidebar starts -->
+                <!-- sidebar start -->
                 <div class="col-lg-4">
                     <div class="sidebar-sticky">
                         <div class="popular-post sidebar-item mb-4 mt-3">
                             <div class="sidebar-tabs">
                                 <div class="post-tabs">
-                                    <!-- tab navs -->
                                     <h3 class="title-serupa">Wisata Serupa</h3>
-                                    <hr />
-                                    <!-- tab contents -->
+                                    <hr>
                                     <div class="tab-content" id="postsTabContent1">
-                                        <!-- popular posts -->
                                         <div aria-labelledby="popular-tab" class="tab-pane fade active show" id="popular" role="tabpanel">
                                             <article class="post mb-2 border-b pb-2">
                                                 <div class="s-content d-flex align-items-center justify-space-between">
@@ -116,6 +113,7 @@ include 'layouts/topbar.php';
                         </div>
                     </div>
                 </div>
+                <!-- sidebar end -->
 
             </div>
         </div>
