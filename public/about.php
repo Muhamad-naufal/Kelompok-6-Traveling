@@ -22,12 +22,20 @@ include 'layouts/topbar.php';
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="fadeInUp" data-wow-delay="0.3s">
-                <div class="text-center">
-                    <h6 class="section-title bg-white text-center text-primary px-3">About</h6>
-                    <h1 class="mb-5">Welcome to <span class="text-primary">Traveling World</span></h1>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="assets/img/package-1.jpg" alt="" style="object-fit: cover;">
+                    </div>
                 </div>
-                <p class="mb-4" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptas tenetur, excepturi, error ab veniam iure adipisci dolorem earum distinctio ex ad. Nobis voluptatem a magnam incidunt harum quis tempore. Dolore, error, eum quasi tempora at, alias quam quibusdam provident consequuntur dolores repellat quia ab rerum! Sint corporis officia!</p>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div style="margin-top: 60px;">
+                        <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                        <h1 class="mb-4">Welcome to <span class="text-primary">Tourist</span></h1>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
