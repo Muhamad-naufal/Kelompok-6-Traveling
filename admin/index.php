@@ -123,6 +123,12 @@
                     <p>Tempat Wisata</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="pages/review/data_review.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Review</p>
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
