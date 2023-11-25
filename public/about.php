@@ -54,7 +54,7 @@ include 'layouts/topbar.php';
                             <img class="img-fluid" src="assets/img/team-1.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
+                            <h5 class="mb-0">Muhamad Naufal Burhannuddin Balit</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ include 'layouts/topbar.php';
                             <img class="img-fluid" src="assets/img/team-2.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
+                            <h5 class="mb-0">Annisa Sumayyah</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>
@@ -73,10 +73,10 @@ include 'layouts/topbar.php';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="assets/img/team-3.jpg" alt="">
+                            <img class="img-fluid" src="assets/img/team-4.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
+                            <h5 class="mb-0">Maieka Sari Istiqomah</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>
@@ -84,10 +84,10 @@ include 'layouts/topbar.php';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="assets/img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="assets/img/team-3.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Full Name</h5>
+                            <h5 class="mb-0">Muhammad Fauzan Ansyori</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>
