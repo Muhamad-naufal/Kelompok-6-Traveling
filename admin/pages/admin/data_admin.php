@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["username"])) {
+    // Redirect to the login page or perform other actions
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,11 +79,8 @@
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../../components/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
                     <div class="info">
-                        <a href="" class="d-block" style="text-decoration: none;">Admin</a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"]?></a>
                     </div>
                 </div>
 
@@ -90,7 +97,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index.php" class="nav-link">
+                                    <a href="../../data.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data</p>
                                     </a>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["username"])) {
+    // Redirect to the login page or perform other actions
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,11 +79,8 @@
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../../components/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
                     <div class="info">
-                        <a href="" class="d-block" style="text-decoration: none;">Admin</a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
@@ -92,7 +99,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../index.php" class="nav-link">
+                                    <a href="../../data.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data</p>
                                     </a>
@@ -171,7 +178,6 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <a href="tambah_daerah.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
                                     <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="text-center">
@@ -197,7 +203,6 @@
                                                     <td><?php echo $data['id_user']; ?></td>
                                                     <td><?php echo $data['review']; ?></td>
                                                     <td>
-                                                        <a href="edit_review.php?id_nama_review=<?php echo $data['id_nama_review'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="f_hapus.php?id_nama_review=<?php echo $data["id_nama_review"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>

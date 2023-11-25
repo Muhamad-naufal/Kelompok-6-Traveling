@@ -18,7 +18,7 @@ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) { // 
     $result = mysqli_query($connect, "UPDATE `traveling` set
 `nama_tempat` = '$nama', 
 `gambar` = '$target_file',
-`deskripsi` = '$deskripsi',', 
+`deskripsi` = '$deskripsi',
 `price` = '$price', 
 `fasilitas` = '$fasilitas', 
 `id_kategori` = '$kategori',
