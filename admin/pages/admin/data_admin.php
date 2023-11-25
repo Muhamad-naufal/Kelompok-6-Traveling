@@ -191,7 +191,7 @@
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['id_nama_admin']; ?></td>
+                                                    <td><?php echo $data['nama_lengkap']; ?></td>
                                                     <td><?php echo $data['username']; ?></td>
                                                     <td><?php echo $data['password']; ?></td>
                                                     <td>

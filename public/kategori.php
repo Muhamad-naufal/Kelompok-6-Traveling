@@ -30,7 +30,7 @@
                     <div class="p-4">
                         <center>
                             <img src="assets/img/kategori/curup.png" width="100" style="margin-bottom:5px;">
-                            <h5>Wisata Curug</h5>
+                            <h5>Wisata Curup</h5>
                         </center>
                     </div>
                 </div>
