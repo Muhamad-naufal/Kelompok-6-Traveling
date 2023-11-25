@@ -8,7 +8,6 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/25db4f44a1.js" crossorigin="anonymous"></script>
     <!-- Ionicons -->
@@ -61,9 +60,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index.php" class="brand-link">
-                <img src="../../components/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="index3.html" class="brand-link" style="text-decoration: none;">
+                <img src="../../components/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
 
@@ -75,7 +73,7 @@
                         <img src="../../components/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="../../index.php" class="d-block" style="text-decoration: none;">Admin</a>
+                        <a href="" class="d-block" style="text-decoration: none;">Admin</a>
                     </div>
                 </div>
 
@@ -124,13 +122,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_travel.php" class="nav-link active">
+                                    <a href="../travel/data_travel.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tempat Wisata</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../review/data_review.php" class="nav-link">
+                                    <a href="data_review.php" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Review</p>
                                     </a>
@@ -151,12 +149,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Tempat Wisata</h1>
+                            <h1 class="m-0">Data Review</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Data User</li>
+                                <li class="breadcrumb-item active">Data Review</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -173,57 +171,34 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <a href="tambah_travel.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
+                                    <a href="tambah_daerah.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
                                     <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>No</th>
-                                                <th>Nama Wisata</th>
-                                                <th>Gambar</th>
-                                                <th>Deskripsi</th>
-                                                <th>Harga</th>
-                                                <th>Fasilitas</th>
-                                                <th>Kategori</th>
-                                                <th>Daerah</th>
+                                                <th>Id Nama Review</th>
+                                                <th>Id Travel</th>
+                                                <th>Id User</th>
+                                                <th>Review</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             include "../../../public/config/connection.php";
-                                            $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah ORDER BY id ASC;");
+                                            $no = 1;
+                                            $query = mysqli_query($connect, "SELECT * FROM review");
                                             while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
+                                                    <td><?php echo $no++; ?></td>
+                                                    <td><?php echo $data['id_nama_review']; ?></td>
+                                                    <td><?php echo $data['id_travel']; ?></td>
+                                                    <td><?php echo $data['id_user']; ?></td>
+                                                    <td><?php echo $data['review']; ?></td>
                                                     <td>
-                                                        <?php echo $data['id']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['nama_tempat']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <img src="<?php echo $data["gambar"] ?>" width="100">
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['deskripsi']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['price']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['fasilitas']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['nama_kategori']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $data['nama_daerah']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="edit_traveling.php?id=<?php echo $data['id'] ?>"
-                                                            class="btn btn-warning"><i
-                                                                class="fa-solid fa-pen-to-square"></i></a>
-                                                                <a href="f_hapus.php?id=<?php echo $data["id"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
+                                                        <a href="edit_review.php?id_nama_review=<?php echo $data['id_nama_review'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="f_hapus.php?id_nama_review=<?php echo $data["id_nama_review"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -286,18 +261,7 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
         new DataTable('#example');
-        let deleteConfirmed = false;
-
-        function confirmDelete(id) {
-            if (deleteConfirmed || confirm("Are you sure you want to delete this record?")) {
-                deleteConfirmed = true;
-                window.location.href = "f_hapus_travel.php?id=" + id;
-            } else {
-                return false;
-            }
-        }
     </script>
-
 </body>
 
 </html>
