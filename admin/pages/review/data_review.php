@@ -182,9 +182,8 @@ if (!isset($_SESSION["username"])) {
                                         <thead>
                                             <tr class="text-center">
                                                 <th>No</th>
-                                                <th>Id Nama Review</th>
-                                                <th>Id Travel</th>
-                                                <th>Id User</th>
+                                                <th>Nama</th>
+                                                <th>Tempat Wisata</th>
                                                 <th>Review</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -193,14 +192,13 @@ if (!isset($_SESSION["username"])) {
                                             <?php
                                             include "../../../public/config/connection.php";
                                             $no = 1;
-                                            $query = mysqli_query($connect, "SELECT * FROM review");
+                                            $query = mysqli_query($connect, "SELECT * FROM `review` JOIN traveling ON traveling.id = review.id_travel JOIN user ON review.id_nama_review = user.id_nama_user;");
                                             while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
-                                                    <td><?php echo $data['id_nama_review']; ?></td>
-                                                    <td><?php echo $data['id_travel']; ?></td>
-                                                    <td><?php echo $data['id_user']; ?></td>
+                                                    <td><?php echo $data['nama_lengkap_user']; ?></td>
+                                                    <td><?php echo $data['nama_tempat']; ?></td>
                                                     <td><?php echo $data['review']; ?></td>
                                                     <td>
                                                         <a href="f_hapus.php?id_nama_review=<?php echo $data["id_nama_review"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
