@@ -194,13 +194,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tambah Data Tempat Wisata</h1>
+                            <h1 class="m-0">Edit Data Tempat Wisata</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item">Data Tempat Wisata</li>
-                                <li class="breadcrumb-item active">Tambah Data Tempat Wisata</li>
+                                <li class="breadcrumb-item active">Edit Data Tempat Wisata</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -216,59 +216,75 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Tambahkan Data Tempat Wisata
+                                    Edit Data Tempat Wisata
                                 </div>
                                 <div class="card-body">
-                                    <form action="f_tambah_travel.php" method="post" enctype="multipart/form-data">
-                                        <label for="nama_tempat">Tempat Wisata</label>
-                                        <input type="text" class="form-control" name="nama_tempat" required>
+                                    <?php
+                                    include '../../../public/config/connection.php';
+                                    $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah ORDER BY id ASC;");
+                                    while ($data = mysqli_fetch_array($query)) {
+                                        $id = $data['id'];
+                                        $nama_tempat = $data['nama_tempat'];
+                                        $gambar = $data['gambar'];
+                                        $deskripsi = $data['deskripsi'];
+                                        $price = $data['price'];
+                                        $fasilitas = $data['fasilitas'];
+                                        $id_kategori = $data['id_kategori'];
+                                        $id_daerah = $data['id_daerah'];
+                                    ?>
+                                        <form action="f_edit_travel.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
+                                            <img src="<?php echo $gambar ?>" width="300px" alt="">
+                                            <label for="nama_tempat">Tempat Wisata</label>
+                                            <input type="text" class="form-control" value="<?php echo $nama_tempat ?>" name="nama_tempat" required>
 
-                                        <label for="gambar">Gambar</label>
-                                        <input type="file" class="form-control" name="fileToUpload" required>
+                                            <label for="gambar">Gambar</label>
+                                            <input type="file" class="form-control" name="fileToUpload">
 
-                                        <label for="deskripsi">Deskripsi</label>
-                                        <input type="text" class="form-control" name="deskripsi" required>
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <input type="text" class="form-control" value="<?php echo $deskripsi ?>" name="deskripsi" required>
 
-                                        <label for="price">Harga</label>
-                                        <input type="number" class="form-control" name="price" required>
+                                            <label for="price">Harga</label>
+                                            <input type="number" class="form-control" value="<?php echo $price ?>" name="price" required>
 
-                                        <label for="fasilitas">Fasilitas</label>
-                                        <input type="text" class="form-control" name="fasilitas" required>
+                                            <label for="fasilitas">Fasilitas</label>
+                                            <input type="text" class="form-control" value="<?php echo $fasilitas ?>" name="fasilitas" required>
 
-                                        <label for="id_kategori">Kategori</label>
-                                        <select class="form-control mt-3" name="kategori" id="kategori">
-                                            <?php
-                                            // Fetch data from the "items" table
-                                            include '../../../public/config/connection.php';
-                                            $query = mysqli_query($connect, "SELECT * FROM kategori");
-                                            if (mysqli_num_rows($query) > 0) {
-                                                while ($data = mysqli_fetch_array($query)) {
-                                                    echo "<option value='" . $data["id_nama_kategori"] . "'>" . $data["nama_kategori"] . "</option>";
+                                            <label for="id_kategori">Kategori</label>
+                                            <select class="form-select" name="kategori" id="kategori">
+                                                <option value='' <?php if ($id_kategori == '') echo 'selected'; ?>>Kategori yang dipilih tidak ada!</option>
+                                                <?php
+                                                // Fetch data from the "items" table
+                                                $query = mysqli_query($connect, "SELECT * FROM kategori");
+                                                if (mysqli_num_rows($query) > 0) {
+                                                    while ($data = mysqli_fetch_array($query)) {
+                                                        $selected = ($data['id_nama_kategori'] == $id_kategori) ? 'selected' : '';
+                                                        echo "<option value='" . $data["id_nama_kategori"] . "'$selected>" . $data["nama_kategori"] . "</option>";
+                                                    }
                                                 }
-                                            } else {
-                                                echo "<option value=''>No items available</option>";
-                                            }
-                                            ?>
-                                        </select>
+                                                ?>
+                                            </select>
 
-                                        <label for="id_daerah">Daerah</label>
-                                        <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
-                                            <?php
-                                            // Fetch data from the "items" table
-                                            include '../../../public/config/connection.php';
-                                            $query = mysqli_query($connect, "SELECT * FROM daerah");
-                                            if (mysqli_num_rows($query) > 0) {
-                                                while ($data = mysqli_fetch_array($query)) {
-                                                    echo "<option value='" . $data["id_nama_daerah"] . "'>" . $data["nama_daerah"] . "</option>";
+                                            <label for="id_daerah">Daerah</label>
+                                            <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
+                                                <?php
+                                                // Fetch data from the "items" table
+                                                include '../../../public/config/connection.php';
+                                                $query = mysqli_query($connect, "SELECT * FROM daerah");
+                                                if (mysqli_num_rows($query) > 0) {
+                                                    while ($data = mysqli_fetch_array($query)) {
+                                                        echo "<option value='" . $data["id_nama_daerah"] . "'>" . $data["nama_daerah"] . "</option>";
+                                                    }
+                                                } else {
+                                                    echo "<option value=''>No items available</option>";
                                                 }
-                                            } else {
-                                                echo "<option value=''>No items available</option>";
-                                            }
-                                            ?>
-                                        </select>
+                                                ?>
+                                            </select>
+                                            <input type="submit" id="submitBtn" value="Save">
 
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>

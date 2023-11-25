@@ -122,7 +122,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="../travel/data_travel.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tempat Wisata</p>
                                     </a>
