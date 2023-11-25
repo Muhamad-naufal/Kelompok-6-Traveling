@@ -36,15 +36,15 @@
                         <!-- Form Register Start -->
                         <div aria-labelledby="register-tab" class="tab-pane fade" id="register" role="tabpanel">
                             <h4 class="text-center border-b pb-2 pt-3">Register</h4>
-                            <form method="post" action="" name="contactform" id="contactform">
+                            <form method="post" action="proses_register.php" name="contactform" id="contactform">
                                 <div class="form-group mb-3">
-                                    <input type="text" name="fullname" class="form-control" id="fname" placeholder="Nama Lengkap" autocomplete="off">
+                                    <input type="text" name="nama_lengkap_user" class="form-control" id="fname" placeholder="Nama Lengkap" autocomplete="off">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="email" name="email" class="form-control" id="fname" placeholder="Email" autocomplete="off">
+                                    <input type="text" name="username" class="form-control" id="fname" placeholder="Username" autocomplete="off">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" name="password" class="form-control" id="lpass" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" id="lpass" placeholder="Password">
                                 </div>
                                 <div class="comment-btn mb-3 pb-2 text-center border-b">
                                     <input type="submit" class="btn-primary w-100" id="submit" value="Register">
