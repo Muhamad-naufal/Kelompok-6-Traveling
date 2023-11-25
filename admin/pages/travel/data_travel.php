@@ -227,7 +227,7 @@ if (!isset($_SESSION["username"])) {
                                                     </td>
                                                     <td>
                                                         <a href="edit_travel.php?id=<?php echo $data['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="f_hapus.php?id=<?php echo $data["id"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
+                                                        <a href="f_hapus_travel.php?id=<?php echo $data["id"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php

@@ -80,7 +80,7 @@ if (!isset($_SESSION["username"])) {
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"]?></a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
@@ -198,7 +198,17 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['nama_lengkap']; ?></td>
                                                     <td><?php echo $data['username']; ?></td>
-                                                    <td><?php echo $data['password']; ?></td>
+                                                    <td><?php
+                                                        $password = $data['password'];
+                                                        $length = strlen($password);
+
+                                                        // Ganti setiap karakter dengan "*"
+                                                        $maskedPassword = str_repeat('*', $length);
+
+                                                        // Tampilkan password yang telah dimask
+                                                        echo $maskedPassword;
+                                                        ?>
+                                                    </td>
                                                     <td>
                                                         <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <button type=" button" class="btn btn-danger" onclick="confirmDelete('<?php echo $data["id_nama_admin"] ?>')"><i class=" fa-solid fa-trash"></i></button>
