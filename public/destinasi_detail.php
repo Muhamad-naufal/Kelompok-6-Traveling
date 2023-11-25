@@ -33,7 +33,7 @@ include 'layouts/topbar.php';
                             </div>
 
                             <div class="description-images mb-4">
-                                <img src="assets/img/kota tua.jpg" alt="" class="w-100 rounded">
+                                <img src="assets/img/Kebunrayabogor.jpg" alt="" class="w-100 rounded">
                             </div>
 
                             <div class="description mb-2">
