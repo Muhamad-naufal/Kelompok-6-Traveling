@@ -4,8 +4,6 @@ include "config/connection.php";
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
-// echo "INSERT INTO user (nama_lengkap_user, username, password) VALUES ('$nama_lengkap_user', '$username', '$password')";
-
 $sql = "SELECT * FROM `user` WHERE username = '$username' AND password = '$password'";
 $result = $connect->query($sql);
 
