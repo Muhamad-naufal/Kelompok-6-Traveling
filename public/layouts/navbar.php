@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="" class="navbar-brand p-0">
@@ -13,9 +17,20 @@
                 <a href="destinasi.php" class="nav-item nav-link">Destination</a>
             </div>
             <div class="register-login d-flex align-items-center">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
-                    <i class="fas fa-user"></i>&nbsp; Login/Register
-                </a>
+                <?php
+                if (isset($_SESSION['username'])) {
+                ?>
+                    <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
+
+                    <a href="proses_logout.php" class="me-3">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+
+                <?php } else { ?>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
+                        <i class="fas fa-user"></i>&nbsp; Login/Register
+                    </a>
+                <?php } ?>
             </div>
         </div>
     </nav>

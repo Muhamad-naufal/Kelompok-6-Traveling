@@ -19,9 +19,9 @@
                         <!-- Form Login Start -->
                         <div aria-labelledby="login-tab" class="tab-pane fade active show" id="login" role="tabpanel">
                             <h4 class="text-center border-b pb-2 pt-3">Login</h4>
-                            <form method="post" action="" name="contactform" id="contactform">
+                            <form method="post" action="proses_login.php" name="contactform" id="contactform">
                                 <div class="form-group mb-3">
-                                    <input type="email" name="email" class="form-control" id="fname" placeholder="Email">
+                                    <input type="text" name="username" class="form-control" id="fname" placeholder="Username">
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="password" name="password" class="form-control" id="lpass" placeholder="Password">
