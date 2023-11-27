@@ -212,8 +212,8 @@ if (!isset($_SESSION["username"])) {
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Kategori</li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="data_kategori.php">Data Kategori</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Kategori</li>
                             </ol>
                         </div>
@@ -228,19 +228,22 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Tambahkan Data Kategori
-                                </div>
-                                <div class="card-body">
-                                    <form action="f_tambah.php" method="post">
-                                        <label for="nama_kategori">Nama Kategori</label>
-                                        <input type="text" class="form-control" name="nama_kategori" required>
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Tambahkan Data Kategori
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="f_tambah.php" method="post">
+                                            <label for="nama_kategori">Nama Kategori</label>
+                                            <input type="text" class="form-control" name="nama_kategori" required>
 
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            </center>
+
                         </div>
                     </div>
                 </div>

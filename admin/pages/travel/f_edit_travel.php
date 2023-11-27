@@ -9,6 +9,7 @@ $price = $_POST["price"];
 $fasilitas = $_POST["fasilitas"];
 $kategori = $_POST["kategori"];
 $daerah = $_POST["daerah"];
+$lokasi = $_POST["lokasi"];
 
 // Upload Proses
 $target_dir = "images/"; // path directory image akan di simpan
@@ -22,7 +23,9 @@ if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) { // 
 `price` = '$price', 
 `fasilitas` = '$fasilitas', 
 `id_kategori` = '$kategori',
-`id_daerah` = '$daerah' WHERE `id` = '$_GET[id]'");
+`id_daerah` = '$daerah',
+`lokasi` = '$lokasi'    
+ WHERE `id` = '$_GET[id]'");
 } else {
     echo "Sorry, there was an error uploading your file.<br>";
 }
@@ -33,6 +36,8 @@ $result = mysqli_query($connect, "UPDATE `traveling` set
 `price` = '$price', 
 `fasilitas` = '$fasilitas', 
 `id_kategori` = '$kategori',
-`id_daerah` = '$daerah' WHERE `id` = '$_GET[id]'");
+`id_daerah` = '$daerah',
+`lokasi` = '$lokasi'
+ WHERE `id` = '$_GET[id]'");
 
 header("Location:data_travel.php");

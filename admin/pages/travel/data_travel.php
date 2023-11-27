@@ -161,7 +161,7 @@ if (!isset($_SESSION["username"])) {
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
                                 <li class="breadcrumb-item active">Data User</li>
                             </ol>
                         </div><!-- /.col -->
@@ -191,6 +191,7 @@ if (!isset($_SESSION["username"])) {
                                                 <th>Fasilitas</th>
                                                 <th>Kategori</th>
                                                 <th>Daerah</th>
+                                                <th>Lokasi</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -214,7 +215,7 @@ if (!isset($_SESSION["username"])) {
                                                         <?php echo $data['deskripsi']; ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $data['price']; ?>
+                                                        Rp. <?php echo number_format($data['price'], 2, '.', ','); ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $data['fasilitas']; ?>
@@ -224,6 +225,9 @@ if (!isset($_SESSION["username"])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $data['nama_daerah']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $data['lokasi'] ?>
                                                     </td>
                                                     <td>
                                                         <a href="edit_travel.php?id=<?php echo $data['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>

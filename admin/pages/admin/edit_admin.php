@@ -210,8 +210,8 @@ if (!isset($_SESSION["username"])) {
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Admin</li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="data_admin.php">Data Admin</a></li>
                                 <li class="breadcrumb-item active">Edit Data Admin</li>
                             </ol>
                         </div><!-- /.col -->
@@ -226,36 +226,40 @@ if (!isset($_SESSION["username"])) {
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Edit
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Edit
+                                    </div>
+                                    <div class="card-body">
+                                        <?php
+
+                                        include '../../../public/config/connection.php';
+
+                                        $adm = mysqli_query($connect, "SELECT * from `admin` where `id_nama_admin`='$_GET[id_nama_admin]'");
+                                        while ($b = mysqli_fetch_array($adm)) {
+                                            $id = $b["id_nama_admin"];
+                                            $nama = $b["nama_lengkap"];
+                                            $userna = $b["username"];
+                                            $pass = $b["password"];
+                                        }
+                                        ?>
+                                        <form action="f_edit.php?id_nama_admin=<?php echo $id ?>" method="post">
+                                            <label for="nama_lengkap">Full Name</label>
+                                            <input type="text" class="form-control" value="<?php echo $nama ?>" name="nama_lengkap">
+
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" value="<?php echo $userna ?>" name="username">
+
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password">
+
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <?php
+                            </center>
 
-                                    include '../../../public/config/connection.php';
-
-                                    $adm = mysqli_query($connect, "SELECT * from `admin` where `id_nama_admin`='$_GET[id_nama_admin]'");
-                                    while ($b = mysqli_fetch_array($adm)) {
-                                        $id = $b["id_nama_admin"];
-                                        $nama = $b["nama_lengkap"];
-                                        $userna = $b["username"];
-                                    }
-                                    ?>
-                                    <form action="f_edit.php?id_nama_admin=<?php echo $id ?>" method="post">
-                                        <label for="nama_lengkap">Full Name</label>
-                                        <input type="text" class="form-control" value="<?php echo $nama ?>" name="nama_lengkap" required>
-
-                                        <label for="username">Username</label>
-                                        <input type="text" class="form-control" value="<?php echo $userna ?>" name="username" required>
-
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" required>
-
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
-                                </div>
-                            </div>
                             <!-- /.card -->
                         </div>
                         <!-- /.col -->
@@ -302,13 +306,6 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
 </body>
 
 </html>

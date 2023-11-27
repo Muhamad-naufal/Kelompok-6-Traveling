@@ -213,7 +213,7 @@ if (!isset($_SESSION["username"])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Kategori</li>
+                                <li class="breadcrumb-item"><a href="data_kategori.php">Data Kategori</a></li>
                                 <li class="breadcrumb-item active">Edit Data Kategori</li>
                             </ol>
                         </div>
@@ -228,28 +228,31 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Edit Data Kategori
-                                </div>
-                                <div class="card-body">
-                                    <?php
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Edit Data Kategori
+                                    </div>
+                                    <div class="card-body">
+                                        <?php
 
-                                    include '../../../public/config/connection.php';
+                                        include '../../../public/config/connection.php';
 
-                                    $adm = mysqli_query($connect, "SELECT * from `kategori` where `id_nama_kategori`='$_GET[id_nama_kategori]'");
-                                    while ($b = mysqli_fetch_array($adm)) {
-                                        $id_nama_kategori = $b["id_nama_kategori"];
-                                        $nama_kategori = $b["nama_kategori"];
-                                    }
-                                    ?>
-                                    <form action="f_edit.php?id_nama_kategori=<?php echo $id_nama_kategori ?>" method="post">
-                                        <label for="nama_kategori">Nama Kategori</label>
-                                        <input type="text" class="form-control" value="<?php echo $nama_kategori ?>" name="nama_kategori" required>
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
+                                        $adm = mysqli_query($connect, "SELECT * from `kategori` where `id_nama_kategori`='$_GET[id_nama_kategori]'");
+                                        while ($b = mysqli_fetch_array($adm)) {
+                                            $id_nama_kategori = $b["id_nama_kategori"];
+                                            $nama_kategori = $b["nama_kategori"];
+                                        }
+                                        ?>
+                                        <form action="f_edit.php?id_nama_kategori=<?php echo $id_nama_kategori ?>" method="post">
+                                            <label for="nama_kategori">Nama Kategori</label>
+                                            <input type="text" class="form-control" value="<?php echo $nama_kategori ?>" name="nama_kategori" required>
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            </center>
+
                         </div>
                     </div>
                 </div>

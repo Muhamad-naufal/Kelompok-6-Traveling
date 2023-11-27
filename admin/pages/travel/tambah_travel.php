@@ -39,6 +39,12 @@ if (!isset($_SESSION["username"])) {
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://cdn.tiny.cloud/1/l17bkui8wk8wg0e7jxwczbqlu26kl09t28ayh11jg5usgeo8/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
     <style>
         .card {
             max-width: 400px;
@@ -156,7 +162,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_admin.php" class="nav-link active">
+                                    <a href="data_admin.php" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Admin</p>
                                     </a>
@@ -211,8 +217,8 @@ if (!isset($_SESSION["username"])) {
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Tempat Wisata</li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="data_travel.php">Data Travel</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Tempat Wisata</li>
                             </ol>
                         </div><!-- /.col -->
@@ -227,63 +233,67 @@ if (!isset($_SESSION["username"])) {
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Tambahkan Data Tempat Wisata
-                                </div>
-                                <div class="card-body">
-                                    <form action="f_tambah_travel.php" method="post" enctype="multipart/form-data">
-                                        <label for="nama_tempat">Tempat Wisata</label>
-                                        <input type="text" class="form-control" name="nama_tempat" required>
+                            <center>
+                                <div class="card" style="max-width: 1300px;">
+                                    <div class="card-header">
+                                        Tambahkan Data Tempat Wisata
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="f_tambah_travel.php" method="post" enctype="multipart/form-data">
+                                            <label for="nama_tempat">Tempat Wisata</label>
+                                            <input type="text" class="form-control" name="nama_tempat" required>
 
-                                        <label for="gambar">Gambar</label>
-                                        <input type="file" class="form-control" name="fileToUpload" required>
+                                            <label for="gambar">Gambar</label>
+                                            <input type="file" class="form-control" name="fileToUpload" required>
 
-                                        <label for="deskripsi">Deskripsi</label>
-                                        <input type="text" class="form-control" name="deskripsi" required>
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <textarea id="mytextarea" type="text" class="form-control" name="deskripsi"></textarea>
 
-                                        <label for="price">Harga</label>
-                                        <input type="number" class="form-control" name="price" required>
+                                            <label for="price">Harga</label>
+                                            <input type="number" class="form-control" name="price" required>
 
-                                        <label for="fasilitas">Fasilitas</label>
-                                        <input type="text" class="form-control" name="fasilitas" required>
+                                            <label for="fasilitas">Fasilitas</label>
+                                            <textarea id="mytextarea" type="text" class="form-control" name="fasilitas_text"></textarea>
 
-                                        <label for="id_kategori">Kategori</label>
-                                        <select class="form-control mt-3" name="kategori" id="kategori">
-                                            <?php
-                                            // Fetch data from the "items" table
-                                            include '../../../public/config/connection.php';
-                                            $query = mysqli_query($connect, "SELECT * FROM kategori");
-                                            if (mysqli_num_rows($query) > 0) {
-                                                while ($data = mysqli_fetch_array($query)) {
-                                                    echo "<option value='" . $data["id_nama_kategori"] . "'>" . $data["nama_kategori"] . "</option>";
+                                            <label for="id_kategori">Kategori</label>
+                                            <select class="form-control mt-3" name="kategori" id="kategori">
+                                                <?php
+                                                // Fetch data from the "items" table
+                                                include '../../../public/config/connection.php';
+                                                $query = mysqli_query($connect, "SELECT * FROM kategori");
+                                                if (mysqli_num_rows($query) > 0) {
+                                                    while ($data = mysqli_fetch_array($query)) {
+                                                        echo "<option value='" . $data["id_nama_kategori"] . "'>" . $data["nama_kategori"] . "</option>";
+                                                    }
+                                                } else {
+                                                    echo "<option value=''>No items available</option>";
                                                 }
-                                            } else {
-                                                echo "<option value=''>No items available</option>";
-                                            }
-                                            ?>
-                                        </select>
+                                                ?>
+                                            </select>
 
-                                        <label for="id_daerah">Daerah</label>
-                                        <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
-                                            <?php
-                                            // Fetch data from the "items" table
-                                            include '../../../public/config/connection.php';
-                                            $query = mysqli_query($connect, "SELECT * FROM daerah");
-                                            if (mysqli_num_rows($query) > 0) {
-                                                while ($data = mysqli_fetch_array($query)) {
-                                                    echo "<option value='" . $data["id_nama_daerah"] . "'>" . $data["nama_daerah"] . "</option>";
+                                            <label for="id_daerah">Daerah</label>
+                                            <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
+                                                <?php
+                                                // Fetch data from the "items" table
+                                                include '../../../public/config/connection.php';
+                                                $query = mysqli_query($connect, "SELECT * FROM daerah");
+                                                if (mysqli_num_rows($query) > 0) {
+                                                    while ($data = mysqli_fetch_array($query)) {
+                                                        echo "<option value='" . $data["id_nama_daerah"] . "'>" . $data["nama_daerah"] . "</option>";
+                                                    }
+                                                } else {
+                                                    echo "<option value=''>No items available</option>";
                                                 }
-                                            } else {
-                                                echo "<option value=''>No items available</option>";
-                                            }
-                                            ?>
-                                        </select>
-
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
+                                                ?>
+                                            </select>
+                                            <label for="price">Lokasi Google Maps</label>
+                                            <input type="text" class="form-control" name="lokasi" required>
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            </center>
+
                         </div>
                         <!-- /.card -->
                     </div>
@@ -330,14 +340,6 @@ if (!isset($_SESSION["username"])) {
     <script src="../../components/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
-
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
 </body>
 
 </html>

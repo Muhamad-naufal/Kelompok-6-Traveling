@@ -54,7 +54,6 @@
                         <!-- Form Register End -->
                     </div>
                     <!-- Tab Content End -->
-
                 </div>
             </div>
         </div>

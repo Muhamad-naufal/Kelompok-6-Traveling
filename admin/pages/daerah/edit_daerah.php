@@ -210,7 +210,7 @@ if (!isset($_SESSION["username"])) {
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
                                 <li class="breadcrumb-item">Data Admin</li>
                                 <li class="breadcrumb-item active">Edit Data Admin</li>
                             </ol>
@@ -226,29 +226,32 @@ if (!isset($_SESSION["username"])) {
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Edit
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Edit
+                                    </div>
+                                    <div class="card-body">
+                                        <?php
+
+                                        include '../../../public/config/connection.php';
+
+                                        $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
+                                        while ($b = mysqli_fetch_array($adm)) {
+                                            $id_nama_daerah = $b["id_nama_daerah"];
+                                            $nama_daerah = $b["nama_daerah"];
+                                        }
+                                        ?>
+                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post">
+                                            <label for="nama_daerah">Nama Daerah</label>
+                                            <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah" required>
+
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <?php
+                            </center>
 
-                                    include '../../../public/config/connection.php';
-
-                                    $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
-                                    while ($b = mysqli_fetch_array($adm)) {
-                                        $id_nama_daerah = $b["id_nama_daerah"];
-                                        $nama_daerah = $b["nama_daerah"];
-                                    }
-                                    ?>
-                                    <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post">
-                                        <label for="nama_daerah">Nama Daerah</label>
-                                        <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah" required>
-
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
-                                </div>
-                            </div>
                             <!-- /.card -->
                         </div>
                         <!-- /.col -->

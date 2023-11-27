@@ -211,8 +211,8 @@ if (!isset($_SESSION["username"])) {
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Daerah</li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="data_daerah.php">Data Daerah</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Daerah</li>
                             </ol>
                         </div><!-- /.col -->
@@ -227,19 +227,23 @@ if (!isset($_SESSION["username"])) {
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Tambahkan Data Daerah
-                                </div>
-                                <div class="card-body">
-                                    <form action="f_tambah.php" method="post">
-                                        <label for="nama_daerah">Nama Daerah</label>
-                                        <input type="text" class="form-control" name="nama_daerah" required>
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Tambahkan Data Daerah
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="f_tambah.php" method="post" onsubmit="return validateForm()">
+                                            <label for="nama_daerah">Nama Daerah</label>
+                                            <input type="text" class="form-control" name="nama_daerah" id="nama_daerah" required>
+                                            <span id="nama_daerah_error" style="color:red;"></span>
 
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
+                                            <input type="submit" id="submitBtn" value="Save">
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            </center>
+
                         </div>
                         <!-- /.card -->
                     </div>
@@ -287,13 +291,6 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
 </body>
 
 </html>

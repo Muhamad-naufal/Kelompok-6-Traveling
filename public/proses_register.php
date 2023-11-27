@@ -14,7 +14,7 @@ if (mysqli_num_rows($sql_cek_username) > 0) { //jika data sudah ada
     window.location.href='index.php';
     </script>";
 } else {
-    $query = mysqli_query($connect, "INSERT INTO user (nama_lengkap_user, username, password) VALUES ('$nama_lengkap_user', '$username', '$password')");
+    $query = mysqli_query($connect, "INSERT INTO `user` (`nama_lengkap_user`, `username`, `password`) VALUES ('$nama_lengkap_user', '$username', '$password')");
     echo "<script>
     alert('Berhasil Register...');
     window.location.href='index.php';

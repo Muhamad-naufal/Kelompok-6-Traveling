@@ -212,7 +212,7 @@ if (!isset($_SESSION["username"])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item">Data Admin</li>
+                                <li class="breadcrumb-item"><a href="data_admin.php">Data Admin</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Admin</li>
                             </ol>
                         </div><!-- /.col -->
@@ -227,32 +227,33 @@ if (!isset($_SESSION["username"])) {
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    Tambahkan Data Admin
+                            <center>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Tambahkan Data Admin
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="f_tambah.php" method="post">
+                                            <label for="nama_lengkap">Full Name</label>
+                                            <input type="text" class="form-control" name="nama_lengkap">
+
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" name="username">
+
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password">
+
+                                            <input type="submit" id="submitBtn" value="Save" disabled>
+
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <form action="f_tambah.php" method="post">
-                                        <label for="nama_lengkap">Full Name</label>
-                                        <input type="text" class="form-control" name="nama_lengkap" required>
+                            </center>
 
-                                        <label for="username">Username</label>
-                                        <input type="text" class="form-control" name="username" required>
-
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" required>
-
-                                        <input type="submit" id="submitBtn" value="Save">
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                         <!-- /.card -->
                     </div>
-                    <!-- /.col -->
-                    <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
         </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
@@ -300,6 +301,31 @@ if (!isset($_SESSION["username"])) {
     <script>
         new DataTable('#example');
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to the input fields and submit button
+            var namaInput = document.querySelector('input[name="nama_lengkap"]');
+            var usernameInput = document.querySelector('input[name="username"]');
+            var passwordInput = document.querySelector('input[name="password"]');
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Function to check if all input fields are filled
+            function checkInputs() {
+                var namaValue = namaInput.value.trim();
+                var usernameValue = usernameInput.value.trim();
+                var passwordValue = passwordInput.value.trim();
+
+                // Enable the submit button if all input fields are filled
+                submitBtn.disabled = !(namaValue && usernameValue && passwordValue);
+            }
+
+            // Add event listeners to the input fields
+            namaInput.addEventListener('input', checkInputs);
+            usernameInput.addEventListener('input', checkInputs);
+            passwordInput.addEventListener('input', checkInputs);
+        });
+    </script>
+
 </body>
 
 </html>
