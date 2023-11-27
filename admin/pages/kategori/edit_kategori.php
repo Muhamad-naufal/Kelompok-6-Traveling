@@ -112,6 +112,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- Navbar End -->
@@ -241,15 +244,16 @@ if (!isset($_SESSION["username"])) {
                                             $nama_kategori = $b["nama_kategori"];
                                         }
                                         ?>
-                                        <form action="f_edit.php?id_nama_kategori=<?php echo $id_nama_kategori ?>" method="post">
-                                            <label for="nama_kategori">Nama Kategori</label>
-                                            <input type="text" class="form-control" value="<?php echo $nama_kategori ?>" name="nama_kategori" required>
-                                            <input type="submit" id="submitBtn" value="Save">
+                                        <form action="f_edit.php?id_nama_kategori=<?php echo $id_nama_kategori ?>" method="post" name="form-edit" id="form-edit">
+                                            <div class="form-group">
+                                                <label for="nama_kategori">Nama Kategori</label>
+                                                <input type="text" class="form-control" value="<?php echo $nama_kategori ?>" name="nama_kategori">
+                                            </div>
+                                            <input type="submit" id="submitBtn" value="Save" onclick="return confirm('Data Akan Diupdate?')">
                                         </form>
                                     </div>
                                 </div>
                             </center>
-
                         </div>
                     </div>
                 </div>
@@ -299,6 +303,42 @@ if (!isset($_SESSION["username"])) {
     <script>
         new DataTable('#example');
     </script>
+
+    <!-- JS Validasi -->
+    <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
+    <script>
+        $(function() {
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    form.submit();
+                }
+            });
+            $('#form-edit').validate({
+                rules: {
+                    nama_kategori: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    nama_kategori: {
+                        required: "Masukkan nama kategori terlebih dahulu",
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

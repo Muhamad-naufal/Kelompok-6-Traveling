@@ -8,6 +8,7 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,6 +60,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- Navbar End -->
@@ -73,7 +77,6 @@ if (!isset($_SESSION["username"])) {
 
             <!-- Sidebar Start -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
                         <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
@@ -139,8 +142,10 @@ if (!isset($_SESSION["username"])) {
                     </ul>
                 </nav>
                 <!-- Sidebar Menu End -->
+
             </div>
             <!-- Sidebar End -->
+
         </aside>
         <!-- Main Sidebar Container End -->
 

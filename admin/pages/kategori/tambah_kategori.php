@@ -112,6 +112,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- Navbar End -->
@@ -236,12 +239,11 @@ if (!isset($_SESSION["username"])) {
                                                 <label for="nama_kategori">Nama Kategori</label>
                                                 <input type="text" class="form-control" name="nama_kategori">
                                             </div>
-                                            <input type="submit" id="submitBtn" value="Save">
+                                            <input type="submit" id="submitBtn" value="Save" onclick="alert('Data Berhasil Disimpan!')">
                                         </form>
                                     </div>
                                 </div>
                             </center>
-
                         </div>
                     </div>
                 </div>
