@@ -298,7 +298,7 @@ if (!isset($_SESSION["username"])) {
                                                     ?>
                                                 </select>
                                                 <label for="lokasi">lokasi</label>
-                                                <input type="text" class="form-control" value="<?php echo $lokasi ?>" name="lokasi" required>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($lokasi) ?>" name="lokasi" required>
                                                 <input type="submit" id="submitBtn" value="Save">
                                             </form>
                                         <?php

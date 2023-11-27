@@ -19,7 +19,7 @@ ORDER BY t.id DESC LIMIT 5");
                     while ($data = mysqli_fetch_array($query)) {
                     ?>
                         <div class="col-lg-6 col-md-12 wow zoomIn kotakan-kategori" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="pages/single-page.php?id=<?php echo $data['id'] ?>">
                                 <img class="img-fluid mt-3" src="admin/pages/travel/<?php echo $data['gambar'] ?>" width="100%">
                                 <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2"><?php echo $data['nama_kategori'] ?></div>
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2"><?php echo $data['nama_daerah'] ?></div>

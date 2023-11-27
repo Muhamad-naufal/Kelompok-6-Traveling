@@ -35,7 +35,7 @@
 <body>
     <!-- Spinner Start -->
     <?php
-    // include "public/layouts/spinner.php" 
+    include "public/layouts/spinner.php"
     ?>
     <!-- Spinner End -->
 
