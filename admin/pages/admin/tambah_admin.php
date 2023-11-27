@@ -230,16 +230,17 @@ if (!isset($_SESSION["username"])) {
                                         Tambahkan Data Admin
                                     </div>
                                     <div class="card-body">
-                                        <form action="f_tambah.php" method="post">
+                                        <form action="f_tambah.php" method="post" name="form-tambah" id="form-tambah">
+                                        <div class="form-group">
                                             <label for="nama_lengkap">Full Name</label>
                                             <input type="text" class="form-control" name="nama_lengkap">
-
+                                        <div class="form-group">
                                             <label for="username">Username</label>
                                             <input type="text" class="form-control" name="username">
-
+                                        <div class="form-group">
                                             <label for="password">Password</label>
                                             <input type="password" class="form-control" name="password">
-
+                                        </div>
                                             <input type="submit" id="submitBtn" value="Save" disabled>
 
                                         </form>
@@ -291,37 +292,54 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get references to the input fields and submit button
-            var namaInput = document.querySelector('input[name="nama_lengkap"]');
-            var usernameInput = document.querySelector('input[name="username"]');
-            var passwordInput = document.querySelector('input[name="password"]');
-            var submitBtn = document.getElementById('submitBtn');
+   
+ <!-- JS Validasi -->
+ <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
 
-            // Function to check if all input fields are filled
-            function checkInputs() {
-                var namaValue = namaInput.value.trim();
-                var usernameValue = usernameInput.value.trim();
-                var passwordValue = passwordInput.value.trim();
-
-                // Enable the submit button if all input fields are filled
-                submitBtn.disabled = !(namaValue && usernameValue && passwordValue);
+<script>
+    $(function() {
+        $.validator.setDefaults({
+            submitHandler: function() {
+                form.submit();
             }
-
-            // Add event listeners to the input fields
-            namaInput.addEventListener('input', checkInputs);
-            usernameInput.addEventListener('input', checkInputs);
-            passwordInput.addEventListener('input', checkInputs);
         });
-    </script>
+        $('#form-tambah').validate({
+            rules: {
+                nama_lengkap: {
+                    required: true,
+                },
+                username: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+            },
+            messages: {
+                nama_lengkap: {
+                    required: "Masukkan nama lengkap terlebih dahulu",
+                }
+                username: {
+                    required: "Masukkan nama username terlebih dahulu",
+                }
+                password: {
+                    required: "Masukkan nama password terlebih dahulu",
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
 
 </body>
 

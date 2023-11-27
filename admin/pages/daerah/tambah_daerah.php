@@ -230,10 +230,11 @@ if (!isset($_SESSION["username"])) {
                                         Tambahkan Data Daerah
                                     </div>
                                     <div class="card-body">
-                                        <form action="f_tambah.php" method="post" onsubmit="return validateForm()">
-                                            <label for="nama_daerah">Nama Daerah</label>
-                                            <input type="text" class="form-control" name="nama_daerah" id="nama_daerah" required>
-                                            <span id="nama_daerah_error" style="color:red;"></span>
+                                        <form action="f_tambah.php" method="post" name="form-tambah" id="form-tambah">
+                                            <div class="form-group">
+                                                <label for="nama_daerah">Nama Daerah</label>
+                                                <input type="text" class="form-control" name="nama_daerah">
+                                            </div>
 
                                             <input type="submit" id="submitBtn" value="Save">
                                         </form>
@@ -288,6 +289,41 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
+<!-- JS Validasi -->
+<script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
+
+<script>
+    $(function() {
+        $.validator.setDefaults({
+            submitHandler: function() {
+                form.submit();
+            }
+        });
+        $('#form-tambah').validate({
+            rules: {
+                nama_daerah: {
+                    required: true,
+                },
+            },
+            messages: {
+                nama_daerah: {
+                    required: "Masukkan nama daerah terlebih dahulu",
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
