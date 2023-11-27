@@ -58,13 +58,9 @@ if (!isset($_SESSION["username"])) {
           <a href="#" class="nav-link active">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">About</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
           <a href="proses_logout.php" class="nav-link">Logout</a>
         </li>
-
-
+      </ul>
     </nav>
     <!-- /.navbar -->
 
@@ -86,8 +82,6 @@ if (!isset($_SESSION["username"])) {
 
         </div>
 
-
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -104,43 +98,43 @@ if (!isset($_SESSION["username"])) {
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="data.php" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-chart-simple"></i>
                     <p>Data</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/admin/data_admin.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-user"></i>
                     <p>Admin</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/user/data_user.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-users"></i>
                     <p>User</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/daerah/data_daerah.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-location"></i>
                     <p>Daerah</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/kategori/data_kategori.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>Kategori</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/travel/data_travel.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-map-location-dot"></i>
                     <p>Tempat Wisata</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/review/data_review.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="nav-icon fas fa-comment-dots"></i>
                     <p>Review</p>
                   </a>
                 </li>
