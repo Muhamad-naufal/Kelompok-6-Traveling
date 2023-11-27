@@ -13,12 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login successful
         session_start();
         $_SESSION["username"] = $username;
-        echo '<script>alert("Login berhasil, Selamat Bekerja!"); window.location.href = "data.php";</script>';
+        echo '<script>alert("Login berhasil"); window.location.href = "data.php";</script>';
         exit();
     } else {
         // Login failed
         echo '<script>alert("Invalid username or password"); window.location.href = "index.php";</script>';
     }
+    
 }
 
 $connect->close();

@@ -71,7 +71,7 @@ if (!isset($_SESSION["username"])) {
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index.php" class="brand-link">
+            <a href="../../data.php" class="brand-link">
                 <img src="../../components/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
@@ -81,7 +81,7 @@ if (!isset($_SESSION["username"])) {
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="../../index.php" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
