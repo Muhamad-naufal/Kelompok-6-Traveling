@@ -318,7 +318,7 @@ if (!isset($_SESSION["username"])) {
                                                     <label for="lokasi">lokasi</label>
                                                     <input type="text" class="form-control" value="<?php echo $lokasi ?>" name="lokasi">
                                                 </div>
-                                                <input type="submit" id="submitBtn" value="Save">
+                                                <input type="submit" id="submitBtn" value="Save" onclick="confirm('Data Akan Diupdate?')">
                                             </form>
                                         <?php
                                         }
