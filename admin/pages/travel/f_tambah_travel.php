@@ -16,19 +16,9 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); // full 
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) { // fungsi ini untuk memindahkan file dari tempat asal ke target_file
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.<br>";
-
-    // Use prepared statements to prevent SQL injection
-    $stmt = $connect->prepare("INSERT INTO `traveling` (`nama_tempat`, `gambar`, `deskripsi`, `price`, `fasilitas`, `id_kategori`, `id_daerah`, `lokasi`) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-
-    // Bind parameters
-    $stmt->bind_param("ssssssi", $nama_tempat, $target_file, $deskripsi, $price, $fasilitas, $id_kategori, $id_daerah, $lokasi);
-
-    // Execute the statement
-    $stmt->execute();
-
-    // Close the statement
-    $stmt->close();
+    $result = mysqli_query($connect, "INSERT INTO `traveling` (`nama_tempat`, `gambar`, `deskripsi`, `price`, `fasilitas`, `id_kategori`, 
+    `id_daerah`, `lokasi`) 
+VALUES ('$nama_tempat', '$target_file', '$deskripsi', '$price', '$fasilitas', '$id_kategori', '$id_daerah', '$lokasi');");
 } else {
     echo "Sorry, there was an error uploading your file.<br>";
 }
