@@ -309,18 +309,14 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                 </div>
                             </center>
-
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.col -->
-                    <!-- /.row -->
                 </div>
             </section>
             <!-- Main Content End -->
+
         </div>
     </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
