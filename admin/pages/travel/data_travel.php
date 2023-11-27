@@ -227,7 +227,7 @@ if (!isset($_SESSION["username"])) {
                                                         <?php echo $data['nama_daerah']; ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $data['lokasi'] ?>
+                                                        <?php echo htmlspecialchars($data['lokasi'])  ?>
                                                     </td>
                                                     <td>
                                                         <a href="edit_travel.php?id=<?php echo $data['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
