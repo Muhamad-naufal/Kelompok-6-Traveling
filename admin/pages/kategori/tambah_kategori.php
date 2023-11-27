@@ -241,7 +241,6 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                 </div>
                             </center>
-
                         </div>
                     </div>
                 </div>
