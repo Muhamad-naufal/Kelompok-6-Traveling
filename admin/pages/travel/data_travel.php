@@ -60,6 +60,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- Navbar End -->
@@ -194,12 +197,13 @@ if (!isset($_SESSION["username"])) {
                                         <tbody>
                                             <?php
                                             include "../../../public/config/connection.php";
+                                            $no = 1;
                                             $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah ORDER BY id ASC;");
                                             while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
                                                     <td>
-                                                        <?php echo $data['id']; ?>
+                                                        <?php echo $no++; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $data['nama_tempat']; ?>

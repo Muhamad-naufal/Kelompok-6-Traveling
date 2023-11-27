@@ -119,6 +119,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- Navbar End -->
@@ -316,9 +319,9 @@ if (!isset($_SESSION["username"])) {
 
                                                 <div class="form-group">
                                                     <label for="lokasi">lokasi</label>
-                                                    <input type="text" class="form-control" value="<?php echo $lokasi ?>" name="lokasi">
+                                                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($lokasi) ?>" name="lokasi">
                                                 </div>
-                                                <input type="submit" id="submitBtn" value="Save">
+                                                <input type="submit" id="submitBtn" value="Save" onclick="confirm('Data Akan Diupdate?')">
                                             </form>
                                         <?php
                                         }
