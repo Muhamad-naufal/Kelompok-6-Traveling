@@ -23,7 +23,7 @@
         <a href="../../index2.html" class="h1"><b>Healing </b>Yuk</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Masuk Dulu Buat Mulai Kerja</p>
+        <p class="login-box-msg">Masuk Dulu Buat Masuk Sistem</p>
         <form action="f_login.php" method="post">
           <div class="input-group mb-3">
             <input type="text" name="username" class="form-control" placeholder="Email">

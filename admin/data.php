@@ -60,7 +60,11 @@ if (!isset($_SESSION["username"])) {
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">About</a>
         </li>
-      </ul>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="proses_logout.php" class="nav-link">Logout</a>
+        </li>
+        
+        
     </nav>
     <!-- /.navbar -->
 
@@ -79,7 +83,10 @@ if (!isset($_SESSION["username"])) {
           <div class="info">
             <a href="" class="d-block"><?php echo $_SESSION["username"] ?></a>
           </div>
+        
         </div>
+
+      
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
