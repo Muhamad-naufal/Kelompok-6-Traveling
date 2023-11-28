@@ -64,7 +64,7 @@ if (!isset($_SESSION["username"])) {
           <a href="#" class="nav-link active">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="proses_logout.php" class="nav-link">Logout</a>
+          <a href="proses_logout.php" class="nav-link" onclick="alert('Apakah anda ingin keluar?')">Logout</a>
         </li>
       </ul>
     </nav>
