@@ -58,7 +58,7 @@
                     <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
 
@@ -93,7 +93,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">Welcome to <span class="text-primary">Healing Yuk</span></h1>
-                    <p class="mb-4">Di Healing Yuk, kami mengajak Anda untuk menjelajahi dunia melalui pengalaman perjalanan yang luar biasa dan inspiratif. Panduan destinasi yang dapat menjadi sumber inspirasi untuk rencana perjalanan Anda berikutnya.</p>
+                    <p class="mb-4">Di Healing Yuk, kami mengajak Kalian untuk menjelajahi dunia melalui pengalaman perjalanan yang luar biasa dan inspiratif. Panduan destinasi yang dapat menjadi sumber inspirasi untuk rencana perjalanan kalian berikutnya.</p>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="../public/assets/img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="../public/assets/img/foto maieka.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -136,7 +136,7 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Meika Sari</h5>
+                            <h5 class="mb-0">Maieka Sari Istiqomah</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>

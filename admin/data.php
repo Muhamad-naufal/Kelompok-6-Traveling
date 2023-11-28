@@ -1,4 +1,6 @@
 <?php
+include '../public/config/connection.php';
+
 session_start();
 
 // Check if the user is logged in
@@ -7,7 +9,9 @@ if (!isset($_SESSION["username"])) {
   header("Location: login.php");
   exit();
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +64,7 @@ if (!isset($_SESSION["username"])) {
           <a href="#" class="nav-link active">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="proses_logout.php" class="nav-link">Logout</a>
+          <a href="proses_logout.php" class="nav-link" onclick="return confirm('Apakah anda ingin keluar?')">Logout</a>
         </li>
       </ul>
     </nav>
@@ -126,13 +130,13 @@ if (!isset($_SESSION["username"])) {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages//travel/data_travel.php" class="nav-link">
+                  <a href="pages/travel/data_travel.php" class="nav-link">
                     <i class="nav-icon fas fa-map-location-dot"></i>
                     <p>Tempat Wisata</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages//review/data_review.php" class="nav-link">
+                  <a href="pages/review/data_review.php" class="nav-link">
                     <i class="nav-icon fas fa-comment-dots"></i>
                     <p>Review</p>
                   </a>
@@ -156,11 +160,10 @@ if (!isset($_SESSION["username"])) {
             <div class="col-sm-6">
               <h1 class="m-0">Data Master</h1>
             </div>
-
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="data.php">Home</a></li>
-                <li class="breadcrumb-item active">Data Admin</li>
+                <li class="breadcrumb-item active">Data Master</li>
               </ol>
             </div>
 
@@ -173,6 +176,7 @@ if (!isset($_SESSION["username"])) {
       <section class="content">
         <div class="container-fluid">
           <div class="row">
+
             <div class="col-md-4">
               <div class="card text-bg-secondary ">
                 <div class="card-body">
@@ -181,12 +185,15 @@ if (!isset($_SESSION["username"])) {
                       <div class="text-white small">
                         <h6>Daerah</h6>
                       </div>
-                      <div class="text-lg fw-bold"></div>
                     </div>
                     <i class="nav-icon fas fa-location fa-xl"></i>
                   </div>
                   <div>
-                    17
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM `daerah`;");
+                    $jmlh = mysqli_num_rows($query);
+                    echo $jmlh;
+                    ?>
                   </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between small">
@@ -204,12 +211,15 @@ if (!isset($_SESSION["username"])) {
                       <div class="text-white small">
                         <h6>Kategori</h6>
                       </div>
-                      <div class="text-lg fw-bold"></div>
                     </div>
                     <i class="nav-icon fas fa-list fa-xl"></i>
                   </div>
                   <div>
-                    17
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM `kategori`;");
+                    $jmlh = mysqli_num_rows($query);
+                    echo $jmlh;
+                    ?>
                   </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between small">
@@ -227,12 +237,15 @@ if (!isset($_SESSION["username"])) {
                       <div class="text-white small">
                         <h6>Tempat Wisata</h6>
                       </div>
-                      <div class="text-lg fw-bold"></div>
                     </div>
                     <i class="nav-icon fas fa-map-location-dot fa-xl"></i>
                   </div>
                   <div>
-                    17
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM `traveling`;");
+                    $jmlh = mysqli_num_rows($query);
+                    echo $jmlh;
+                    ?>
                   </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between small">
@@ -250,12 +263,15 @@ if (!isset($_SESSION["username"])) {
                       <div class="text-white small">
                         <h6>Review</h6>
                       </div>
-                      <div class="text-lg fw-bold"></div>
                     </div>
                     <i class="nav-icon fas fa-comment-dots fa-xl"></i>
                   </div>
                   <div>
-                    17
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM `review`;");
+                    $jmlh = mysqli_num_rows($query);
+                    echo $jmlh;
+                    ?>
                   </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between small">
@@ -278,7 +294,11 @@ if (!isset($_SESSION["username"])) {
                     <i class="nav-icon fas fa-users fa-xl"></i>
                   </div>
                   <div>
-                    17
+                    <?php
+                    $query = mysqli_query($connect, "SELECT * FROM `user`;");
+                    $jmlh = mysqli_num_rows($query);
+                    echo $jmlh;
+                    ?>
                   </div>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between small">

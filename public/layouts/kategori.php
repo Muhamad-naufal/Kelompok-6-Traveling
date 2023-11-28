@@ -16,7 +16,7 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3" style="background: url('admin/pages/travel/<?php echo $data['gambar'] ?>'); background-position: center center;">
                         <div class="p-4">
-                            <a href="">
+                            <a href="../travel/pages/detail_kategori.php <?php echo $data['id_nama_kategori'] ?>">
                                 <h5 class="kategori-tulisan"><?php echo $data['nama_kategori'] ?></h5>
                             </a>
                         </div>

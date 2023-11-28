@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Tourist - Travel Agency HTML Template</title>
+    <title>Healing Yuk</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -56,7 +56,7 @@
                     <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
         <!-- End Nav -->

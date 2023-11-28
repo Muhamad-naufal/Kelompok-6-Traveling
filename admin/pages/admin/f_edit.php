@@ -1,21 +1,11 @@
 <?php
 include '../../../public/config/connection.php';
-date_default_timezone_set('Asia/Jakarta');
 
 // get variable from form input
-
 $nama = $_POST["nama_lengkap"];
 $userna = $_POST["username"];
-$pass = $_POST["password"];
+$pass = md5($_POST["password"]);
 
-
-$result = mysqli_query(
-    $connect,
-    "UPDATE `admin` set 
-`nama_lengkap` = '$nama', 
-`username` = '$userna', 
-`password` = '$pass'
-where `id_nama_admin` = '$_GET[id_nama_admin]'"
-);
+$result = mysqli_query($connect, "UPDATE `admin` set `nama_lengkap` = '$nama', `username` = '$userna', `password` = '$pass'where `id_nama_admin` = '$_GET[id_nama_admin]'");
 
 header("Location:data_admin.php");
