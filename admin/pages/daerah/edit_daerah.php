@@ -325,7 +325,7 @@ if (!isset($_SESSION["username"])) {
                 },
                 messages: {
                     nama_daerah: {
-                        required: "Masukkan nama kategori terlebih dahulu",
+                        required: "Masukkan edit nama daerah terlebih dahulu",
                     }
                 },
                 errorElement: 'span',

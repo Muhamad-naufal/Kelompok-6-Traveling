@@ -67,7 +67,7 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
                     <a href="package.html" class="nav-item nav-link">Packages</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
 
