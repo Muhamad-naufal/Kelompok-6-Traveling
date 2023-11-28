@@ -59,7 +59,7 @@
                     <a href="package.html" class="nav-item nav-link">Packages</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
 
@@ -94,7 +94,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">Welcome to <span class="text-primary">Healing Yuk</span></h1>
-                    <p class="mb-4">Di Healing Yuk, kami mengajak Anda untuk menjelajahi dunia melalui pengalaman perjalanan yang luar biasa dan inspiratif. Panduan destinasi yang dapat menjadi sumber inspirasi untuk rencana perjalanan Anda berikutnya.</p>
+                    <p class="mb-4">Di Healing Yuk, kami mengajak Kalian untuk menjelajahi dunia melalui pengalaman perjalanan yang luar biasa dan inspiratif. Panduan destinasi yang dapat menjadi sumber inspirasi untuk rencana perjalanan kalian berikutnya.</p>
                 </div>
             </div>
         </div>
