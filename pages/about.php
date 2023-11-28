@@ -54,7 +54,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="../index.php" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link active">About</a>
+                    <a href="about.php" class="nav-item nav-link active">About</a>
+                    <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
                 <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
