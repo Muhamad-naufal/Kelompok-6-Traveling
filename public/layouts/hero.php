@@ -3,7 +3,7 @@
         <div class="row justify-content-center py-5">
             <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                 <h1 class="display-3 text-white mb-3 animated slideInDown">Jadikan Liburanmu Menjadi Bermakna</h1>
-                <p class="fs-4 text-white mb-4 animated slideInDown">Liburan jangan mikirin kerjaan terus, liburan kudu seneng biar jadi penyemangat baru</p>
+                <p class="fs-4 text-white mb-4 animated slideInDown">Temukan wisata-wisata impianmu disini bersama kami.</p>
             </div>
         </div>
     </div>
