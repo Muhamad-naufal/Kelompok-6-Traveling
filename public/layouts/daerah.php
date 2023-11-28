@@ -21,14 +21,14 @@ ORDER BY MAX(t.id) DESC LIMIT 5");
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3" style="background: url('admin/pages/travel/<?php echo $data['gambar'] ?>'); background-position: center center;">
                         <div class="p-4">
-                            <a href="">
+                            <a href="pages/search_daerah.php?id_nama_daerah=<?php echo $data['id_nama_daerah'] ?>">
                                 <h5 class="kategori-tulisan"><?php echo $data['nama_daerah'] ?></h5>
                                 <!-- Tambahkan kolom-kolom lain yang ingin ditampilkan -->
                             </a>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+       <?php      } ?>
         </div>
     </div>
 </div>
