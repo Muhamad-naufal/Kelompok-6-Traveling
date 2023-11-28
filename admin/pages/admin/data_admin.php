@@ -8,6 +8,7 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,14 +46,14 @@ if (!isset($_SESSION["username"])) {
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
+        <!-- Preloader Start -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="../../components/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
+        <!-- Preloader End -->
 
-        <!-- Navbar -->
+        <!-- Navbar Start -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -65,9 +66,9 @@ if (!isset($_SESSION["username"])) {
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
+        <!-- Navbar End -->
 
-        <!-- Main Sidebar Container -->
+        <!-- Main Sidebar Container Start -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="../../data.php" class="brand-link" style="text-decoration: none;">
@@ -75,16 +76,15 @@ if (!isset($_SESSION["username"])) {
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
 
-            <!-- Sidebar -->
+            <!-- Sidebar Start -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
                         <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
+                <!-- Sidebar Menu Start -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item menu-open">
@@ -142,41 +142,43 @@ if (!isset($_SESSION["username"])) {
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
+                <!-- Sidebar Menu End -->
             </div>
-            <!-- /.sidebar -->
-        </aside>
+            <!-- Sidebar End -->
 
-        <!-- Content Wrapper. Contains page content -->
+        </aside>
+        <!-- Main Sidebar Container End -->
+
+        <!-- Content Wrapper Page Start -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+            <!-- Header Content Start -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Data Admin</h1>
-                        </div><!-- /.col -->
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
                                 <li class="breadcrumb-item active">Data Admin</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.content-header -->
+            <!-- Header Content End -->
 
-            <!-- Main content -->
+            <!-- Main Content Start -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <!-- /.card-header -->
                                 <div class="card-body">
                                     <a href="tambah_admin.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
+
+                                    <!-- Tabel Start -->
                                     <table id="example" class="table table-bordered table-striped">
                                         <thead>
                                             <tr class="text-center">
@@ -198,7 +200,8 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['nama_lengkap']; ?></td>
                                                     <td><?php echo $data['username']; ?></td>
-                                                    <td><?php
+                                                    <td>
+                                                        <?php
                                                         $password = $data['password'];
                                                         $length = strlen($password);
 
@@ -211,7 +214,7 @@ if (!isset($_SESSION["username"])) {
                                                     </td>
                                                     <td>
                                                         <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <button type=" button" class="btn btn-danger" onclick="confirmDelete('<?php echo $data["id_nama_admin"] ?>')"><i class=" fa-solid fa-trash"></i></button>
+                                                        <button type=" button" class="btn btn-danger" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -219,21 +222,19 @@ if (!isset($_SESSION["username"])) {
                                             ?>
                                         </tbody>
                                     </table>
+                                    <!-- Tabel End -->
+
                                 </div>
-                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
-                        <!-- /.row -->
                     </div>
-                    <!-- /.container-fluid -->
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
-            <!-- /.content -->
+            <!-- Main Content End -->
+
         </div>
+        <!-- Content Wrapper Page End -->
     </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
@@ -274,16 +275,6 @@ if (!isset($_SESSION["username"])) {
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
         new DataTable('#example');
-        let deleteConfirmed = false;
-
-        function confirmDelete(id_nama_admin) {
-            if (deleteConfirmed || confirm("Are you sure you want to delete this record?")) {
-                deleteConfirmed = true;
-                window.location.href = "f_hapus.php?id_nama_admin=" + id_nama_admin;
-            } else {
-                return false;
-            }
-        }
     </script>
 </body>
 
