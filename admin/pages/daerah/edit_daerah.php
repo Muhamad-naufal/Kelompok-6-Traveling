@@ -206,13 +206,13 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Data Admin</h1>
+                            <h1 class="m-0">Edit Data Daerah</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
-                                <li class="breadcrumb-item">Data Admin</li>
-                                <li class="breadcrumb-item active">Edit Data Admin</li>
+                                <li class="breadcrumb-item">Data Daerah</li>
+                                <li class="breadcrumb-item active">Edit Data Daerah</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -242,9 +242,9 @@ if (!isset($_SESSION["username"])) {
                                             $nama_daerah = $b["nama_daerah"];
                                         }
                                         ?>
-                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post">
+                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post" name="form-edit" id="form-edit" >
                                             <label for="nama_daerah">Nama Daerah</label>
-                                            <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah" required>
+                                            <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah">
 
                                             <input type="submit" id="submitBtn" value="Save">
                                         </form>
@@ -305,6 +305,43 @@ if (!isset($_SESSION["username"])) {
     <script>
         new DataTable('#example');
     </script>
+
+    
+<!-- JS Validasi -->
+<script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
+
+<script>
+    $(function() {
+        $.validator.setDefaults({
+            submitHandler: function() {
+                form.submit();
+            }
+        });
+        $('#form-edit').validate({
+            rules: {
+                nama_daerah: {
+                    required: true,
+                },
+            },
+            messages: {
+                nama_daerah: {
+                    required: "edit nama daerah terlebih dahulu",
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
