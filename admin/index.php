@@ -16,23 +16,31 @@
 </head>
 
 <body class="hold-transition login-page">
+  <!-- Login Box Start -->
   <div class="login-box">
-    <!-- /.login-logo -->
     <div class="card card-outline card-primary">
+
+      <!-- Header Start -->
       <div class="card-header text-center">
         <a href="../../index2.html" class="h1"><b>Healing </b>Yuk</a>
       </div>
+      <!-- Header End -->
+
+      <!-- Content Start -->
       <div class="card-body">
-        <p class="login-box-msg">Masuk Dulu Buat Masuk Sistem</p>
+        <p class="login-box-msg">Silahkan Masuk Terlebih Dahulu</p>
+
+        <!-- Form Login Start -->
         <form action="f_login.php" method="post">
           <div class="input-group mb-3">
-            <input type="text" name="username" class="form-control" placeholder="Email">
+            <input type="text" name="username" class="form-control" placeholder="Username">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
+
           <div class="input-group mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <div class="input-group-append">
@@ -43,12 +51,13 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </form>
+        <!-- Form Login Start -->
+
       </div>
-      <!-- /.card-body -->
+      <!-- Content End -->
     </div>
-    <!-- /.card -->
   </div>
-  <!-- /.login-box -->
+  <!-- Login Box End -->
 
   <!-- jQuery -->
   <script src="components/js/jquery.min.js"></script>
