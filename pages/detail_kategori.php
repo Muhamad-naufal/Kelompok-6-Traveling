@@ -3,7 +3,8 @@
 
 <?php
 include "../public/config/connection.php";
-$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori group by kategori.id_nama_kategori");
+$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori JOIN daerah as d ON t.id_daerah = d.id_nama_daerah where id_nama_kategori = '$_GET[id_nama_kategori]'");
+$data = mysqli_fetch_array($query);
 ?>
 
 <head>
@@ -100,28 +101,29 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
-                    <?php
-                        if (mysqli_num_rows($query) > 0) 
-                            while ($data = mysqli_fetch_array($query)) 
-                                if ($data["id_nama_kategori"] == '2' ) {
+                        <?php
+                        if (mysqli_num_rows($query) > 0)
+                            while ($data = mysqli_fetch_array($query))
+                                if ($data["id_nama_kategori"] == '2') {
                                     ?>
-                            <div class="col-lg-6 col-md-12 wow zoomIn kotakan-kategori" data-wow-delay="0.1s">
-                                <a class="position-relative d-block overflow-hidden" href="pages/single-page.php?id=<?php echo $data['id'] ?>">
-                                    <img class="img-fluid mt-3" src="../admin/pages/travel/<?php echo $data['gambar'] ?>"
-                                        width="100%">
-                                    <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
-                                        <?php echo $data['nama_kategori'] ?>
+                                    <div class="col-lg-6 col-md-12 wow zoomIn kotakan-kategori" data-wow-delay="0.1s">
+                                        <a class="position-relative d-block overflow-hidden"
+                                            href="pages/single-page.php?id=<?php echo $data['id'] ?>">
+                                            <img class="img-fluid mt-3" src="../admin/pages/travel/<?php echo $data['gambar'] ?>"
+                                                width="100%">
+                                            <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                                                <?php echo $data['nama_kategori'] ?>
+                                            </div>
+                                            <div
+                                                class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                                                <?php echo $data['nama_daerah'] ?>
+                                            </div>
+                                            <h3 style="background: transparent !important; position:relative; z-index:1">
+                                                <?php echo $data['nama_tempat'] ?>
+                                            </h3>
+                                        </a>
                                     </div>
-                                    <div
-                                        class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
-                                        <?php echo $data['nama_daerah'] ?>
-                                    </div>
-                                    <h3 style="background: transparent !important; position:relative; z-index:1">
-                                        <?php echo $data['nama_tempat'] ?>
-                                    </h3>
-                                </a>
-                            </div>
-                        <?php } ?>
+                                <?php } ?>
                     </div>
                 </div>
             </div>
