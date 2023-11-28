@@ -98,14 +98,14 @@ if (!isset($_SESSION["username"])) {
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
+        <!-- Preloader Start -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="../../components/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
+        <!-- Preloader End -->
 
-        <!-- Navbar -->
+        <!-- Navbar Start -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -118,9 +118,9 @@ if (!isset($_SESSION["username"])) {
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
+        <!-- Navbar End -->
 
-        <!-- Main Sidebar Container -->
+        <!-- Main Sidebar Container Start -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link" style="text-decoration: none;">
@@ -128,16 +128,15 @@ if (!isset($_SESSION["username"])) {
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
 
-            <!-- Sidebar -->
+            <!-- Sidebar Start -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
                         <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
+                <!-- Sidebar Menu Start -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item menu-open">
@@ -195,36 +194,38 @@ if (!isset($_SESSION["username"])) {
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
+                <!-- Sidebar Menu End -->
 
-        <!-- Content Wrapper. Contains page content -->
+            </div>
+            <!-- Sidebar End -->
+
+        </aside>
+        <!-- Main Sidebar Container End -->
+
+        <!-- Content Wrapper Page Start -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+            <!-- Header Content Start -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Tambah Data Daerah</h1>
-                        </div><!-- /.col -->
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
                                 <li class="breadcrumb-item"><a href="data_daerah.php">Data Daerah</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Daerah</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.content-header -->
+            <!-- Header Content End -->
 
-            <!-- Main content -->
+            <!-- Main Content Start -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
                             <center>
@@ -244,20 +245,17 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                 </div>
                             </center>
-
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.col -->
-                    <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
-        </div><!-- /.container-fluid -->
+            </section>
+            <!-- Main Content End -->
+
+        </div>
+        <!-- Content Wrapper Page End -->
+
         </section>
-        <!-- /.content -->
     </div>
-    </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
@@ -292,41 +290,41 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-<!-- JS Validasi -->
-<script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
+    <!-- JS Validasi -->
+    <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
 
-<script>
-    $(function() {
-        $.validator.setDefaults({
-            submitHandler: function() {
-                form.submit();
-            }
-        });
-        $('#form-tambah').validate({
-            rules: {
-                nama_daerah: {
-                    required: true,
-                },
-            },
-            messages: {
-                nama_daerah: {
-                    required: "Masukkan nama daerah terlebih dahulu",
+    <script>
+        $(function() {
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    form.submit();
                 }
-            },
-            errorElement: 'span',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
+            });
+            $('#form-tambah').validate({
+                rules: {
+                    nama_daerah: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    nama_daerah: {
+                        required: "Masukkan nama daerah terlebih dahulu",
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>

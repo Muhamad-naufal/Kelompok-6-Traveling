@@ -161,7 +161,7 @@ if (!isset($_SESSION["username"])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
-                                <li class="breadcrumb-item active">Data User</li>
+                                <li class="breadcrumb-item active">Data Tempat Wisata</li>
                             </ol>
                         </div>
                     </div>

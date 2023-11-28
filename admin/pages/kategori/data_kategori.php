@@ -162,7 +162,7 @@ if (!isset($_SESSION["username"])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
-                                <li class="breadcrumb-item active">Data Admin</li>
+                                <li class="breadcrumb-item active">Data Kategori</li>
                             </ol>
                         </div>
 
@@ -208,6 +208,7 @@ if (!isset($_SESSION["username"])) {
                                         </tbody>
                                     </table>
                                     <!-- Tabel End -->
+
                                 </div>
                             </div>
                         </div>
@@ -215,8 +216,10 @@ if (!isset($_SESSION["username"])) {
                 </div>
             </section>
             <!-- Main Content Start -->
+
         </div>
         <!-- Content Wrapper Page Start -->
+
     </div>
 
     <!-- jQuery -->

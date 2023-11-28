@@ -220,7 +220,7 @@ if (!isset($_SESSION["username"])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
-                                <li class="breadcrumb-item"><a href="data_travel.php">Data Travel</a></li>
+                                <li class="breadcrumb-item"><a href="data_travel.php">Data Tempat Wisata</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Tempat Wisata</li>
                             </ol>
                         </div>

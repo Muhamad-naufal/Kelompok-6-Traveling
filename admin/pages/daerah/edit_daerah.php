@@ -97,14 +97,14 @@ if (!isset($_SESSION["username"])) {
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
+        <!-- Preloader Start -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="../../components/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
+        <!-- Preloader End -->
 
-        <!-- Navbar -->
+        <!-- Navbar Start -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -117,9 +117,9 @@ if (!isset($_SESSION["username"])) {
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
+        <!-- Navbar End -->
 
-        <!-- Main Sidebar Container -->
+        <!-- Main Sidebar Container Start -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link" style="text-decoration: none;">
@@ -127,16 +127,15 @@ if (!isset($_SESSION["username"])) {
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
 
-            <!-- Sidebar -->
+            <!-- Sidebar Start -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
                         <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
+                <!-- Sidebar Menu Start -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item menu-open">
@@ -194,14 +193,17 @@ if (!isset($_SESSION["username"])) {
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
+                <!-- Sidebar Menu End -->
 
-        <!-- Content Wrapper. Contains page content -->
+            </div>
+            <!-- Sidebar End -->
+
+        </aside>
+        <!-- Main Sidebar Container End -->
+
+        <!-- Content Wrapper Page Start -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+            <!-- Header Content Start -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -214,18 +216,18 @@ if (!isset($_SESSION["username"])) {
                                 <li class="breadcrumb-item">Data Daerah</li>
                                 <li class="breadcrumb-item active">Edit Data Daerah</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.content-header -->
+            <!-- Header Content End -->
 
-            <!-- Main content -->
+            <!-- Main Content Start -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- /.row -->
                     <div class="row">
                         <div class="col-12">
+
                             <center>
                                 <div class="card">
                                     <div class="card-header">
@@ -242,28 +244,26 @@ if (!isset($_SESSION["username"])) {
                                             $nama_daerah = $b["nama_daerah"];
                                         }
                                         ?>
-                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post" name="form-edit" id="form-edit" >
-                                            <label for="nama_daerah">Nama Daerah</label>
-                                            <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah">
-
-                                            <input type="submit" id="submitBtn" value="Save">
+                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post" name="form-edit" id="form-edit">
+                                            <div class="form-group">
+                                                <label for="nama_daerah">Nama Daerah</label>
+                                                <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah">
+                                            </div>
+                                            <input type="submit" id="submitBtn" value="Save" onclick="return confirm('Data Akan Diupdate?')">
                                         </form>
                                     </div>
                                 </div>
                             </center>
 
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
-                        <!-- /.row -->
                     </div>
-                    <!-- /.container-fluid -->
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
-            <!-- /.content -->
+            <!-- Main Content Start -->
+
         </div>
+        <!-- Content Wrapper Page End -->
     </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
@@ -306,42 +306,42 @@ if (!isset($_SESSION["username"])) {
         new DataTable('#example');
     </script>
 
-    
-<!-- JS Validasi -->
-<script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
 
-<script>
-    $(function() {
-        $.validator.setDefaults({
-            submitHandler: function() {
-                form.submit();
-            }
-        });
-        $('#form-edit').validate({
-            rules: {
-                nama_daerah: {
-                    required: true,
-                },
-            },
-            messages: {
-                nama_daerah: {
-                    required: "edit nama daerah terlebih dahulu",
+    <!-- JS Validasi -->
+    <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
+
+    <script>
+        $(function() {
+            $.validator.setDefaults({
+                submitHandler: function() {
+                    form.submit();
                 }
-            },
-            errorElement: 'span',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
+            });
+            $('#form-edit').validate({
+                rules: {
+                    nama_daerah: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    nama_daerah: {
+                        required: "Masukkan nama kategori terlebih dahulu",
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
