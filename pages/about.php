@@ -129,7 +129,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="../public/assets/img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="../public/assets/img/foto maieka.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -137,7 +137,7 @@
                             <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0">Meika Sari</h5>
+                            <h5 class="mb-0">Maieka Sari Istiqomah</h5>
                             <small>Mahasiswa</small>
                         </div>
                     </div>

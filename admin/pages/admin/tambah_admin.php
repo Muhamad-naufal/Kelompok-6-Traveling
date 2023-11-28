@@ -113,6 +113,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link active">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -231,18 +234,19 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     <div class="card-body">
                                         <form action="f_tambah.php" method="post" name="form-tambah" id="form-tambah">
-                                        <div class="form-group">
-                                            <label for="nama_lengkap">Full Name</label>
-                                            <input type="text" class="form-control" name="nama_lengkap">
-                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="nama_lengkap">Full Name</label>
+                                                <input type="text" class="form-control" name="nama_lengkap">
+                                            </div>
+                                            <div class="form-group">
                                             <label for="username">Username</label>
-                                            <input type="text" class="form-control" name="username">
-                                        <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" class="form-control" name="password">
-                                        </div>
-                                            <input type="submit" id="submitBtn" value="Save" disabled>
-
+                                                <input type="text" class="form-control" name="username">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" name="password">
+                                            </div>
+                                                <input type="submit" id="submitBtn" value="Save">
                                         </form>
                                     </div>
                                 </div>

@@ -60,6 +60,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link active">Home</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../proses_logout.php" class="nav-link active">Logout</a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
