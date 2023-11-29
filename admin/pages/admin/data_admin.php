@@ -62,7 +62,7 @@ if (!isset($_SESSION["username"])) {
                     <a href="#" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../proses_logout.php" class="nav-link active">Logout</a>
+                    <a href="../../proses_logout.php" class="nav-link" onclick="return confirm('Apakah anda ingin keluar?')">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -214,7 +214,7 @@ if (!isset($_SESSION["username"])) {
                                                     </td>
                                                     <td>
                                                         <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                        <button type=" button" class="btn btn-danger" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></button>
+                                                        <a href="f_hapus.php?id_nama_admin=<?php echo $data["id_nama_admin"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
