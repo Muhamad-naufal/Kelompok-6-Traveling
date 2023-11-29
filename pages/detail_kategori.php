@@ -87,44 +87,37 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
 
     <?php
     ?>
+
     <!-- Team Start -->
     <div class="container-xxl py-5">
 
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Destinasi</h6>
-                <h1 class="mb-5">Destinasi Pegunungan</h1>
+                <h1 class="mb-5">Pilihan Destinasi</h1>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                    <?php
-                        if (mysqli_num_rows($query) > 0) 
-                            while ($data = mysqli_fetch_array($query)) 
-                                if ($data["id_nama_kategori"] == '2' ) {
-                                    ?>
-                            <div class="col-lg-6 col-md-12 wow zoomIn kotakan-kategori" data-wow-delay="0.1s">
-                                <a class="position-relative d-block overflow-hidden" href="pages/single-page.php?id=<?php echo $data['id'] ?>">
-                                    <img class="img-fluid mt-3" src="../admin/pages/travel/<?php echo $data['gambar'] ?>"
-                                        width="100%">
-                                    <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
-                                        <?php echo $data['nama_kategori'] ?>
-                                    </div>
-                                    <div
-                                        class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
-                                        <?php echo $data['nama_daerah'] ?>
-                                    </div>
-                                    <h3 style="background: transparent !important; position:relative; z-index:1">
-                                        <?php echo $data['nama_tempat'] ?>
-                                    </h3>
-                                </a>
+            <div class="row g-4">
+                <?php
+                while ($data = mysqli_fetch_array($query)) {
+                ?>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item">
+                            <div class="overflow-hidden">
+                                <img class="img-fluid" src="../admin/pages/travel/<?php echo $data['gambar'] ?>" style="width: 42vh; height:30vh" alt="">
+                            </div>
+                            <div class="text-center p-4">
+                                <h5 class="mb-0"><?php echo $data['nama_tempat'] ?></h5>
+                                <small><?php echo $data['nama_kategori'] ?></small>
+                                <a href="single-page.php?id=<?php echo $data['id'] ?>"><button class="btn btn-primary">Detail</button></a>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
             </div>
         </div>
+
     </div>
+
     <!-- Team End -->
 
 
