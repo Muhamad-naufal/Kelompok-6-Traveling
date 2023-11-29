@@ -201,7 +201,7 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $data['username']; ?></td>
                                                     <td><?php echo $data['password']; ?></td>
                                                     <td>
-                                                        <button type=" button" class="btn btn-danger" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></button>
+                                                    <a href="f_hapus_user.php?id_nama_user=<?php echo $data["id_nama_user"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
