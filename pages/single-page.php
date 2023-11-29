@@ -52,8 +52,8 @@ $data = mysqli_fetch_array($query);
     </div> -->
     <!-- Spinner End -->
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="../index.php" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
@@ -129,6 +129,58 @@ $data = mysqli_fetch_array($query);
         </div>
     </div>
     <!-- About End -->
+
+    <!-- Komentar -->
+    <form action="f_komen.php" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <?php
+                    $id = $_GET['id'];
+                    ?>
+                    <h3>Komentar</h3>
+                    <div class="mb-3">
+                        <input type="hidden" value="<?php echo $data['id'] ?>" name="id" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
+                        <textarea class="form-control" id="komentar" rows="3" name="komentar"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-5">Kirim</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="comments-section">
+                        <?php
+                        $koment = mysqli_query($connect, "SELECT r.review, r.created_at, t.id 
+                                      FROM review AS r 
+                                      JOIN traveling AS t ON r.id_travel = t.id 
+                                      WHERE t.id = '$_GET[id]' 
+                                      ORDER BY r.created_at DESC");
+
+                        if (mysqli_num_rows($koment) > 0) {
+                            while ($komentar = mysqli_fetch_array($koment)) {
+                        ?>
+                                <div class="comment">
+                                    <p><?php echo $komentar['review']; ?></p>
+                                    <small class="text-muted">Publis pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
+                                </div>
+                            <?php
+                            }
+                        } else {
+                            // Display a message if there are no comments
+                            ?>
+                            <div class="no-comment-message">Belum Ada Komentar</div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </form>
+    <!-- End Komentar -->
 
     <!-- Recommend -->
     <div class="container">

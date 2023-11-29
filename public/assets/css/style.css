@@ -465,3 +465,23 @@
 .kategori-tulisan-2 {
 	margin-top: 120px;
 }
+.comment p {
+	margin-top: 20px;
+	margin-bottom: -1px;
+}
+
+.comments-section {
+	max-height: 300px;
+	overflow-y: auto;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.comment {
+	margin-bottom: 15px;
+}
+
+.no-comment-message {
+	font-style: italic;
+	color: #888;
+}
