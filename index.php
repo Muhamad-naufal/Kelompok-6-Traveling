@@ -54,9 +54,27 @@
                     <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <div class="register-login d-flex align-items-center">
+                    <?php
+                    session_start();
+
+                    if (isset($_SESSION['username'])) {
+                    ?>
+                        <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
+
+                        <a href="proses_logout.php" class="me-3">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+
+                    <?php } else { ?>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
+                            <i class="fas fa-user"></i>&nbsp; Login/Register
+                        </a>
+                    <?php } ?>
+                </div>
             </div>
         </nav>
+        <?php include 'pages/login.php' ?>
         <!-- Navbar End -->
 
         <!-- Hero Start -->
