@@ -3,7 +3,7 @@
 
 <?php
 include "../public/config/connection.php";
-$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori group by kategori.id_nama_kategori");
+$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori JOIN daerah as d ON t.id_daerah = d.id_nama_daerah where id_nama_kategori = '$_GET[id_nama_kategori]'");
 ?>
 
 <head>
@@ -49,7 +49,7 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
+            <a href="../index.php" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
                 <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
@@ -59,12 +59,11 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="../index.php" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link active">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="package.html" class="nav-item nav-link">Packages</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="daftar_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
             </div>
         </nav>
 
@@ -72,12 +71,11 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">Pegunungan</h1>
+                        <h1 class="display-3 text-white animated slideInDown">Daerah Destinasi</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                                <li class="breadcrumb-item"><a href="../kategori.php">Kategori</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">Pegunungan</li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Daerah</li>
                             </ol>
                         </nav>
                     </div>
@@ -89,27 +87,31 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
 
     <?php
     ?>
-    <div>
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Kategori</h6>
-                <h1 class="mb-5">Kategori Destinasi</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Destinasi</h6>
+                <h1 class="mb-5">Destinasi Pegunungan</h1>
             </div>
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
-                        <?php
-                        if (mysqli_num_rows($query) > 0)
-                            while ($data = mysqli_fetch_array($query)){
-                                
-                        ?>
+                    <?php
+                        if (mysqli_num_rows($query) > 0) 
+                            while ($data = mysqli_fetch_array($query)) 
+                                if ($data["id_nama_kategori"] == '2' ) {
+                                    ?>
                             <div class="col-lg-6 col-md-12 wow zoomIn kotakan-kategori" data-wow-delay="0.1s">
                                 <a class="position-relative d-block overflow-hidden" href="pages/single-page.php?id=<?php echo $data['id'] ?>">
-                                    <img class="img-fluid mt-3" src="../admin/pages/travel/<?php echo $data['gambar'] ?>" width="100%">
+                                    <img class="img-fluid mt-3" src="../admin/pages/travel/<?php echo $data['gambar'] ?>"
+                                        width="100%">
                                     <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                                         <?php echo $data['nama_kategori'] ?>
                                     </div>
-                                    <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                                    <div
+                                        class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                                         <?php echo $data['nama_daerah'] ?>
                                     </div>
                                     <h3 style="background: transparent !important; position:relative; z-index:1">
@@ -117,13 +119,13 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
                                     </h3>
                                 </a>
                             </div>
-                        <?php } ?>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
-    </div>
+    <!-- Team End -->
 
 
     <!-- Footer Start -->
