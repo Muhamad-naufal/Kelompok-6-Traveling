@@ -54,7 +54,7 @@
                     <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="pages/about.php" class="nav-item nav-link">About</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
         <!-- End Nav -->
