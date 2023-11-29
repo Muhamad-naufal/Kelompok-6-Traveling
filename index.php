@@ -34,17 +34,15 @@
 
 <body>
     <!-- Spinner Start -->
-    <?php
-    include "public/layouts/spinner.php"
-    ?>
+    <?php include "public/layouts/spinner.php" ?>
     <!-- Spinner End -->
 
-    <!-- Navbar & Hero Start -->
+    <!-- Navbar & Hero End -->
     <div class="container-fluid position-relative p-0">
+        <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -56,12 +54,15 @@
                     <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
-        <!-- End Nav -->
+        <!-- Navbar End -->
 
+        <!-- Hero Start -->
         <?php include "public/layouts/hero.php" ?>
+        <!-- Hero Start -->
+
     </div>
     <!-- Navbar & Hero End -->
 
@@ -72,7 +73,6 @@
     <!-- Daerah Start -->
     <?php include "public/layouts/daerah.php" ?>
     <!-- Daerah End -->
-
 
     <!-- Destination Start -->
     <?php include "public/layouts/destinasi.php" ?>
