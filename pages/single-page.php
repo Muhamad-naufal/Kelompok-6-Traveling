@@ -64,11 +64,10 @@ $data = mysqli_fetch_array($query);
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="../index.php" class="nav-item nav-link">Home</a>
+                    <a href="../index.php" class="nav-item nav-link active">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="package.html" class="nav-item nav-link">Packages</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
                 <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
@@ -142,10 +141,9 @@ $data = mysqli_fetch_array($query);
             while ($recommendData = mysqli_fetch_array($recommendQuery)) {
             ?>
                 <div class="card mb-4" style="width: 18rem;">
-                    <img src="../admin/pages/travel/<?php echo $recommendData['gambar'] ?>" class="card-img-top mt-1 img-fluid" style="width: 35vh; height:30vh;" alt="<?php echo $recommendData['nama_tempat'] ?>">
-                    <h1><?php echo $recommendData['nama_tempat'] ?></h1>
+                    <img src="../admin/pages/travel/<?php echo $recommendData['gambar'] ?>" class="card-img-top mt-1 img-fluid" style="width: 45vh; height:30vh;" alt="<?php echo $recommendData['nama_tempat'] ?>">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $recommendData['nama_tempat'] ?></h5>
+                        <h6 class="card-title"><?php echo $recommendData['nama_tempat'] ?></h6>
                         <p class="card-text"><?php echo substr($recommendData['deskripsi'], 0, 100) . '...'; ?></p>
                         <a href="detail.php?id=<?php echo $recommendData['id']; ?>" class="btn btn-primary">Learn More</a>
                     </div>

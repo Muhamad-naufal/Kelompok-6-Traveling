@@ -452,3 +452,16 @@
 	text-align: center;
 	margin-top: 20px;
 }
+.daerah {
+	text-align: center;
+	height: 50vh;
+}
+.daerah-tulisan {
+	margin-top: 120px;
+}
+.kategori {
+	height: 50vh;
+}
+.kategori-tulisan-2 {
+	margin-top: 120px;
+}
