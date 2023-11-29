@@ -22,7 +22,7 @@
 
       <!-- Header Start -->
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>Healing </b>Yuk</a>
+        <a href="../index.php" class="h1"><b>Healing </b>Yuk</a>
       </div>
       <!-- Header End -->
 

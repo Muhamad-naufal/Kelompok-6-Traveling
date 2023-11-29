@@ -45,11 +45,11 @@ $data = mysqli_fetch_array($query);
 
 <body>
     <!-- Spinner Start -->
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div> -->
+    </div>
     <!-- Spinner End -->
 
     <!-- Navbar & Hero Start -->
@@ -66,11 +66,10 @@ $data = mysqli_fetch_array($query);
                 <div class="navbar-nav ms-auto py-0">
                     <a href="../index.php" class="nav-item nav-link active">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="package.html" class="nav-item nav-link">Packages</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
 

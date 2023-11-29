@@ -45,59 +45,6 @@ if (!isset($_SESSION["username"])) {
             selector: '#mytextarea'
         });
     </script>
-    <style>
-        .card {
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        #submitBtn {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        #submitBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 
 </head>
 
@@ -120,7 +67,7 @@ if (!isset($_SESSION["username"])) {
                     <a href="#" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../proses_logout.php" class="nav-link">Logout</a>
+                    <a href="../../proses_logout.php" class="nav-link" onclick="return confirm('Apakah anda ingin keluar?')">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -215,7 +162,7 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Data Tempat Wisata</h1>
+                            <h1 class="m-0">Edit Tempat Wisata</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -234,56 +181,67 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <center>
-                                <div class="card" style="max-width: 1300px;">
-                                    <div class="card-header">
-                                        Edit Data Tempat Wisata
-                                    </div>
-                                    <div class="card-body">
-                                        <?php
-                                        include '../../../public/config/connection.php';
-                                        $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah where `id` = '$_GET[id]';");
-                                        while ($data = mysqli_fetch_array($query)) {
-                                            $id = $data['id'];
-                                            $nama_tempat = $data['nama_tempat'];
-                                            $gambar = $data['gambar'];
-                                            $deskripsi = $data['deskripsi'];
-                                            $price = $data['price'];
-                                            $fasilitas = $data['fasilitas'];
-                                            $id_kategori = $data['id_kategori'];
-                                            $id_daerah = $data['id_daerah'];
-                                            $lokasi = $data['lokasi'];
-                                        ?>
-                                            <form action="f_edit_travel.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" name="form-edit" id="form-edit">
-                                                <img src="<?php echo $gambar ?>" width="300px" alt="">
+                            <div class="card">
+                                <div class="card-header bg-dark">
+                                    Form Edit Tempat Wisata
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    include '../../../public/config/connection.php';
+                                    $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah where `id` = '$_GET[id]';");
+                                    while ($data = mysqli_fetch_array($query)) {
+                                        $id = $data['id'];
+                                        $nama_tempat = $data['nama_tempat'];
+                                        $gambar = $data['gambar'];
+                                        $deskripsi = $data['deskripsi'];
+                                        $price = $data['price'];
+                                        $fasilitas = $data['fasilitas'];
+                                        $id_kategori = $data['id_kategori'];
+                                        $id_daerah = $data['id_daerah'];
+                                        $lokasi = $data['lokasi'];
+                                    ?>
 
-                                                <div class="form-group">
-                                                    <label for="nama_tempat">Tempat Wisata</label>
-                                                    <input type="text" class="form-control" value="<?php echo $nama_tempat ?>" name="nama_tempat">
+                                        <!-- Form Edit Data Start -->
+                                        <form action="f_edit_travel.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data" name="form-edit" id="form-edit">
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label">Tempat Wisata</label>
+                                                <div class="form-group col-sm-10">
+                                                    <input type="text" name="nama_tempat" value="<?php echo $nama_tempat ?>" class="form-control">
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="gambar">Gambar</label>
-                                                    <input type="file" class="form-control" name="fileToUpload">
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label">Gambar</label>
+                                                <div class="form-group col-sm-10">
+                                                    <img src="<?php echo $gambar ?>" width="300px" alt="">
+                                                    <input type="file" name="fileToUpload" class="form-control">
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="deskripsi">Deskripsi</label>
-                                                    <textarea id="mytextarea" type="text" class="form-control" name="deskripsi"><?php echo $deskripsi ?></textarea>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label">Deskripsi</label>
+                                                <div class="form-group col-sm-10">
+                                                    <textarea type="text" id="mytextarea" name="deskripsi" class="form-control"><?php echo $deskripsi ?></textarea>
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="price">Harga</label>
-                                                    <input type="number" class="form-control" value="<?php echo $price ?>" name="price">
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label">Harga</label>
+                                                <div class="form-group col-sm-10">
+                                                    <input type="number" name="price" value="<?php echo $price ?>" class="form-control">
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="fasilitas">Fasilitas</label>
-                                                    <textarea id="mytextarea" type="text" class="form-control" name="fasilitas"><?php echo $fasilitas ?></textarea>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label">Fasilitas</label>
+                                                <div class="form-group col-sm-10">
+                                                    <textarea type="text" id="mytextarea" name="fasilitas" class="form-control"><?php echo $fasilitas ?></textarea>
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="id_kategori">Kategori</label>
+                                            <div class="row mb-4">
+                                                <label class="col-sm-2 col-form-label">Kategori</label>
+                                                <div class="form-group col-sm-10">
                                                     <select class="form-select" name="kategori" id="kategori">
                                                         <option value='' <?php if ($id_kategori == '') echo 'selected'; ?>>Kategori yang dipilih tidak ada!</option>
                                                         <?php
@@ -298,9 +256,12 @@ if (!isset($_SESSION["username"])) {
                                                         ?>
                                                     </select>
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="id_daerah">Daerah</label>
+
+                                            <div class="row mb-4">
+                                                <label class="col-sm-2 col-form-label">Daerah</label>
+                                                <div class="form-group col-sm-10">
                                                     <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
                                                         <?php
                                                         // Fetch data from the "items" table
@@ -316,19 +277,27 @@ if (!isset($_SESSION["username"])) {
                                                         ?>
                                                     </select>
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="lokasi">lokasi</label>
-                                                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($lokasi) ?>" name="lokasi">
+                                            <div class="row mb-4">
+                                                <label class="col-sm-2 col-form-label">Lokasi Google Maps</label>
+                                                <div class="form-group col-sm-10">
+                                                    <input type="text" name="lokasi" value="<?php echo htmlspecialchars($lokasi) ?>" class="form-control">
                                                 </div>
-                                                <input type="submit" id="submitBtn" value="Save" onclick="confirm('Data Akan Diupdate?')">
-                                            </form>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
+                                            </div>
+
+                                            <div style="text-align: center;">
+                                                <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary">
+                                                <a href="data_travel.php" class="btn btn-danger">Kembali</a>
+                                            </div>
+                                        </form>
+                                        <!-- Form Edit Data End -->
+
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
-                            </center>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -338,7 +307,8 @@ if (!isset($_SESSION["username"])) {
     </div>
 
     <!-- jQuery -->
-    <script src="../../components/js/jquery.min.js"></script>
+    <script src=" ../../components/js/jquery.min.js">
+    </script>
     <!-- jQuery UI 1.11.4 -->
     <script src="../../components/js/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

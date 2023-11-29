@@ -39,59 +39,7 @@ if (!isset($_SESSION["username"])) {
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-    <style>
-        .card {
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
 
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        #submitBtn {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        #submitBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -113,7 +61,7 @@ if (!isset($_SESSION["username"])) {
                     <a href="#" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../proses_logout.php" class="nav-link active">logout</a>
+                    <a href="../../proses_logout.php" class="nav-link" onclick="return confirm('Apakah anda ingin keluar?')">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -122,7 +70,7 @@ if (!isset($_SESSION["username"])) {
         <!-- Main Sidebar Container Start -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link" style="text-decoration: none;">
+            <a href="../../data.php" class="brand-link" style="text-decoration: none;">
                 <img src="../../components/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Healing Yuk</span>
             </a>
@@ -154,7 +102,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../admin/data_admin.php" class="nav-link">
+                                    <a href="data_admin.php" class="nav-link active">
                                         <i class="nav-icon fas fa-user"></i>
                                         <p>Admin</p>
                                     </a>
@@ -166,7 +114,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../daerah/data_daerah.php" class="nav-link active">
+                                    <a href="../daerah/data_daerah.php" class="nav-link">
                                         <i class="nav-icon fas fa-location"></i>
                                         <p>Daerah</p>
                                     </a>
@@ -194,7 +142,6 @@ if (!isset($_SESSION["username"])) {
                     </ul>
                 </nav>
                 <!-- Sidebar Menu End -->
-
             </div>
             <!-- Sidebar End -->
 
@@ -208,12 +155,12 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Data Daerah</h1>
-                        </div><!-- /.col -->
+                            <h1 class="m-0">Edit Daerah</h1>
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
-                                <li class="breadcrumb-item"><a href="data_daerah.php">Data Daerah</a></li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="data_admin.php">Data Daerah</a></li>
                                 <li class="breadcrumb-item active">Edit Data Daerah</li>
                             </ol>
                         </div>
@@ -227,43 +174,51 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-
-                            <center>
-                                <div class="card">
-                                    <div class="card-header">
-                                        Edit
-                                    </div>
-                                    <div class="card-body">
-                                        <?php
-
-                                        include '../../../public/config/connection.php';
-
-                                        $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
-                                        while ($b = mysqli_fetch_array($adm)) {
-                                            $id_nama_daerah = $b["id_nama_daerah"];
-                                            $nama_daerah = $b["nama_daerah"];
-                                        }
-                                        ?>
-                                        <form action="f_edit.php?id_nama_daerah=<?php echo $id_nama_daerah ?>" method="post" name="form-edit" id="form-edit">
-                                            <div class="form-group">
-                                                <label for="nama_daerah">Nama Daerah</label>
-                                                <input type="text" class="form-control" value="<?php echo $nama_daerah ?>" name="nama_daerah">
-                                            </div>
-                                            <input type="submit" id="submitBtn" value="Save" onclick="return confirm('Data Akan Diupdate?')">
-                                        </form>
-                                    </div>
+                            <div class="card">
+                                <div class="card-header bg-dark">
+                                    Form Edit Daerah
                                 </div>
-                            </center>
+                                <div class="card-body">
+                                    <?php
 
+                                    include '../../../public/config/connection.php';
+
+                                    $adm = mysqli_query($connect, "SELECT * from `daerah` where `id_nama_daerah`='$_GET[id_nama_daerah]'");
+                                    while ($b = mysqli_fetch_array($adm)) {
+                                        $id = $b["id_nama_daerah"];
+                                        $namadaerah = $b["nama_daerah"];
+                                    }
+                                    ?>
+
+                                    <!-- Form Edit Data Start -->
+                                    <form action="f_edit.php?id_nama_daerah=<?php echo $id ?>" method="post" name="form-edit" id="form-edit">
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Nama Daerah</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="text" name="nama_daerah" value="<?php echo $namadaerah ?>" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div style="text-align: center;">
+                                            <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary" onclick="return confirm('Data Akan Diupdate?')">
+                                            <a href="data_daerah.php" class="btn btn-danger">Kembali</a>
+                                        </div>
+                                    </form>
+                                    <!-- Form Edit Data End -->
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Main Content Start -->
+            <!-- Main Content End -->
 
         </div>
         <!-- Content Wrapper Page End -->
+
     </div>
+
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
@@ -298,15 +253,6 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
-
-
     <!-- JS Validasi -->
     <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
 
@@ -324,9 +270,9 @@ if (!isset($_SESSION["username"])) {
                     },
                 },
                 messages: {
-                    nama_daerah: {
+                    nama_lengkap: {
                         required: "Masukkan edit nama daerah terlebih dahulu",
-                    }
+                    },
                 },
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
@@ -342,6 +288,7 @@ if (!isset($_SESSION["username"])) {
             });
         });
     </script>
+
 </body>
 
 </html>
