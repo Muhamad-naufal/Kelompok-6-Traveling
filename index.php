@@ -53,6 +53,8 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.php" class="nav-item nav-link active">Home</a>
                     <a href="pages/about.php" class="nav-item nav-link">About</a>
+                    <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
                     <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>

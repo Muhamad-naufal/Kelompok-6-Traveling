@@ -52,10 +52,10 @@ $data = mysqli_fetch_array($query);
     </div>
     <!-- Spinner End -->
 
-    <!-- Navbar & Hero Start -->
-    <div class="container-fluid position-relative p-0">
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
+            <a href="../index.php" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
                 <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
@@ -66,6 +66,8 @@ $data = mysqli_fetch_array($query);
                 <div class="navbar-nav ms-auto py-0">
                     <a href="../index.php" class="nav-item nav-link">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
+                    <a href="daftar_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
                     <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
@@ -75,11 +77,11 @@ $data = mysqli_fetch_array($query);
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown"><?php echo $data['nama_tempat'] ?></h1>
+                        <h1 class="display-3 text-white animated slideInDown">Daerah Destinasi</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page"><?php echo $data['nama_tempat'] ?></li>
+                                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Daerah</li>
                             </ol>
                         </nav>
                     </div>
@@ -140,6 +142,7 @@ $data = mysqli_fetch_array($query);
             ?>
                 <div class="card mb-4" style="width: 18rem;">
                     <img src="../admin/pages/travel/<?php echo $recommendData['gambar'] ?>" class="card-img-top mt-1 img-fluid" style="width: 35vh; height:30vh;" alt="<?php echo $recommendData['nama_tempat'] ?>">
+                    <h1><?php echo $recommendData['nama_tempat'] ?></h1>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $recommendData['nama_tempat'] ?></h5>
                         <p class="card-text"><?php echo substr($recommendData['deskripsi'], 0, 100) . '...'; ?></p>

@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 include "../public/config/connection.php";
-$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori JOIN daerah as d ON t.id_daerah = d.id_nama_daerah where id_nama_kategori = '$_GET[id_nama_kategori]'");
+$query = mysqli_query($connect, "SELECT * FROM daerah as d join traveling as t 
+on t.id_daerah = d.id_nama_daerah join kategori as k on t.id_kategori = 
+k.id_nama_kategori where d.id_nama_daerah = '{$_GET['id_nama_daerah']}'");
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -19,9 +21,7 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -40,19 +40,19 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
 </head>
 
 <body>
+
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div> -->
     <!-- Spinner End -->
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="../index.php" class="navbar-brand p-0">
+        <a href="../index.php" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
                 <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
@@ -88,7 +88,6 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
     </div>
     <!-- Navbar & Hero End -->
 
-
     <!-- Team Start -->
     <div class="container-xxl py-5">
 
@@ -100,29 +99,25 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
             <div class="row g-4">
                 <?php
                 while ($data = mysqli_fetch_array($query)) {
-                    ?>
+                ?>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="team-item">
                             <div class="overflow-hidden">
-                                <img class="img-fluid" src="../admin/pages/travel/<?php echo $data['gambar'] ?>"
-                                    style="width: 42vh; height:30vh" alt="">
+                                <img class="img-fluid" src="../admin/pages/travel/<?php echo $data['gambar'] ?>" style="width: 42vh; height:30vh" alt="">
                             </div>
                             <div class="text-center p-4">
-                                <h5 class="mb-0">
-                                    <?php echo $data['nama_tempat'] ?>
-                                </h5>
-                                <small>
-                                    <?php echo $data['nama_kategori'] ?>
-                                </small>
-                                <a href="single-page.php?id=<?php echo $data['id'] ?>"><button
-                                        class="btn btn-primary">Detail</button></a>
+                                <h5 class="mb-0"><?php echo $data['nama_tempat'] ?></h5>
+                                <small><?php echo $data['nama_kategori'] ?></small>
+                                <a href="single-page.php?id=<?php echo $data['id'] ?>"><button class="btn btn-primary">Detail</button></a>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
             </div>
         </div>
+
     </div>
+
     <!-- Team End -->
 
 
@@ -148,6 +143,8 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
 
     <!-- Template Javascript -->
     <script src="../public/assets/js/main.js"></script>
+
+
 </body>
 
 </html>
