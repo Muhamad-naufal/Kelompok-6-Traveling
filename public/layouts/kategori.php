@@ -28,6 +28,5 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
                 </div>
             <?php } ?>
         </div>
-
     </div>
 </div>
