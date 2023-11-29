@@ -58,7 +58,7 @@
                     <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
             </div>
         </nav>
 
