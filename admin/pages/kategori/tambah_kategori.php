@@ -155,7 +155,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_admin.php" class="nav-link">
+                                    <a href="../admin/data_admin.php" class="nav-link">
                                         <i class="nav-icon fas fa-user"></i>
                                         <p>Admin</p>
                                     </a>

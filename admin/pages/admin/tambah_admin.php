@@ -39,59 +39,6 @@ if (!isset($_SESSION["username"])) {
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-    <style>
-        .card {
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        #submitBtn {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        #submitBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 
 </head>
 
@@ -201,68 +148,79 @@ if (!isset($_SESSION["username"])) {
         </aside>
         <!-- Main Sidebar Container End -->
 
-        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper Page Start -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
+            <!-- Header Content Start -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tambah Data Admin</h1>
-                        </div><!-- /.col -->
+                            <h1 class="m-0">Tambah Admin</h1>
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item"><a href="data_admin.php">Data Admin</a></li>
                                 <li class="breadcrumb-item active">Tambah Data Admin</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <center>
-                                <div class="card">
-                                    <div class="card-header">
-                                        Tambahkan Data Admin
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="f_tambah.php" method="post" name="form-tambah" id="form-tambah">
-                                            <div class="form-group">
-                                                <label for="nama_lengkap">Full Name</label>
-                                                <input type="text" class="form-control" name="nama_lengkap">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="username">Username</label>
-                                                <input type="text" class="form-control" name="username">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input type="password" class="form-control" name="password">
-                                            </div>
-                                            <input type="submit" id="submitBtn" value="Save">
-                                        </form>
-                                    </div>
-                                </div>
-                            </center>
-
                         </div>
-                        <!-- /.card -->
                     </div>
                 </div>
-        </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
+            </div>
+            <!-- Header Content End -->
+
+
+            <!-- Main Content Start -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-dark">
+                                    Form Tambah Admin
+                                </div>
+                                <div class="card-body">
+
+                                    <!-- Form Create Data Start -->
+                                    <form action="f_tambah.php" method="post" name="form-tambah" id="form-tambah">
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Full Name</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="text" name="nama_lengkap" class="form-control">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Username</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="text" name="username" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Password</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="password" name="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary">
+                                            <a href="data_admin.php" class="btn btn-danger">Kembali</a>
+                                        </div>
+                                    </form>
+                                    <!-- Form Create Data End -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Main Content End -->
+        </div>
+        <!-- Content Wrapper Page End -->
     </div>
-    </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>

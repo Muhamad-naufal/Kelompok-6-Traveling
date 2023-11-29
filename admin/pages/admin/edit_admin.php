@@ -39,59 +39,7 @@ if (!isset($_SESSION["username"])) {
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-    <style>
-        .card {
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
 
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 18px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        #submitBtn {
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        #submitBtn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -207,7 +155,7 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Data Admin</h1>
+                            <h1 class="m-0">Edit Admin</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -226,43 +174,55 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <center>
-                                <div class="card">
-                                    <div class="card-header">
-                                        Edit
-                                    </div>
-                                    <div class="card-body">
-                                        <?php
-
-                                        include '../../../public/config/connection.php';
-
-                                        $adm = mysqli_query($connect, "SELECT * from `admin` where `id_nama_admin`='$_GET[id_nama_admin]'");
-                                        while ($b = mysqli_fetch_array($adm)) {
-                                            $id = $b["id_nama_admin"];
-                                            $nama = $b["nama_lengkap"];
-                                            $userna = $b["username"];
-                                            $pass = $b["password"];
-                                        }
-                                        ?>
-                                        <form action="f_edit.php?id_nama_admin=<?php echo $id ?>" method="post" name="form-edit" id="form-edit">
-                                            <div class="form-group">
-                                                <label for="nama_lengkap">Full Name</label>
-                                                <input type="text" class="form-control" value="<?php echo $nama ?>" name="nama_lengkap">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="username">Username</label>
-                                                <input type="text" class="form-control" value="<?php echo $userna ?>" name="username">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password">Password</label>
-                                                <input type="password" class="form-control" name="password">
-                                            </div>
-
-                                            <input type="submit" id="submitBtn" value="Save" onclick="return confirm('Data Akan Diupdate?')">
-                                        </form>
-                                    </div>
+                            <div class="card">
+                                <div class="card-header bg-dark">
+                                    Form Edit Admin
                                 </div>
-                            </center>
+                                <div class="card-body">
+                                    <?php
+
+                                    include '../../../public/config/connection.php';
+
+                                    $adm = mysqli_query($connect, "SELECT * from `admin` where `id_nama_admin`='$_GET[id_nama_admin]'");
+                                    while ($b = mysqli_fetch_array($adm)) {
+                                        $id = $b["id_nama_admin"];
+                                        $nama = $b["nama_lengkap"];
+                                        $userna = $b["username"];
+                                        $pass = $b["password"];
+                                    }
+                                    ?>
+
+                                    <!-- Form Edit Data Start -->
+                                    <form action="f_edit.php?id_nama_admin=<?php echo $id ?>" method="post" name="form-edit" id="form-edit">
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Full Name</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="text" name="nama_lengkap" value="<?php echo $nama ?>" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Username</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="text" name="username" value="<?php echo $userna ?>" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-sm-2 col-form-label">Password</label>
+                                            <div class="form-group col-sm-10">
+                                                <input type="password" name="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary" onclick="return confirm('Data Akan Diupdate?')">
+                                            <a href="data_admin.php" class="btn btn-danger">Kembali</a>
+                                        </div>
+                                    </form>
+                                    <!-- Form Edit Data End -->
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
