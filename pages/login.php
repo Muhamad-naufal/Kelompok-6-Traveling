@@ -26,7 +26,7 @@
                                 <div class="form-group mb-3">
                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
-                                <button type="button" class="btn btn-primary w-100" style="border-radius: 10px;">Log In</button>
+                                <button type="" class="btn btn-primary w-100" style="border-radius: 10px;">Log In</button>
                             </form>
                         </div>
                         <!-- Form Login End -->
@@ -34,23 +34,22 @@
                         <!-- Form Register Start -->
                         <div aria-labelledby="register-tab" class="tab-pane fade" id="register" role="tabpanel">
                             <h4 class="text-center border-b pb-2 pt-3">Register</h4>
-                            <form method="post" action="" name="contactform" id="contactform">
+                            <form method="post" action="pages/proses_register.php" name="form-register">
                                 <div class="form-group mb-3">
-                                    <input type="text" name="nama_lengkap_user" class="form-control" id="fname" placeholder="Nama Lengkap" autocomplete="off">
+                                    <input type="text" name="nama_lengkap_user" class="form-control" placeholder="Nama Lengkap" autocomplete="off">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" name="username" class="form-control" id="fname" placeholder="Username" autocomplete="off">
+                                    <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" name="password" class="form-control" id="lpass" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
-                                <button type="button" class="btn btn-primary w-100" style="border-radius: 10px;">Register</button>
+                                <button type="submit" class="btn btn-primary w-100" id="submit">Register</button>
                             </form>
                         </div>
                         <!-- Form Register End -->
                     </div>
                     <!-- Tab Content End -->
-
                 </div>
             </div>
         </div>

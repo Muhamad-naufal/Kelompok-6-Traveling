@@ -62,7 +62,7 @@
                     ?>
                         <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
 
-                        <a href="proses_logout.php" class="me-3">
+                        <a href="pages/proses_logout.php" class="me-3">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
 
