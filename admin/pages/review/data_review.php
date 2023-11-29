@@ -181,6 +181,7 @@ if (!isset($_SESSION["username"])) {
                                                 <th>Nama</th>
                                                 <th>Tempat Wisata</th>
                                                 <th>Review</th>
+                                                <th>Created At</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -188,7 +189,7 @@ if (!isset($_SESSION["username"])) {
                                             <?php
                                             include "../../../public/config/connection.php";
                                             $no = 1;
-                                            $query = mysqli_query($connect, "SELECT * FROM `review` JOIN traveling ON traveling.id = review.id_travel JOIN user ON review.id_nama_review = user.id_nama_user;");
+                                            $query = mysqli_query($connect, "SELECT * FROM `review` JOIN user on review.id_user = user.id_nama_user JOIN traveling ON traveling.id = review.id_travel;");
                                             while ($data = mysqli_fetch_array($query)) {
                                             ?>
                                                 <tr>
@@ -196,6 +197,7 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $data['nama_lengkap_user']; ?></td>
                                                     <td><?php echo $data['nama_tempat']; ?></td>
                                                     <td><?php echo $data['review']; ?></td>
+                                                    <td><?php echo $data['created_at']; ?></td>
                                                     <td>
                                                         <a href="f_hapus.php?id_nama_review=<?php echo $data["id_nama_review"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
