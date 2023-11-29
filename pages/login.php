@@ -19,7 +19,7 @@
                         <!-- Form Login Start -->
                         <div aria-labelledby="login-tab" class="tab-pane fade active show" id="login" role="tabpanel">
                             <h4 class="text-center border-b pb-2 pt-3">Login</h4>
-                            <form method="post" action="" name="contactform" id="contactform">
+                            <form method="post" action="pages/proses_login.php" name="contactform" id="contactform">
                                 <div class="form-group mb-3">
                                     <input type="text" name="username" class="form-control" placeholder="Username">
                                 </div>
