@@ -6,18 +6,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // SQL query to fetch user from the database
-    $sql = "SELECT * FROM `admin` WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM `user` WHERE username = '$username' AND password = '$password'";
     $result = $connect->query($sql);
 
     if ($result->num_rows > 0) {
         // Login successful
         session_start();
         $_SESSION["username"] = $username;
-        echo '<script>alert("Login berhasil"); window.location.href = "data.php";</script>';
+        echo '<script>alert("Login berhasil"); window.location.href = "../index.php";</script>';
         exit();
     } else {
         // Login failed
-        echo '<script>alert("Invalid username or password"); window.location.href = "login.php";</script>';
+        echo '<script>alert("Invalid username or password"); window.location.href = "../index.php";</script>';
     }
 }
 

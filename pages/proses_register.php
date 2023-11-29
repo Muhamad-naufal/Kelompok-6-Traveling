@@ -5,7 +5,7 @@ include "../public/config/connection.php";
 // get variable from form input
 $nama_lengkap_user = $_POST['nama_lengkap_user'];
 $username = $_POST['username'];
-$password = md5($_POST['password']); //
+$password = $_POST['password']; //
 
 // Check if the username already exists
 $sql_cek_username = mysqli_query($connect, "SELECT * FROM `user` WHERE username = '$username';");

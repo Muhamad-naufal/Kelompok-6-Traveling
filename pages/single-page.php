@@ -1,7 +1,7 @@
 <?php
 include "../public/config/connection.php";
 $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on 
-t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah
+t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah    
 where id = '$_GET[id]'");
 $data = mysqli_fetch_array($query);
 ?>
@@ -45,31 +45,47 @@ $data = mysqli_fetch_array($query);
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="../index.php" class="navbar-brand p-0">
+            <a href="" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="../index.php" class="nav-item nav-link active">Home</a>
+                    <a href="../index.php" class="nav-item nav-link">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
-                    <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
-                    <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
+                    <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <div class="register-login d-flex align-items-center">
+                    <?php
+                    session_start();
+
+                    if (isset($_SESSION['username'])) {
+                    ?>
+                        <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
+
+                        <a href="proses_logout.php" class="me-3">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+
+                    <?php } else { ?>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
+                            <i class="fas fa-user"></i>&nbsp; Login/Register
+                        </a>
+                    <?php } ?>
+                </div>
             </div>
         </nav>
 
@@ -134,9 +150,6 @@ $data = mysqli_fetch_array($query);
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <?php
-                    $id = $_GET['id'];
-                    ?>
                     <h3>Komentar</h3>
                     <div class="mb-3">
                         <input type="hidden" value="<?php echo $data['id'] ?>" name="id" readonly>
@@ -150,18 +163,23 @@ $data = mysqli_fetch_array($query);
                 <div class="col-md-6">
                     <div class="comments-section">
                         <?php
-                        $koment = mysqli_query($connect, "SELECT r.review, r.created_at, t.id 
-                                      FROM review AS r 
-                                      JOIN traveling AS t ON r.id_travel = t.id 
-                                      WHERE t.id = '$_GET[id]' 
-                                      ORDER BY r.created_at DESC");
-
+                        $koment = mysqli_query($connect, "SELECT r.review, r.created_at, t.id, u.username
+                                  FROM review AS r 
+                                  JOIN traveling AS t ON r.id_travel = t.id
+                                  LEFT JOIN user AS u ON r.id_user = u.id_nama_user
+                                  WHERE t.id = '$_GET[id]'
+                                  ORDER BY r.created_at DESC");
                         if (mysqli_num_rows($koment) > 0) {
                             while ($komentar = mysqli_fetch_array($koment)) {
                         ?>
                                 <div class="comment">
+                                    <h6>
+                                        <?php
+                                        echo $komentar['username'];
+                                        ?>
+                                    </h6>
                                     <p><?php echo $komentar['review']; ?></p>
-                                    <small class="text-muted">Publis pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
+                                    <small class="text-muted">Publish pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
                                 </div>
                             <?php
                             }
@@ -174,11 +192,10 @@ $data = mysqli_fetch_array($query);
                         ?>
                     </div>
                 </div>
-
             </div>
         </div>
-        </div>
     </form>
+
     <!-- End Komentar -->
 
     <!-- Recommend -->

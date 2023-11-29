@@ -34,7 +34,9 @@
 
 <body>
     <!-- Spinner Start -->
-    <?php include "public/layouts/spinner.php" ?>
+    <?php
+    // include "public/layouts/spinner.php"
+    ?>
     <!-- Spinner End -->
 
     <!-- Navbar & Hero End -->
@@ -74,6 +76,7 @@
                 </div>
             </div>
         </nav>
+
         <?php include 'pages/login.php' ?>
         <!-- Navbar End -->
 

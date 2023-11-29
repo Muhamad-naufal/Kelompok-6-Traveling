@@ -34,19 +34,19 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
+        <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -58,10 +58,26 @@
                     <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
                     <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
                 </div>
-                <a href="login.php" class="btn btn-primary rounded-pill py-2 px-4">Login/Register</a>
+                <div class="register-login d-flex align-items-center">
+                    <?php
+                    session_start();
+
+                    if (isset($_SESSION['username'])) {
+                    ?>
+                        <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
+
+                        <a href="proses_logout.php" class="me-3">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+
+                    <?php } else { ?>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
+                            <i class="fas fa-user"></i>&nbsp; Login/Register
+                        </a>
+                    <?php } ?>
+                </div>
             </div>
         </nav>
-
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">

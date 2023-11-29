@@ -173,6 +173,7 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	height: 100vh;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -464,7 +465,6 @@
 	margin-top: 120px;
 }
 .comment p {
-	margin-top: 20px;
 	margin-bottom: -1px;
 }
 
