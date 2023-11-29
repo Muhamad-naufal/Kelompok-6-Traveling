@@ -80,7 +80,7 @@ $data = mysqli_fetch_array($query);
                         <h1 class="display-3 text-white animated slideInDown">Daerah Destinasi</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                                 <li class="breadcrumb-item text-white active" aria-current="page">Daerah</li>
                             </ol>
                         </nav>
