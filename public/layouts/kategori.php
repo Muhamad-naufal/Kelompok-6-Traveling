@@ -1,6 +1,7 @@
 <?php
 include "public/config/connection.php";
-$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t.id_kategori = kategori.id_nama_kategori group by kategori.id_nama_kategori");
+$query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t 
+on t.id_kategori = kategori.id_nama_kategori group by kategori.id_nama_kategori");
 ?>
 
 <div class="container-xxl py-5">
@@ -12,9 +13,10 @@ $query = mysqli_query($connect, "SELECT * FROM kategori join traveling as t on t
         <div class="row g-4">
             <?php
             while ($data = mysqli_fetch_array($query)) {
-            ?>
+                ?>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item rounded pt-3" style="background: url('admin/pages/travel/<?php echo $data['gambar'] ?>'); background-position: center center;">
+                    <div class="service-item rounded pt-3"
+                        style="background: url('admin/pages/travel/<?php echo $data['gambar'] ?>'); background-position: center center;">
                         <div class="p-4">
                             <a href="pages/detail_kategori.php?id_nama_kategori=<?php echo $data['id_nama_kategori'] ?>">
                                 <h5 class="kategori-tulisan">

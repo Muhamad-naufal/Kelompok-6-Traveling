@@ -161,7 +161,7 @@ $data = mysqli_fetch_array($query);
                     <div class="card-body">
                         <h6 class="card-title"><?php echo $recommendData['nama_tempat'] ?></h6>
                         <p class="card-text"><?php echo substr($recommendData['deskripsi'], 0, 100) . '...'; ?></p>
-                        <a href="detail.php?id=<?php echo $recommendData['id']; ?>" class="btn btn-primary">Learn More</a>
+                        <a href="single-page.php?id=<?php echo $recommendData['id']; ?>" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             <?php
