@@ -102,7 +102,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_admin.php" class="nav-link active">
+                                    <a href="../admin/data_admin.php" class="nav-link">
                                         <i class="nav-icon fas fa-user"></i>
                                         <p>Admin</p>
                                     </a>
@@ -120,7 +120,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../kategori/data_kategori.php" class="nav-link">
+                                    <a href="data_kategori.php" class="nav-link active">
                                         <i class="nav-icon fas fa-list"></i>
                                         <p>Kategori</p>
                                     </a>
@@ -191,7 +191,7 @@ if (!isset($_SESSION["username"])) {
                                         </div>
                                         <div style="text-align: center;">
                                             <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary">
-                                            <a href="data_daerah.php" class="btn btn-danger">Kembali</a>
+                                            <a href="data_kategori.php" class="btn btn-danger">Kembali</a>
                                         </div>
                                     </form>
                                     <!-- Form Create Data End -->

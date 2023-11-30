@@ -102,7 +102,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_admin.php" class="nav-link active">
+                                    <a href="../admin/data_admin.php" class="nav-link">
                                         <i class="nav-icon fas fa-user"></i>
                                         <p>Admin</p>
                                     </a>
@@ -114,7 +114,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../daerah/data_daerah.php" class="nav-link">
+                                    <a href="data_daerah.php" class="nav-link active">
                                         <i class="nav-icon fas fa-location"></i>
                                         <p>Daerah</p>
                                     </a>
