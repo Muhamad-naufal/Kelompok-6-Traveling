@@ -18,7 +18,7 @@ if (mysqli_num_rows($check_result) > 0) {
 } else {
     // Insert the new admin data into the database
     $insert_query = "INSERT INTO `daerah` (`id_nama_daerah`, `nama_daerah`) 
-                    VALUES ('', '$nama_daerah')";
+                    VALUES ('', '$namadaerah')";
     $insert_result = mysqli_query($connect, $insert_query);
 
     if ($insert_result) {

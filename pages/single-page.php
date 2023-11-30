@@ -88,7 +88,7 @@ $data = mysqli_fetch_array($query);
                 </div>
             </div>
         </nav>
-
+        <?php include 'login.php' ?>
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
@@ -145,59 +145,6 @@ $data = mysqli_fetch_array($query);
     </div>
     <!-- About End -->
 
-    <!-- Komentar -->
-    <form action="f_komen.php" method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Komentar</h3>
-                    <div class="mb-3">
-                        <input type="hidden" value="<?php echo $data['id'] ?>" name="id" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
-                        <textarea class="form-control" id="komentar" rows="3" name="komentar"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-5">Kirim</button>
-                </div>
-                <div class="col-md-6">
-                    <div class="comments-section">
-                        <?php
-                        $koment = mysqli_query($connect, "SELECT r.review, r.created_at, t.id, u.username
-                                  FROM review AS r 
-                                  JOIN traveling AS t ON r.id_travel = t.id
-                                  LEFT JOIN user AS u ON r.id_user = u.id_nama_user
-                                  WHERE t.id = '$_GET[id]'
-                                  ORDER BY r.created_at DESC");
-                        if (mysqli_num_rows($koment) > 0) {
-                            while ($komentar = mysqli_fetch_array($koment)) {
-                        ?>
-                                <div class="comment">
-                                    <h6>
-                                        <?php
-                                        echo $komentar['username'];
-                                        ?>
-                                    </h6>
-                                    <p><?php echo $komentar['review']; ?></p>
-                                    <small class="text-muted">Publish pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
-                                </div>
-                            <?php
-                            }
-                        } else {
-                            // Display a message if there are no comments
-                            ?>
-                            <div class="no-comment-message">Belum Ada Komentar</div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!-- End Komentar -->
-
     <!-- Recommend -->
     <div class="container">
         <div class="row">
@@ -223,6 +170,71 @@ $data = mysqli_fetch_array($query);
         </div>
     </div>
     <!-- End Recommend -->
+
+    <!-- Komentar -->
+    <?php
+    if (isset($_SESSION['username'])) {
+    ?>
+        <form action="f_komen.php" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Komentar</h3>
+                        <div class="mb-3">
+                            <input type="hidden" value="<?php echo htmlspecialchars($data['id'], ENT_QUOTES, 'UTF-8'); ?>" name="id" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
+                            <textarea class="form-control" id="komentar" rows="3" name="komentar"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-5">Kirim</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="comments-section">
+                            <?php
+                            $koment = mysqli_query($connect, "SELECT r.review, r.created_at, t.id, u.username
+                              FROM review AS r 
+                              JOIN traveling AS t ON r.id_travel = t.id
+                              LEFT JOIN user AS u ON r.id_user = u.id_nama_user
+                              WHERE t.id = '{$data['id']}' ORDER BY r.created_at DESC");
+                            if (mysqli_num_rows($koment) > 0) {
+                                while ($komentar = mysqli_fetch_array($koment)) {
+                            ?>
+                                    <div class="comment">
+                                        <h6>
+                                            <?php
+                                            echo htmlspecialchars($komentar['username'], ENT_QUOTES, 'UTF-8');
+                                            ?>
+                                        </h6>
+                                        <p><?php echo htmlspecialchars($komentar['review'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                        <small class="text-muted">Publish pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
+                                    </div>
+                                <?php
+                                }
+                            } else {
+                                // Display a message if there are no comments
+                                ?>
+                                <div class="no-comment-message">Belum Ada Komentar</div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <?php
+    } else {
+    ?>
+        <div class="kotak-komen">
+            <h3>Komentar</h3>
+            <h1>Harap Login Terlebih dahulu</h1>
+        </div>
+    <?php
+    }
+    ?>
+    <!-- End Komentar -->
+
 
     <!-- Footer Start -->
     <?php include "../public/layouts/footer.php" ?>

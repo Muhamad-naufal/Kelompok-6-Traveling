@@ -63,7 +63,7 @@ k.id_nama_kategori where d.id_nama_daerah = '{$_GET['id_nama_daerah']}'");
                     <a href="../index.php" class="nav-item nav-link">Home</a>
                     <a href="about.php" class="nav-item nav-link">About</a>
                     <a href="search_kategori.php" class="nav-item nav-link">Kategori</a>
-                    <a href="daftar_daerah.php" class="nav-item nav-link">Daerah</a>
+                    <a href="daftar_daerah.php" class="nav-item nav-link active">Daerah</a>
                 </div>
                 <div class="register-login d-flex align-items-center">
                     <?php
@@ -84,8 +84,9 @@ k.id_nama_kategori where d.id_nama_daerah = '{$_GET['id_nama_daerah']}'");
                     <?php } ?>
                 </div>
             </div>
-        </nav>
 
+        </nav>
+        <?php include 'login.php' ?>
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
