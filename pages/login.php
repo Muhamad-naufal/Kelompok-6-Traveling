@@ -34,7 +34,7 @@
                         <!-- Form Register Start -->
                         <div aria-labelledby="register-tab" class="tab-pane fade" id="register" role="tabpanel">
                             <h4 class="text-center border-b pb-2 pt-3">Register</h4>
-                            <form method="post" action="proses_register.php" name="form-register">
+                            <form method="post" action="pages/proses_register.php" name="form-register">
                                 <div class="form-group mb-3">
                                     <input type="text" name="nama_lengkap_user" class="form-control" placeholder="Nama Lengkap" autocomplete="off">
                                 </div>
