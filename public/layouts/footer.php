@@ -1,40 +1,22 @@
-<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Menu</h4>
-                <a class="btn btn-link" href="">About</a>
-                <a class="btn btn-link" href="">Destination</a>
-                <a class="btn btn-link" href="">Gallery</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Kategori</h4>
-                <p class="mb-2">Wisata Pegunungan</p>
-                <p class="mb-2">Wisata Danau</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Daerah</h4>
-                <p class="mb-2">Tasikmalaya</p>
-                <p class="mb-2">Bogor</p>
-                <p class="mb-2">Bandung</p>
-            </div>
-
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Kelompok 6</a>, All Right Reserved.
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="d-inline-flex align-items-center" style="height: 45px;">
-                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
+<div class="footer-corporate-bottom-panel">
+    <div class="container">
+        <div class="row justfy-content-xl-space-berween row-10 align-items-md-center2">
+            <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                <div>
+                    <ul class="list-inline list-inline-sm footer-social-list-2">
+                        <li><a class="icon fa fa-facebook" href="#"></a></li>
+                        <li><a class="icon fa fa-twitter" href="#"></a></li>
+                        <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                        <li><a class="icon fa fa-instagram" href="#"></a></li>
+                    </ul>
                 </div>
+            </div>
+            <div class="col-sm-6 col-md-4 order-sm-first">
+                <!-- Rights-->
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Healing Yuk</span>. All Rights Reserved. Design by <a href="#">Healing Yuk</a></p>
+            </div>
+            <div class="col-sm-6 col-md-4 text-md-right">
+                <p class="rights"><a href="#">Privacy Policy</a></p>
             </div>
         </div>
     </div>

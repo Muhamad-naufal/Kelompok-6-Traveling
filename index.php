@@ -1,127 +1,169 @@
+<?php
+session_start();
+include "public/config/connection.php";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html class="wide wow-animation" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Healing Yuk</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="public/assets/img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="public/assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="public/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="public/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="public/assets/css/style.css" rel="stylesheet">
+  <title>Home</title>
+  <?php
+  include  "public/layouts/head.php";
+  ?>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <?php
-    // include "public/layouts/spinner.php"
-    ?>
-    <!-- Spinner End -->
 
-    <!-- Navbar & Hero End -->
-    <div class="container-fluid position-relative p-0">
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Healing Yuk</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
-                    <a href="pages/about.php" class="nav-item nav-link">About</a>
-                    <a href="pages/search_kategori.php" class="nav-item nav-link">Kategori</a>
-                    <a href="pages/daftar_daerah.php" class="nav-item nav-link">Daerah</a>
-                </div>
-                <div class="register-login d-flex align-items-center">
-                    <?php
-                    session_start();
+  <?
+  include "public/layouts/preloader.php";
+  ?>
 
-                    if (isset($_SESSION['username'])) {
-                    ?>
-                        <span class="badge bg-success">Hai, <?= $_SESSION['username'] ?></span>&nbsp;
-
-                        <a href="pages/proses_logout.php" class="me-3">
-                            <i class="bi bi-box-arrow-right"></i> Logout
-                        </a>
-
-                    <?php } else { ?>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
-                            <i class="fas fa-user"></i>&nbsp; Login/Register
-                        </a>
-                    <?php } ?>
-                </div>
+  <div class="page">
+    <header class="section page-header">
+      <!-- RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="106px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+          <?php
+          include "public/layouts/header.php";
+          ?>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <div class="rd-navbar-nav-wrap">
+                <!-- RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li class="rd-nav-item active"><a class="rd-nav-link" href="index.php">Home</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="about.php">About</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="kategori.php">Kategori</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="daerah.php">Daerah</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
+                  </li>
+                  <?php
+                  // Check if the user is logged in
+                  if (isset($_SESSION['username_user'])) { ?>
+                    <li class="dropdown rd-nav-item">
+                      <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="logout.php">Logout</a></li>
+                      </ul>
+                    </li>
+                  <?php }
+                  ?>
+                </ul>
+              </div>
             </div>
+          </div>
         </nav>
+      </div>
+    </header>
 
-        <?php include 'pages/login.php' ?>
-        <!-- Navbar End -->
+    <!-- Swiper-->
+    <?php
+    include "public/layouts/swiper.php";
+    ?>
 
-        <!-- Hero Start -->
-        <?php include "public/layouts/hero.php" ?>
-        <!-- Hero Start -->
+    <!-- Section Box Categories-->
+    <?php
+    include "public/layouts/kategori.php";
+    ?>
 
-    </div>
-    <!-- Navbar & Hero End -->
+    <!-- Daerah -->
+    <?php
+    include "public/layouts/daerah.php";
+    ?>
 
-    <!-- Kategori Start -->
-    <?php include "public/layouts/kategori.php" ?>
-    <!-- Kategori End -->
+    <!-- Hot tours-->
+    <section class="section section-sm bg-default">
+      <div class="container">
+        <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Destinasi</span></h3>
+        <div class="row row-sm row-40 row-md-50">
+          <div class="col-sm-6 col-md-12 wow fadeInRight">
+            <?php
+            $kate = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on 
+            t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah group by k.id_nama_kategori order by t.id desc limit 3");
 
-    <!-- Daerah Start -->
-    <?php include "public/layouts/daerah.php" ?>
-    <!-- Daerah End -->
+            while ($data1 = mysqli_fetch_array($kate)) {
+              $deskripsi = strip_tags($data1['deskripsi']); // Remove HTML tags
+              $words = str_word_count($deskripsi, 1); // Split the string into an array of words
+              $limitedWords = implode(' ', array_slice($words, 0, 20));
+            ?>
+              <!-- Product Big-->
+              <article class="product-big mb-3">
+                <div class="unit flex-column flex-md-row align-items-md-stretch">
+                  <div class="unit-left"><a class="product-big-figure" href=""><img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="600" height="366" /></a></div>
+                  <div class="unit-body">
+                    <div class="product-big-body">
+                      <h5 class="product-big-title"><a href="#"><?php echo $data1['nama_tempat'] ?>, Jawa Barat</a></h5>
+                      <p class="product-big-text"><?php echo htmlspecialchars($limitedWords) ?>....</p>
+                      <a class="button button-black-outline button-ujarak" href="detail_destinasi.php?id=<?php echo $data1['id'] ?>">Detail Destinasi</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price"><?php echo 'Rp ' . number_format($data1['price'], 0, ',', '.') ?>
+                        </span></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            <?php } ?>
+          </div>
+          <div class="col-sm-6 col-md-12 wow fadeInLeft">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Destination Start -->
-    <?php include "public/layouts/destinasi.php" ?>
-    <!-- Destination Start -->
+    <!-- Section Subscribe-->
+    <section class="section bg-default text-center offset-top-50">
+      <div class="parallax-container" data-parallax-img="public/assets/images/paralax.jpg">
+        <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
+          <div class="container">
+            <h2 class="heading-2 oh font-weight-normal wow slideInDown"><span class="d-block font-weight-semi-bold">Banyak Destinasinya kan?</span></h2>
+            <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Perjalanan yang sempurna adalah saat-saat di mana kita merasa terhubung dengan dunia di sekitar kita, di mana kita menyelami budaya dan sejarah, dan di mana kita membangun kenangan yang abadi. Dalam perjalanan yang baik, kita bukan hanya menjadi pengamat, tetapi juga bagian dari cerita yang terjadi di setiap sudut kota yang kita datangi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!--	Instagrram wondertour-->
+    <section class="section section-sm section-top-0 section-fluid section-relative bg-gray-4">
+      <div class="container-fluid">
+        <h6 class="gallery-title">Gallery</h6>
+        <!-- Owl Carousel-->
+        <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15" data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
+          <?php
+          $kate1 = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on 
+            t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah group by 
+            k.id_nama_kategori order by t.id desc limit 10");
+          while ($data1 = mysqli_fetch_array($kate1)) {
+          ?>
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+              <div class="thumbnail-mary-figure"><img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="270" height="195" />
+              </div>
+              <div class="thumbnail-mary-caption">
+                <a class="icon fl-bigmug-line-zoom60" href="admin/pages/travel/<?php echo $data1['gambar'] ?>" data-lightgallery="item" style="max-width: 300vh !important; max-height:300vh !important">
+                  <img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" style="width: 300vh !important; height:300vh !important" />
+                </a>
+              </div>
+            </article>
+          <?php } ?>
+        </div>
+      </div>
+    </section>
 
-    <!-- Footer Start -->
-    <?php include "public/layouts/footer.php" ?>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="public/assets/lib/wow/wow.min.js"></script>
-    <script src="public/assets/lib/easing/easing.min.js"></script>
-    <script src="public/assets/lib/waypoints/waypoints.min.js"></script>
-    <script src="public/assets/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="public/assets/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="public/assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="public/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="public/assets/js/main.js"></script>
+    <!-- Rights-->
+    <?php
+    include "public/layouts/footer.php";
+    ?>
+    </footer>
+  </div>
+  <!-- Global Mailform Output-->
+  <div class="snackbars" id="form-output-global"></div>
+  <!-- Javascript-->
+  <script src="public/assets/js/core.min.js"></script>
+  <script src="public/assets/js/script.js"></script>
 </body>
 
 </html>
