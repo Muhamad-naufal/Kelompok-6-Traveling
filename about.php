@@ -143,7 +143,7 @@ include "public/config/connection.php"
 
     <section class="section section-sm">
       <div class="container">
-        <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">TeamS</span></h3>
+        <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Team F</span></h3>
         <div class="row row-30 justify-content-center box-ordered">
           <div class="col-sm-6 col-md-5 col-lg-3">
             <!-- Team Modern-->
@@ -158,7 +158,6 @@ include "public/config/connection.php"
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Muhamad Fauzan</a></h6>
                 <p class="team-modern-status">Mahasiswa</p>
-                <h6 class="team-modern-phone"><a href="tel:#">0821..........</a></h6>
               </div>
             </article>
           </div>
@@ -175,7 +174,6 @@ include "public/config/connection.php"
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Muhamad Naufal</a></h6>
                 <p class="team-modern-status">Mahasiswa</p>
-                <h6 class="team-modern-phone"><a href="tel:#">08........</a></h6>
               </div>
             </article>
           </div>
@@ -192,7 +190,6 @@ include "public/config/connection.php"
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Maieka Sari</a></h6>
                 <p class="team-modern-status">Mahasiswa</p>
-                <h6 class="team-modern-phone"><a href="tel:#">08.........</a></h6>
               </div>
             </article>
           </div>
@@ -207,9 +204,8 @@ include "public/config/connection.php"
                 </svg>
               </div>
               <div class="team-modern-caption">
-                <h6 class="team-modern-name"><a href="#">Anisa Sumayyah</a></h6>
+                <h6 class="team-modern-name"><a href="#">Annisa Sumayyah</a></h6>
                 <p class="team-modern-status">Mahasiswa</p>
-                <h6 class="team-modern-phone"><a href="tel:#">08.......</a></h6>
               </div>
             </article>
           </div>
