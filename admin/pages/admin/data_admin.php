@@ -185,7 +185,6 @@ if (!isset($_SESSION["username"])) {
                                                 <th>No</th>
                                                 <th>Nama Lengkap</th>
                                                 <th>Username</th>
-                                                <th>Password</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -200,18 +199,6 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['nama_lengkap']; ?></td>
                                                     <td><?php echo $data['username']; ?></td>
-                                                    <td>
-                                                        <?php
-                                                        $password = $data['password'];
-                                                        $length = strlen($password);
-
-                                                        // Ganti setiap karakter dengan "*"
-                                                        $maskedPassword = str_repeat('*', $length);
-
-                                                        // Tampilkan password yang telah dimask
-                                                        echo $maskedPassword;
-                                                        ?>
-                                                    </td>
                                                     <td>
                                                         <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="f_hapus.php?id_nama_admin=<?php echo $data["id_nama_admin"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>

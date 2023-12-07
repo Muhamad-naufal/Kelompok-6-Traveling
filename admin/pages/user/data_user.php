@@ -184,7 +184,6 @@ if (!isset($_SESSION["username"])) {
                                                 <th>No</th>
                                                 <th>Nama Lengkap</th>
                                                 <th>Username</th>
-                                                <th>Password</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -199,9 +198,8 @@ if (!isset($_SESSION["username"])) {
                                                     <td><?php echo $no++ ?></td>
                                                     <td><?php echo $data['nama_lengkap_user']; ?></td>
                                                     <td><?php echo $data['username_user']; ?></td>
-                                                    <td><?php echo $data['password']; ?></td>
                                                     <td>
-                                                    <a href="f_hapus_user.php?id_nama_user=<?php echo $data["id_nama_user"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
+                                                        <a href="f_hapus_user.php?id_nama_user=<?php echo $data["id_nama_user"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php
