@@ -40,16 +40,20 @@ include "public/config/connection.php";
                   </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="daerah.php">Daerah</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
-                  </li>
                   <?php
                   // Check if the user is logged in
-                  if (isset($_SESSION['username_user'])) { ?>
+                  if (isset($_SESSION["username"])) { ?>
                     <li class="dropdown rd-nav-item">
-                      <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                      <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown">
+                        <?php echo $_SESSION["username"] ?>
+                        <b class="caret"></b>
+                      </a>
                       <ul class="dropdown-menu">
                         <li><a href="logout.php">Logout</a></li>
                       </ul>
+                    </li>
+                  <?php } else { ?>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
                     </li>
                   <?php }
                   ?>
@@ -84,7 +88,7 @@ include "public/config/connection.php";
           <div class="col-sm-6 col-md-12 wow fadeInRight">
             <?php
             $kate = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on 
-            t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah group by k.id_nama_kategori order by t.id desc limit 3");
+            t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah group by k.id_nama_kategori order by t.created_at desc limit 3");
 
             while ($data1 = mysqli_fetch_array($kate)) {
               $deskripsi = strip_tags($data1['deskripsi']); // Remove HTML tags

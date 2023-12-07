@@ -262,17 +262,16 @@ if (!isset($_SESSION["username"])) {
                                             <div class="row mb-4">
                                                 <label class="col-sm-2 col-form-label">Daerah</label>
                                                 <div class="form-group col-sm-10">
-                                                    <select class="form-control mt-3 mb-3" name="daerah" id="daerah">
+                                                    <select class="form-select" name="daerah" id="daerah">
+                                                        <option value='' <?php if ($id_daerah == '') echo 'selected'; ?>>Kategori yang dipilih tidak ada!</option>
                                                         <?php
                                                         // Fetch data from the "items" table
-                                                        include '../../../public/config/connection.php';
                                                         $query = mysqli_query($connect, "SELECT * FROM daerah");
                                                         if (mysqli_num_rows($query) > 0) {
                                                             while ($data = mysqli_fetch_array($query)) {
-                                                                echo "<option value='" . $data["id_nama_daerah"] . "'>" . $data["nama_daerah"] . "</option>";
+                                                                $selected = ($data['id_nama_daerah'] == $id_daerah) ? 'selected' : '';
+                                                                echo "<option value='" . $data["id_nama_daerah"] . "'$selected>" . $data["nama_daerah"] . "</option>";
                                                             }
-                                                        } else {
-                                                            echo "<option value=''>No items available</option>";
                                                         }
                                                         ?>
                                                     </select>

@@ -36,16 +36,19 @@ include "public/config/connection.php"
                                     </li>
                                     <li class="rd-nav-item active"><a class="rd-nav-link" href="daerah.php">Daerah</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
-                                    </li>
                                     <?php
-                                    // Check if the user is logged in
-                                    if (isset($_SESSION['username_user'])) { ?>
+                                    if (isset($_SESSION["username"])) { ?>
                                         <li class="dropdown rd-nav-item">
-                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown">
+                                                <?php echo $_SESSION["username"] ?>
+                                                <b class="caret"></b>
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="logout.php">Logout</a></li>
                                             </ul>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
                                         </li>
                                     <?php }
                                     ?>

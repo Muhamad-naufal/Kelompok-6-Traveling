@@ -36,16 +36,19 @@ include "public/config/connection.php"
                                     </li>
                                     <li class="rd-nav-item active"><a class="rd-nav-link" href="daerah.php">Daerah</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
-                                    </li>
                                     <?php
-                                    // Check if the user is logged in
-                                    if (isset($_SESSION['username_user'])) { ?>
+                                    if (isset($_SESSION["username"])) { ?>
                                         <li class="dropdown rd-nav-item">
-                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown">
+                                                <?php echo $_SESSION["username"] ?>
+                                                <b class="caret"></b>
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="logout.php">Logout</a></li>
                                             </ul>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
                                         </li>
                                     <?php }
                                     ?>
@@ -78,7 +81,15 @@ include "public/config/connection.php"
                 <div class="row row-30 justify-content-center box-ordered">
                     <?php
                     include "public/config/connection.php";
-                    $query1 = mysqli_query($connect, "SELECT d.*, t.id, t.gambar FROM daerah as d join traveling as t on t.id_daerah = d.id_nama_daerah order by t.id");
+                    $query1 = mysqli_query($connect, "SELECT d.*, t.id, t.gambar
+                    FROM daerah AS d
+                    JOIN (
+                        SELECT id_daerah, MIN(id) AS id
+                        FROM traveling
+                        GROUP BY id_daerah
+                    ) AS t_min ON t_min.id_daerah = d.id_nama_daerah
+                    JOIN traveling AS t ON t.id = t_min.id 
+                    ORDER BY d.id_nama_daerah;");
                     while ($data2 = mysqli_fetch_array($query1)) {
                     ?>
                         <div class="col-sm-6 col-md-5 col-lg-3">

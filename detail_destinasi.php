@@ -14,7 +14,6 @@ include "public/config/connection.php"
 
     <style>
         .comment {
-            border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 15px;
             background-color: #f9f9f9;
@@ -36,7 +35,6 @@ include "public/config/connection.php"
         .comments-section {
             max-height: 300px;
             overflow-y: auto;
-            border: 1px solid #ccc;
             padding: 10px;
             max-width: 100%;
             border-radius: 5px;
@@ -77,16 +75,19 @@ include "public/config/connection.php"
                                     </li>
                                     <li class="rd-nav-item"><a class="rd-nav-link" href="daerah.php">Daerah</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
-                                    </li>
                                     <?php
-                                    // Check if the user is logged in
-                                    if (isset($_SESSION['username_user'])) { ?>
+                                    if (isset($_SESSION["username"])) { ?>
                                         <li class="dropdown rd-nav-item">
-                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown"><?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                                            <a href="#" class="dropdown-toggle rd-nav-link" data-toggle="dropdown">
+                                                <?php echo $_SESSION["username"] ?>
+                                                <b class="caret"></b>
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="logout.php">Logout</a></li>
                                             </ul>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="login.php">Login</a>
                                         </li>
                                     <?php }
                                     ?>
@@ -123,7 +124,7 @@ include "public/config/connection.php"
         <section class="section section-sm section-first bg-default text-md-left">
             <div class="container">
                 <div class="row row-50 justify-content-center align-items-xl-center">
-                    <div class="col-md-10 col-lg-5 col-xl-6"><img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="519" height="564" />
+                    <div class="col-md-10 col-lg-5 col-xl-6 gambar-travel"><img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="519" height="564" />
                     </div>
                     <div class="col-md-10 col-lg-7 col-xl-6">
                         <h1 class="text-spacing-25 font-weight-normal title-opacity-9">Selamat Datang di <?php echo $data1['nama_tempat'] ?></h1>
@@ -162,19 +163,46 @@ include "public/config/connection.php"
             </div>
         </section>
 
+        <section class="section section-sm">
+            <h3>Rekomendasi Destinasi</h3>
+            <div class="row row-30 justify-content-center box-ordered">
+                <?php
+                include "public/config/connection.php";
+                $id_sekarang = $_GET['id'];
+                $query1 = mysqli_query($connect, "SELECT t.id, t.gambar, t.nama_tempat FROM traveling as t where t.id != $id_sekarang order by RAND() limit 5");
+                while ($data2 = mysqli_fetch_array($query1)) {
+                ?>
+                    <div class="col-sm-6 col-md-5 col-lg-3">
+                        <!-- Team Modern-->
+                        <article class="team-modern">
+                            <div class="team-modern-header"><a class="team-modern-figure" href="detail_destinasi.php?id=<?php echo $data2['id'] ?>"><img class="img-circles" src="admin/pages/travel/<?php echo $data2['gambar'] ?>" alt="" style="max-width: 118px !important; height:118px !important" /></a>
+                                <svg x=" 0px" y="0px" width="270px" height="70px" viewbox="0 0 270 70" enable-background="new 0 0 270 70" xml:space="preserve">
+                                    <g>
+                                        <path fill="#161616" d="M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="team-modern-caption">
+                                <h6 class="team-modern-name"><a href="detail_destinasi.php?id=<?php echo $data2['id'] ?>"><?php echo $data2['nama_tempat'] ?></a></h6>
+                            </div>
+                        </article>
+                    </div>
+                <?php } ?>
+            </div>
+        </section>
+
         <!-- Komentar Section -->
         <form action="f_komen.php" method="post">
             <div class="kotak-komen">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Komentar</h3>
                         <div class="mb-3">
                             <input type="hidden" value="<?php echo $data1['id'] ?>" name="id" readonly>
                         </div>
                         <?php
-                        if (isset($_SESSION['username_user'])) {
+                        if (isset($_SESSION['username'])) {
                         ?>
-                            <div class="mb-3">
+                            <div class="mb-3 mt-5">
                                 <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
                                 <textarea class="form-control" id="komentar" rows="3" name="komentar"></textarea>
                             </div>
@@ -204,13 +232,8 @@ include "public/config/connection.php"
                                         <p class="review"><?php echo htmlspecialchars($komentar['review'], ENT_QUOTES, 'UTF-8'); ?></p>
                                         <small class="text-muted">Publish pada <?php echo date('F j, Y, g:i a', strtotime($komentar['created_at'])); ?></small>
                                     </div>
-                                <?php
-                                }
-                            } else {
-                                // Display a message if there are no comments
-                                ?>
-                                <div class="no-comment-message">Belum Ada Komentar</div>
                             <?php
+                                }
                             }
                             ?>
                         </div>

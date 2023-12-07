@@ -27,8 +27,7 @@
                         <div class="unit-body"><a class="link-phone" href="tel:#">082133887594</a></div>
                     </div>
                 </li>
-            </ul><a class="button button-md button-default-outline-2 button-ujarak" href="index.php">Jelajahi
-            </a>
+            </ul>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ $id = $_POST["id"];
 $username = $_SESSION['username'];
 
 // Retrieve user ID from the database based on the username
-$result_user = mysqli_query($connect, "SELECT id_nama_user FROM user WHERE username = '$username'");
+$result_user = mysqli_query($connect, "SELECT id_nama_user FROM user WHERE username_user = '$username'");
 $row_user = mysqli_fetch_assoc($result_user);
 $id_user = $row_user['id_nama_user'];
 

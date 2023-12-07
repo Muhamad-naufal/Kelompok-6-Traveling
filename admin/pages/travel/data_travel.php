@@ -185,12 +185,10 @@ if (!isset($_SESSION["username"])) {
                                                 <th>No</th>
                                                 <th>Nama Wisata</th>
                                                 <th>Gambar</th>
-                                                <th>Deskripsi</th>
                                                 <th>Harga Masuk</th>
                                                 <th>Fasilitas</th>
                                                 <th>Kategori</th>
                                                 <th>Daerah</th>
-                                                <th>Lokasi</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -212,9 +210,6 @@ if (!isset($_SESSION["username"])) {
                                                         <img src="<?php echo $data["gambar"] ?>" width="100">
                                                     </td>
                                                     <td>
-                                                        <?php echo $data['deskripsi']; ?>
-                                                    </td>
-                                                    <td>
                                                         Rp. <?php echo number_format($data['price'], 2, '.', ','); ?>
                                                     </td>
                                                     <td>
@@ -225,9 +220,6 @@ if (!isset($_SESSION["username"])) {
                                                     </td>
                                                     <td>
                                                         <?php echo $data['nama_daerah']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo htmlspecialchars($data['lokasi'])  ?>
                                                     </td>
                                                     <td>
                                                         <a href="edit_travel.php?id=<?php echo $data['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>

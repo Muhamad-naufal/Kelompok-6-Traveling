@@ -1,24 +1,25 @@
 <?php
 include "public/config/connection.php";
 
-// Ambil data dari form
-$username = $_POST['username'];
-$password = md5($_POST['password']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get username and password from the form
+    $username = $_POST["username"];
+    $password = md5($_POST["password"]);
 
-// Query untuk mencari user berdasarkan username dan password
-$query = "SELECT * FROM user WHERE username_user='$username' AND password='$password'";
-$result = $connect->query($query);
+    // SQL query to fetch user from the database
+    $sql = "SELECT * FROM `user` WHERE username_user = '$username' AND password = '$password'";
+    $result = $connect->query($sql);
 
-// Cek apakah user ditemukan
-if ($result->num_rows > 0) {
-    session_start();  // Mulai sesi
-    $_SESSION['username'] = $username;  // Simpan nama pengguna di sesi
-    header('Location: index.php');  // Arahkan ke index.php
-    exit();
-} else {
-    // User tidak ditemukan, berikan pesan error
-    $_SESSION['error_message'] = "Login Gagal. Username atau Password Salah.";
-    echo "Login failed. Invalid username or password.";
+    if ($result->num_rows > 0) {
+        // Login successful
+        session_start();
+        $_SESSION["username"] = $username;
+        echo '<script>alert("Login berhasil"); window.location.href = "index.php";</script>';
+        exit();
+    } else {
+        // Login failed
+        echo '<script>alert("Invalid username or password"); window.location.href = "login.php";</script>';
+    }
 }
 
 // Tutup koneksi
