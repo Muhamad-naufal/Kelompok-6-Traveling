@@ -13,14 +13,14 @@
         </div>
         <div class="rd-navbar-aside-right rd-navbar-collapse">
             <ul class="rd-navbar-corporate-contacts">
-                <li>
+                <!-- <li>
                     <div class="unit unit-spacing-xs">
                         <div class="unit-left"><span class="icon fa fa-clock-o"></span></div>
                         <div class="unit-body">
                             <p>09:00<span>am</span> — 05:00<span>pm</span></p>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <div class="unit unit-spacing-xs">
                         <div class="unit-left"><span class="icon fa fa-phone"></span></div>
