@@ -242,6 +242,7 @@ include "public/config/connection.php"
             </div>
         </form>
         <!-- End Komentar -->
+        <div class="sharethis-inline-share-buttons"></div>
 
 
         <?php
