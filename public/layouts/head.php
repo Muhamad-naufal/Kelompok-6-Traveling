@@ -5,6 +5,7 @@
   <link rel="icon" href="public/assets/images/favicon.ico" type="image/x-icon">
   <!-- Stylesheets-->
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="public/assets/css/bootstrap.css">
   <link rel="stylesheet" href="public/assets/css/fonts.css">
   <link rel="stylesheet" href="public/assets/css/style.css">
