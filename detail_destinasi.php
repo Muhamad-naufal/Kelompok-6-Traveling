@@ -240,6 +240,8 @@ include "public/config/connection.php"
                     </div>
                 </div>
             </div>
+            <div class="sharethis-inline-share-buttons"></div>
+            <br>
         </form>
         <!-- End Komentar -->
 

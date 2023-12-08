@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="public/assets/css/bootstrap.css">
   <link rel="stylesheet" href="public/assets/css/fonts.css">
   <link rel="stylesheet" href="public/assets/css/style.css">
+  <script type="text/javascript" 
+  src="https://platform-api.sharethis.com/js/sharethis.js#property=6572abd82b444300196745c9&product=inline-share-buttons&source=platform" async="async">
+</script>
   <style>
       .ie-panel {
           display: none;
