@@ -313,7 +313,7 @@ include "public/config/connection.php"
                     </div>
                 </div>
             </div>
-            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdomain.tld%2Fnew-blogspot&layout&size&width=200&height=50&appId" width="200" height="50" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fkelompok6f.com&layout&size&width=89&height=20&appId" width="89" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             <br>
         </form>
         <!-- Tombol Love -->
