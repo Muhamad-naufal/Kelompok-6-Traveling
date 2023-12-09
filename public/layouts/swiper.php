@@ -31,7 +31,6 @@
                         <div class="col-md-10">
                             <h6 class="text-uppercase" data-caption-animate="fadeInRight" data-caption-delay="0">Jadikan Liburanmu Bermakna</h6>
                             <h2 class="oh font-weight-light" data-caption-animate="slideInUp" data-caption-delay="100"><span>Buat</span><span class="font-weight-bold"> Perjalananmu Sendiri</span></h2>
-                            <a class="button button-default-outline button-ujarak" href="#" data-caption-animate="fadeInLeft" data-caption-delay="0">Lihat Lebih Banyak</a>
                         </div>
                     </div>
                 </div>

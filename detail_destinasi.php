@@ -49,6 +49,30 @@ include "public/config/connection.php"
             margin-left: 150px;
             margin-bottom: 20px;
         }
+
+        .love-button {
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .love-button.full {
+            color: #e74c3c;
+            /* Warna ikon love penuh */
+        }
+
+        .love-button.empty {
+            color: lightgray;
+            /* Warna ikon love kosong */
+        }
+
+        .lope {
+            margin-top: -1px;
+        }
+
+        .share {
+            margin-top: 5px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 
@@ -124,7 +148,56 @@ include "public/config/connection.php"
         <section class="section section-sm section-first bg-default text-md-left">
             <div class="container">
                 <div class="row row-50 justify-content-center align-items-xl-center">
-                    <div class="col-md-10 col-lg-5 col-xl-6 gambar-travel"><img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="519" height="564" />
+                    <div class="col-md-10 col-lg-5 col-xl-6 gambar-travel">
+                        <img src="admin/pages/travel/<?php echo $data1['gambar'] ?>" alt="" width="519" height="564" />
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            $userId = $_SESSION['username'];
+                        ?> <div class="row lope">
+                                <div class="col-md-1">
+                                    <?php
+                                    // Pastikan $_GET['id'] telah diatur sebelum menggunakannya
+                                    if (isset($_GET['id'])) {
+                                        $travelId = $_GET['id'];
+
+                                        // Mengambil ID pengguna berdasarkan username
+                                        $result_user = mysqli_query($connect, "SELECT id_nama_user FROM user WHERE username_user = '$userId'");
+                                        $row_user = mysqli_fetch_assoc($result_user);
+                                        $id_user = $row_user['id_nama_user'];
+
+                                        // Set your travel article ID here
+                                        $query = "SELECT * FROM user_like WHERE id_travel_like = $travelId AND id_user_like = $id_user";
+                                        $result = mysqli_query($connect, $query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+                                            $iconClass = '<div class="love-button full"><i class="fas fa-heart"></i></div>';
+                                        } else {
+                                            $iconClass = '<div class="love-button empty"><i class="fas fa-heart kosong"></i></div>';
+                                        }
+
+                                        echo '<div class="like-button" data-travel-id="' . $travelId . '" data-user-id="' . $id_user . '">';
+                                        echo $iconClass;
+                                        echo '</div>';
+
+                                    ?>
+                                </div>
+                                <div class="angka_lope mt-2">
+                                    <?php
+                                        $travel = mysqli_query($connect, "SELECT COUNT(id_user_like) AS total_likes FROM user_like WHERE id_travel_like = $travelId");
+                                        $travelLikes = mysqli_fetch_assoc($travel);
+                                    ?>
+                                    <p><?php echo $travelLikes['total_likes'] ?></p>
+                                </div>
+                                <div class="sharethis-inline-share-buttons share"></div>
+                            </div>
+                    <?php
+                                    } else {
+                                        echo '<p>Invalid travel ID.</p>';
+                                    }
+                                } else {
+                                    echo '<p><a href="login.php">Login<a> untuk menyukai dan share artikel</p>';
+                                }
+                    ?>
                     </div>
                     <div class="col-md-10 col-lg-7 col-xl-6">
                         <h1 class="text-spacing-25 font-weight-normal title-opacity-9">Selamat Datang di <?php echo $data1['nama_tempat'] ?></h1>
@@ -240,11 +313,11 @@ include "public/config/connection.php"
                     </div>
                 </div>
             </div>
-            <div class="sharethis-inline-share-buttons"></div>
-            <br>
-        </form>
-        <!-- End Komentar -->
 
+        </form>
+        <!-- Tombol Love -->
+
+        <!-- End Komentar -->
 
         <?php
         include "public/layouts/footer.php";
@@ -256,6 +329,35 @@ include "public/config/connection.php"
     <!-- Javascript-->
     <script src="public/assets/js/core.min.js"></script>
     <script src="public/assets/js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.like-button').click(function() {
+                var travelId = $(this).data('travel-id');
+                var userId = $(this).data('user-id');
+                var likeButton = $(this); // Store the like button element
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'f_suka.php',
+                    data: {
+                        travelId: travelId,
+                        userId: userId
+                    },
+                    success: function(response) {
+                        // Handle the response if needed
+
+                        // Reload the page
+                        location.reload();
+                    },
+                    error: function(error) {
+                        // Handle the error if needed
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/25db4f44a1.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
