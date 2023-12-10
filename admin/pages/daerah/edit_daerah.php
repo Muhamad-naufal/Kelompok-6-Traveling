@@ -114,13 +114,13 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_daerah.php" class="nav-link active">
+                                    <a href="../daerah/data_daerah.php" class="nav-link active">
                                         <i class="nav-icon fas fa-location"></i>
                                         <p>Daerah</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../kategori/data_kategori.php" class="nav-link">
+                                    <a href="../kategori/data_kategori.php" class="nav-link ">
                                         <i class="nav-icon fas fa-list"></i>
                                         <p>Kategori</p>
                                     </a>
@@ -135,6 +135,12 @@ if (!isset($_SESSION["username"])) {
                                     <a href="../review/data_review.php" class="nav-link">
                                         <i class="nav-icon fas fa-comment-dots"></i>
                                         <p>Review</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../like/data_like.php" class="nav-link">
+                                        <i class="nav-icon fas fa-heart"></i>
+                                        <p>Like</p>
                                     </a>
                                 </li>
                             </ul>

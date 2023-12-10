@@ -1,3 +1,18 @@
+<!-- detail_kategori.php -->
+<?php
+include "public/config/connection.php";
+
+// Get the search query from the form
+$pencarian = isset($_GET['pencarian']) ? $_GET['pencarian'] : '';
+
+// Perform a simple search (you might want to improve this based on your actual data and requirements)
+$sql = "SELECT * FROM daerah WHERE nama_daerah LIKE '%$pencarian%'";
+$result = $connect->query($sql);
+
+// Close the database connection
+$connect->close();
+?>
+
 <?php
 session_start();
 include "public/config/connection.php"
@@ -7,7 +22,7 @@ include "public/config/connection.php"
 <html class="wide wow-animation" lang="en">
 
 <head>
-    <title>Daerah</title>
+    <title>Kategori</title>
     <?php
     include "public/layouts/head.php";
     ?>
@@ -34,7 +49,7 @@ include "public/config/connection.php"
                                     </li>
                                     <li class="rd-nav-item"><a class="rd-nav-link" href="kategori.php">Kategori</a>
                                     </li>
-                                    <li class="rd-nav-item active"><a class="rd-nav-link" href="daerah.php">Daerah</a>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="daerah.php">Daerah</a>
                                     </li>
                                     <?php
                                     if (isset($_SESSION["username"])) { ?>
@@ -64,57 +79,55 @@ include "public/config/connection.php"
         <section class="breadcrumbs-custom-inset">
             <div class="breadcrumbs-custom context-dark bg-overlay-60">
                 <div class="container">
-                    <h2 class="breadcrumbs-custom-title">Daerah</h2>
+                    <h2 class="breadcrumbs-custom-title">Hasil Pencarian</h2>
                     <ul class="breadcrumbs-custom-path">
                         <li><a href="index.php">Home</a></li>
-                        <li class="active">Daerah</li>
+                        <li class="active">Hasil Pencarian</li>
                     </ul>
                 </div>
-                <div class="box-position" style="background-image: url(public/assets/images/salak.jpg);"></div>
+                <div class="box-position" style="background-image: url(public/assets/images/slamet.jpg);"></div>
             </div>
         </section>
         <!-- Why choose us-->
 
         <section class="section section-sm">
             <div class="container">
-                <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Daerah</span></h3>
-                <div class="w-50 mx-auto animated slideInDown mb-5 mt-5" style="position: relative;">
-                    <form action="search_daerah.php" method="get">
-                        <input class="form-control rounded-pill w-100" name="pencarian" type="text" placeholder="Cari Daerah.." style="border-radius: 16px;">
-                        <button type="submit" class="btn btn-primary btn-sm py-2 px-4" style="position: absolute; top: 0; right: 0; border-radius: 16px;"><i class="bi-search"></i></button>
-                    </form>
-                </div>
-                <div class="row row-30 justify-content-center box-ordered">
-                    <?php
-                    include "public/config/connection.php";
-                    $query1 = mysqli_query($connect, "SELECT d.*, t.id, t.gambar
-                    FROM daerah AS d
-                    JOIN (
-                        SELECT id_daerah, MIN(id) AS id
-                        FROM traveling
-                        GROUP BY id_daerah
-                    ) AS t_min ON t_min.id_daerah = d.id_nama_daerah
-                    JOIN traveling AS t ON t.id = t_min.id 
-                    ORDER BY d.id_nama_daerah;");
-                    while ($data2 = mysqli_fetch_array($query1)) {
-                    ?>
-                        <div class="col-sm-6 col-md-5 col-lg-3">
-                            <!-- Team Modern-->
-                            <article class="team-modern">
-                                <div class="team-modern-header"><a class="team-modern-figure" href="detail_daerah.php?id_nama_daerah=<?php echo $data2['id_nama_daerah'] ?>"><img class="img-circles" src="admin/pages/travel/<?php echo $data2['gambar'] ?>" alt="" style="max-width: 118px !important; height:118px !important" /></a>
-                                    <svg x=" 0px" y="0px" width="270px" height="70px" viewbox="0 0 270 70" enable-background="new 0 0 270 70" xml:space="preserve">
-                                        <g>
-                                            <path fill="#161616" d="M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z"></path>
-                                        </g>
-                                    </svg>
+                <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Destinasi Berdasar Pencarian</span></h3>
+
+                <?php
+                // Display the results
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) { ?>
+                        <div class="row row-30 justify-content-center box-ordered">
+                            <?php
+                            include "public/config/connection.php";
+                            $query1 = mysqli_query($connect, "SELECT d.*, t.gambar from daerah as d join traveling as t on t.id_daerah = d.id_nama_daerah where nama_daerah LIKE '%$pencarian%'  group by nama_daerah order by RAND()");
+                            while ($data2 = mysqli_fetch_array($query1)) {
+                            ?>
+                                <div class="col-sm-6 col-md-5 col-lg-3">
+                                    <!-- Team Modern-->
+                                    <article class="team-modern">
+                                        <div class="team-modern-header"><a class="team-modern-figure" href="detail_daerah.php?id_nama_daerah=<?php echo $data2['id_nama_daerah'] ?>">
+                                                <img class="img-circles" src="admin/pages/travel/<?php echo $data2['gambar'] ?>" alt="" style="max-width: 118px !important; height:118px !important" /></a>
+                                            <svg x=" 0px" y="0px" width="270px" height="70px" viewbox="0 0 270 70" enable-background="new 0 0 270 70" xml:space="preserve">
+                                                <g>
+                                                    <path fill="#161616" d="M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="team-modern-caption">
+                                            <h6 class="team-modern-name"><a href="detail_daerah.php?id_nama_daerah=<?php echo $data2['id_nama_daerah'] ?>"><?php echo $data2['nama_daerah'] ?></a></h6>
+                                        </div>
+                                    </article>
                                 </div>
-                                <div class="team-modern-caption">
-                                    <h6 class="team-modern-name"><a href="detail_daerah.php?id_nama_daerah=<?php echo $data2['id_nama_daerah'] ?>"><?php echo $data2['nama_daerah'] ?></a></h6>
-                                </div>
-                            </article>
+                            <?php } ?>
                         </div>
-                    <?php } ?>
-                </div>
+                <?php
+                    }
+                } else {
+                    echo "No results found.";
+                }
+                ?>
             </div>
         </section>
 

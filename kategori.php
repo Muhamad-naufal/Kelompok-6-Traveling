@@ -78,6 +78,12 @@ include "public/config/connection.php"
         <section class="section section-sm">
             <div class="container">
                 <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Kategori</span></h3>
+                <div class="w-50 mx-auto animated slideInDown mb-5 mt-5" style="position: relative;">
+                    <form action="search_kategori.php" method="get">
+                        <input class="form-control rounded-pill w-100" name="pencarian" type="text" placeholder="Cari kategori.." style="border-radius: 16px;">
+                        <button type="submit" class="btn btn-primary btn-sm py-2 px-4" style="position: absolute; top: 0; right: 0; border-radius: 16px;"><i class="bi-search"></i></button>
+                    </form>
+                </div>
                 <div class="row row-30 justify-content-center box-ordered">
                     <?php
                     include "public/config/connection.php";

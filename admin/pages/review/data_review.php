@@ -136,6 +136,12 @@ if (!isset($_SESSION["username"])) {
                                         <p>Review</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="../like/data_like.php" class="nav-link">
+                                        <i class="nav-icon fas fa-heart"></i>
+                                        <p>Like</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

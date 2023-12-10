@@ -2,13 +2,6 @@
 session_start();
 include "public/config/connection.php";
 
-if (isset($_GET['cari'])) {
-    $pencarian = $_GET['cari'];
-    $query = "SELECT * FROM traveling as t join daerah as d on t.id_daerah = d.id_nama_daerah where t.id_daerah = '$_GET[id_nama_daerah]' and nama_tempat like '%" . $pencarian . "%'";
-} else {
-    $query = "SELECT * FROM traveling as t join daerah as d on t.id_daerah = d.id_nama_daerah";
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -86,12 +79,9 @@ if (isset($_GET['cari'])) {
         <section class="section section-sm">
             <div class="container">
                 <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Destinasi Berdasar Daerah</span></h3>
-
                 <div class="w-50 mx-auto animated slideInDown mb-5 mt-5" style="position: relative;">
-                    <form action="" method="GET">
-                        <input class="form-control w-100" type="text" name="cari" placeholder="Cari Wisata.." value="<?php if (isset($_GET['cari'])) {
-                                                                                                                            echo $_GET['cari'];
-                                                                                                                        } ?>" style="border-radius: 16px;">
+                    <form action="search_destinasi.php" method="get">
+                        <input class="form-control rounded-pill w-100" name="pencarian" type="text" placeholder="Cari Wisata.." style="border-radius: 16px;">
                         <button type="submit" class="btn btn-primary btn-sm py-2 px-4" style="position: absolute; top: 0; right: 0; border-radius: 16px;"><i class="bi-search"></i></button>
                     </form>
                 </div>

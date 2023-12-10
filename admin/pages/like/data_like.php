@@ -8,6 +8,7 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,7 +121,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_kategori.php" class="nav-link active">
+                                    <a href="../kategori/data_kategori.php" class="nav-link">
                                         <i class="nav-icon fas fa-list"></i>
                                         <p>Kategori</p>
                                     </a>
@@ -138,7 +139,7 @@ if (!isset($_SESSION["username"])) {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../like/data_like.php" class="nav-link">
+                                    <a href="data_like.php" class="nav-link active">
                                         <i class="nav-icon fas fa-heart"></i>
                                         <p>Like</p>
                                     </a>
@@ -161,13 +162,12 @@ if (!isset($_SESSION["username"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit Kategori</h1>
+                            <h1 class="m-0">Data Like User</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="../../data.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="data_admin.php">Data Kategori</a></li>
-                                <li class="breadcrumb-item active">Edit Data Kategori</li>
+                                <li class="breadcrumb-item"><a href="../../data.php">Home</a></li>
+                                <li class="breadcrumb-item active">Data Like User</li>
                             </ol>
                         </div>
                     </div>
@@ -181,36 +181,38 @@ if (!isset($_SESSION["username"])) {
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header bg-dark">
-                                    Form Edit Kategori
-                                </div>
                                 <div class="card-body">
-                                    <?php
+                                    <a href="tambah_admin.php" class="btn btn-primary mb-3"><i class="fa-solid fa-circle-plus"></i></a>
 
-                                    include '../../../public/config/connection.php';
-
-                                    $adm = mysqli_query($connect, "SELECT * from `kategori` where `id_nama_kategori`='$_GET[id_nama_kategori]'");
-                                    while ($b = mysqli_fetch_array($adm)) {
-                                        $id = $b["id_nama_kategori"];
-                                        $nama_kategori = $b["nama_kategori"];
-                                    }
-                                    ?>
-
-                                    <!-- Form Edit Data Start -->
-                                    <form action="f_edit.php?id_nama_kategori=<?php echo $id ?>" method="post" name="form-edit" id="form-edit">
-                                        <div class="row mb-3">
-                                            <label class="col-sm-2 col-form-label">Nama Kategori</label>
-                                            <div class="form-group col-sm-10">
-                                                <input type="text" name="nama_kategori" value="<?php echo $nama_kategori ?>" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div style="text-align: center;">
-                                            <input type="submit" id="submitBtn" value="Simpan" class="btn btn-primary" onclick="return confirm('Data Akan Diupdate?')">
-                                            <a href="data_kategori.php" class="btn btn-danger">Kembali</a>
-                                        </div>
-                                    </form>
-                                    <!-- Form Edit Data End -->
+                                    <!-- Tabel Start -->
+                                    <table id="example" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>No</th>
+                                                <th>Nama Destinasi</th>
+                                                <th>Daerah</th>
+                                                <th>Jumlah Like</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            include "../../../public/config/connection.php";
+                                            $no = 1;
+                                            $query = mysqli_query($connect, "SELECT t.nama_tempat, d.nama_daerah, COUNT(ul.id_user_like) AS total_like FROM traveling as t JOIN daerah as d ON t.id_daerah = d.id_nama_daerah JOIN user_like as ul ON ul.id_travel_like = t.id GROUP BY t.id ORDER BY total_like DESC");
+                                            while ($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $no++; ?></td>
+                                                    <td><?php echo $data['nama_tempat']; ?></td>
+                                                    <td><?php echo $data['nama_daerah']; ?></td>
+                                                    <td><?php echo $data['total_like'] ?></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                    <!-- Tabel End -->
 
                                 </div>
                             </div>
@@ -222,9 +224,7 @@ if (!isset($_SESSION["username"])) {
 
         </div>
         <!-- Content Wrapper Page End -->
-
     </div>
-
 
     <!-- jQuery -->
     <script src="../../components/js/jquery.min.js"></script>
@@ -259,42 +259,13 @@ if (!isset($_SESSION["username"])) {
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../components/js/dashboard.js"></script>
 
-    <!-- JS Validasi -->
-    <script src="../../components/js/jquery-validation/jquery.validate.min.js"></script>
-
+    <!-- DataTables  & Plugins -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(function() {
-            $.validator.setDefaults({
-                submitHandler: function() {
-                    form.submit();
-                }
-            });
-            $('#form-edit').validate({
-                rules: {
-                    nama_kategori: {
-                        required: true,
-                    },
-                },
-                messages: {
-                    nama_kategori: {
-                        required: "Masukkan edit nama kategori terlebih dahulu",
-                    },
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.form-group').append(error);
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
-        });
+        new DataTable('#example');
     </script>
-
 </body>
 
 </html>

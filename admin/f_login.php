@@ -3,7 +3,7 @@ include "../public/config/connection.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username and password from the form
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
 
     // SQL query to fetch user from the database
     $sql = "SELECT * FROM `admin` WHERE username = '$username' AND password = '$password'";

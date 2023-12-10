@@ -4,7 +4,7 @@ include '../../../public/config/connection.php';
 // get variable from form input
 $nama = $_POST["nama_lengkap"];
 $username_admin = $_POST["username"];
-$password = $_POST["password"];
+$password = md5($_POST["password"]);
 
 // Check if the username already exists
 $check_query = "SELECT * FROM `admin` WHERE `username` = '$username_admin'";

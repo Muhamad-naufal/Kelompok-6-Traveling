@@ -69,11 +69,32 @@ include "public/config/connection.php"
             margin-top: -1px;
         }
 
+        /* Gaya tombol Facebook */
+        .custom-facebook-button {
+            background-color: #1877f2;
+            /* Warna biru Facebook */
+            color: #ffffff;
+            /* Warna teks putih */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efek hover pada tombol */
+        .custom-facebook-button:hover {
+            background-color: #115293;
+            /* Warna biru yang lebih gelap saat dihover */
+        }
+
+        /* Gaya untuk menyembunyikan border pada iframe */
         .share {
-            margin-top: 5px;
-            margin-left: 10px;
+            border: none;
         }
     </style>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6575b74a5cb4e300199aa9fc&product=sticky-share-buttons&source=platform" async="async"></script>
 </head>
 
 <body>
@@ -188,7 +209,7 @@ include "public/config/connection.php"
                                     ?>
                                     <p><?php echo $travelLikes['total_likes'] ?></p>
                                 </div>
-                                <div class="sharethis-inline-share-buttons share"></div>
+                                <div class="sharethis-sticky-share-buttons"></div>
                             </div>
                     <?php
                                     } else {
@@ -313,7 +334,6 @@ include "public/config/connection.php"
                     </div>
                 </div>
             </div>
-            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdomain.tld%2Fnew-blogspot&layout&size&width=200&height=50&appId" width="200" height="50" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             <br>
         </form>
         <!-- Tombol Love -->
