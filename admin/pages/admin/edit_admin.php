@@ -2,9 +2,9 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username_admin"])) {
     // Redirect to the login page or perform other actions
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>
@@ -79,7 +79,7 @@ if (!isset($_SESSION["username"])) {
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username_admin"] ?></a>
                     </div>
                 </div>
 
@@ -193,7 +193,7 @@ if (!isset($_SESSION["username"])) {
                                     while ($b = mysqli_fetch_array($adm)) {
                                         $id = $b["id_nama_admin"];
                                         $nama = $b["nama_lengkap"];
-                                        $userna = $b["username"];
+                                        $userna = $b["username_admin"];
                                         $pass = $b["password"];
                                     }
                                     ?>

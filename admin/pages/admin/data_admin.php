@@ -2,9 +2,9 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username_admin"])) {
     // Redirect to the login page or perform other actions
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>
@@ -80,7 +80,7 @@ if (!isset($_SESSION["username"])) {
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
+                        <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username_admin"] ?></a>
                     </div>
                 </div>
 
@@ -204,7 +204,7 @@ if (!isset($_SESSION["username"])) {
                                                 <tr>
                                                     <td><?php echo $no++; ?></td>
                                                     <td><?php echo $data['nama_lengkap']; ?></td>
-                                                    <td><?php echo $data['username']; ?></td>
+                                                    <td><?php echo $data['username_admin']; ?></td>
                                                     <td>
                                                         <a href="edit_admin.php?id_nama_admin=<?php echo $data['id_nama_admin'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                                         <a href="f_hapus.php?id_nama_admin=<?php echo $data["id_nama_admin"] ?>" class="btn btn-danger d-inline" onclick="return confirm('Data Akan Dihapus?')"><i class=" fa-solid fa-trash"></i></a>

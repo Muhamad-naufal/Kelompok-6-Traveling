@@ -14,6 +14,7 @@ include "public/config/connection.php"
 
     <style>
         .comment {
+            word-wrap: break-word;
             padding: 10px;
             margin-bottom: 15px;
             background-color: #f9f9f9;

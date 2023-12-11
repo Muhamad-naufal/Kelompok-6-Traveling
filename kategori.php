@@ -89,7 +89,8 @@ include "public/config/connection.php"
                     include "public/config/connection.php";
                     $query1 = mysqli_query($connect, "SELECT k.*, t.id, t.gambar 
                     FROM kategori as k 
-                    join traveling as t on t.id_kategori = k.id_nama_kategori 
+                    join traveling as t on t.id_kategori = k.id_nama_kategori
+                    group by t.id_kategori
                     order by t.id");
                     while ($data2 = mysqli_fetch_array($query1)) {
                     ?>

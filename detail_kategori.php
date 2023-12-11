@@ -90,7 +90,7 @@ include "public/config/connection.php"
                     <?php
                     include "public/config/connection.php";
                     $query1 = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori 
-                    join daerah as d on t.id_daerah = d.id_nama_daerah where t.id_kategori = '$_GET[id_nama_kategori]' order by RAND()");
+                    join daerah as d on t.id_daerah = d.id_nama_daerah where k.id_nama_kategori = '$_GET[id_nama_kategori]' order by RAND()");
                     while ($data2 = mysqli_fetch_array($query1)) {
                     ?>
                         <div class="col-sm-6 col-md-5 col-lg-3">

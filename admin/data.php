@@ -4,7 +4,7 @@ include '../public/config/connection.php';
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username_admin"])) {
   // Redirect to the login page or perform other actions
   header("Location: login.php");
   exit();
@@ -83,7 +83,7 @@ if (!isset($_SESSION["username"])) {
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="info">
-            <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username"] ?></a>
+            <a href="" class="d-block" style="text-decoration: none;"><?php echo $_SESSION["username_admin"] ?></a>
           </div>
         </div>
 

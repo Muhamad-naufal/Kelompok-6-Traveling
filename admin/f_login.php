@@ -6,13 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = md5($_POST["password"]);
 
     // SQL query to fetch user from the database
-    $sql = "SELECT * FROM `admin` WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM `admin` WHERE username_admin = '$username' AND password = '$password'";
     $result = $connect->query($sql);
 
     if ($result->num_rows > 0) {
         // Login successful
         session_start();
-        $_SESSION["username"] = $username;
+        $_SESSION["username_admin"] = $username;
         echo '<script>alert("Login berhasil"); window.location.href = "data.php";</script>';
         exit();
     } else {

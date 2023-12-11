@@ -4,7 +4,7 @@
             <div class="box-categories-content">
                 <div class="row justify-content-center">
                     <?php
-                    $query = mysqli_query($connect, "SELECT * FROM kategori as k join traveling as t on t.id_kategori = k.id_nama_kategori 
+                    $query = mysqli_query($connect, "SELECT * FROM kategori as k join traveling as t on t.id_kategori = k.id_nama_kategori group by t.id_kategori
               order by t.id desc limit 3");
                     while ($data = mysqli_fetch_array($query)) {
                     ?>
