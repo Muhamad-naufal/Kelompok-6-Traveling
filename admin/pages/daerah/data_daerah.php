@@ -13,34 +13,7 @@ if (!isset($_SESSION["username_admin"])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Healing Yuk | Dashboard</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/25db4f44a1.js" crossorigin="anonymous"></script>
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../../components/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../../components/css/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="../../components/css/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../components/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../../components/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../../components/css/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="../../components/css/summernote-bs4.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-
+    <?php include '../../layouts/head.php' ?>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -53,19 +26,7 @@ if (!isset($_SESSION["username_admin"])) {
         <!-- Preloader End -->
 
         <!-- Navbar Start -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../proses_logout.php" class="nav-link" onclick="return confirm('Apakah anda ingin keluar?')">Logout</a>
-                </li>
-            </ul>
-        </nav>
+        <?php include '../../layouts/navbar.php' ?>
         <!-- Navbar End -->
 
         <!-- Main Sidebar Container Start -->
@@ -228,45 +189,9 @@ if (!isset($_SESSION["username_admin"])) {
         </div>
         <!-- Content Wrapper Page End -->
     </div>
-    <!-- ./wrapper -->
 
-    <!-- jQuery -->
-    <script src="../../components/js/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="../../components/js/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="../../components/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="../../components/js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="../../components/js/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="../../components/js/jquery.vmap.min.js"></script>
-    <script src="../../components/js/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="../../components/js/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="../../components/js/moment.min.js"></script>
-    <script src="../../components/js/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../../components/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="../../components/js/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="../../components/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../components/js/adminlte.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../../components/js/dashboard.js"></script>
+    <?php include '../../layouts/script.php' ?>
 
-    <!-- DataTables  & Plugins -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
     <script>
         new DataTable('#example');
     </script>
