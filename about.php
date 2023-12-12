@@ -102,12 +102,6 @@ include "public/config/connection.php"
     <!-- Counter Classic-->
     <?php
     include "public/config/connection.php";
-    $query = mysqli_query($connect, "SELECT * FROM traveling as t join kategori as k on t.id_kategori = k.id_nama_kategori join daerah as d on t.id_daerah = d.id_nama_daerah");
-    $rowCount = mysqli_num_rows($query);
-    $data = mysqli_fetch_array($query);
-    $count_kategori = $rowCount;
-    $count_daerah = $rowCount;
-    $count_desti = $rowCount;
     ?>
     <section class="section section-fluid bg-default">
       <div class="parallax-container" data-parallax-img="public/assets/images/lope.jpeg">
@@ -116,21 +110,33 @@ include "public/config/connection.php"
             <div class="row row-50 justify-content-center border-classic">
               <div class="col-sm-6 col-md-5 col-lg-3">
                 <div class="counter-classic">
-                  <div class="counter-classic-number"><span class="counter"><?php echo $count_desti ?></span>
+                  <?php
+                  $query = mysqli_query($connect, "SELECT * FROM `traveling`");
+                  $rowCount = mysqli_num_rows($query);
+                  ?>
+                  <div class="counter-classic-number"><span class="counter"><?php echo $rowCount ?></span>
                   </div>
                   <h5 class="counter-classic-title">Destinasi</h5>
                 </div>
               </div>
               <div class="col-sm-6 col-md-5 col-lg-3">
                 <div class="counter-classic">
-                  <div class="counter-classic-number"><span class="counter"><?php echo $count_kategori ?></span>
+                  <?php
+                  $query = mysqli_query($connect, "SELECT * FROM `kategori`");
+                  $rowCount = mysqli_num_rows($query);
+                  ?>
+                  <div class="counter-classic-number"><span class="counter"><?php echo $rowCount ?></span>
                   </div>
                   <h5 class="counter-classic-title">Kategori</h5>
                 </div>
               </div>
               <div class="col-sm-6 col-md-5 col-lg-3">
                 <div class="counter-classic">
-                  <div class="counter-classic-number"><span class="counter"><?php echo $count_daerah ?></span>
+                  <?php
+                  $query = mysqli_query($connect, "SELECT * FROM daerah");
+                  $rowCount = mysqli_num_rows($query);
+                  ?>
+                  <div class="counter-classic-number"><span class="counter"><?php echo $rowCount ?></span>
                   </div>
                   <h5 class="counter-classic-title">Daerah</h5>
                 </div>
