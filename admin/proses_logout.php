@@ -1,6 +1,10 @@
 <?php
 
-session_start();
+session_start(); // Start the session to access session variables
+
+// Hancurkan semua data sesi
 session_destroy();
 
-header("Location: data.php");
+// Arahkan pengguna ke halaman login atau halaman lain
+header('Location: login.php');
+exit();
