@@ -235,7 +235,7 @@ $facebookAppId = $_ENV['APPID'];
                                     ?>
                                     <p><?php echo $travelLikes['total_likes'] ?></p>
                                 </div>
-                                <iframe class="mt-3" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fcodeverseindonesia.tech%2Fhealing_yuk%2Fdetail_destinasi.php%3Fid%3D%3C%3Fphp%20echo%20%24data1['id']%3F%3E&layout&size&appId=745845450911507&width=89&height=20" width="100" height="100" style="border:none;overflow:hidden;margin-left:10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                <iframe class="mt-3" src="https://www.facebook.com/plugins/share_button.php?href=https://codeverseindonesia.tech/healing_yuk/detail_destinasi.php?id=<?php echo $travelId ?>&layout&size&appId=<?php echo $facebookAppId ?>&width=89&height=20" width="100" height="100" style="border:none;overflow:hidden;margin-left:10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                             </div>
                     <?php
                                     } else {
