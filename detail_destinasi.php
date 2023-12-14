@@ -3,6 +3,30 @@ session_start();
 include "public/config/connection.php"
 ?>
 
+<?php
+$envFilePath = '.env';
+
+// Baca isi file .env
+if (file_exists($envFilePath)) {
+    $envFile = file_get_contents($envFilePath);
+
+    // Pisahkan setiap baris
+    $envLines = explode("\n", $envFile);
+
+    foreach ($envLines as $envLine) {
+        // Pisahkan nama variabel dan nilainya
+        list($envVar, $envValue) = explode('=', $envLine, 2);
+
+        // Atur variabel lingkungan
+        $_ENV[trim($envVar)] = trim($envValue);
+    }
+}
+
+// Gunakan variabel lingkungan seperti biasa
+$facebookAppId = $_ENV['APPID'];
+
+?>
+
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
 
@@ -95,7 +119,6 @@ include "public/config/connection.php"
             border: none;
         }
     </style>
-    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6575b74a5cb4e300199aa9fc&product=sticky-share-buttons&source=platform" async="async"></script>
 </head>
 
 <body>
@@ -210,7 +233,11 @@ include "public/config/connection.php"
                                     ?>
                                     <p><?php echo $travelLikes['total_likes'] ?></p>
                                 </div>
-                                <div class="sharethis-sticky-share-buttons"></div>
+                                <div class="fb-share-button" data-href="https://codeverseindonesia.tech/healing_yuk/detail_destinasi.php?id=&lt;?php echo $data1[&#039;id&#039;] ?&gt;" data-layout="" data-size="">
+                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodeverseindonesia.tech%2Fhealing_yuk%2Fdetail_destinasi.php%3Fid%3D%253C%253Fphp%2Becho%2B%2524data1%255B%2527id%2527%255D%2B%253F%253E&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                                        <img src="public/assets/images/share.png" alt="" style="width: 30px; height: 30px; margin-left:20px; margin-top:5px">
+                                    </a>
+                                </div>
                             </div>
                     <?php
                                     } else {
@@ -380,6 +407,8 @@ include "public/config/connection.php"
         });
     </script>
     <script src="https://kit.fontawesome.com/25db4f44a1.js" crossorigin="anonymous"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v18.0&appId=<?php echo $facebookAppId; ?>" nonce="HpUONOEM"></script>
 </body>
 
 </html>
