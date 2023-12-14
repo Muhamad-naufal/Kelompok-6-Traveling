@@ -151,9 +151,11 @@ if (!isset($_SESSION["username_admin"])) {
             </li>
           </ul>
         </nav>
+
         <!-- Sidebar Menu End -->
       </div>
       <!-- Sidebar End -->
+
     </aside>
     <!-- Main Sidebar Container End -->
 
@@ -355,10 +357,6 @@ if (!isset($_SESSION["username_admin"])) {
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="components/js/dashboard.js"></script>
 
-  <!-- DataTables  & Plugins -->
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 </body>
 
 </html>
